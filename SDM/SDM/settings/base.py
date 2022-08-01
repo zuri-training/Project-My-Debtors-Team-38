@@ -33,7 +33,7 @@ INSTALLED_APPS = [
 
     'accounts.apps.AccountsConfig',
     'message.apps.MessageConfig',
-    'posts.apps.PostsConfig',
+    'debt.apps.PostsConfig',
 ]
 
 MIDDLEWARE = [
