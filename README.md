@@ -1,5 +1,5 @@
 # Project-My-Debtors-Team-38
-Creating a WebApp that functions for debt recovery and tracking. 
+A platform that allows schools in a certain locality list directory of people owing them to help them avoid going to other schools.
 
 
 ## Feature Requests
