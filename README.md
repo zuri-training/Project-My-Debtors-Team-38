@@ -57,7 +57,7 @@ Install Dependencies
 ```
 pip install -r requirements.txt
 ```
-Create .env file in SDM project level containing SECRETE_KEY='' 
+Create .env file in SDM project level containing SECRET_KEY='' 
 
 
 Migrate Database 
