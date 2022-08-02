@@ -1,0 +1,165 @@
+body{
+    box-sizing: border-box;
+    display: flex;
+    height: 100vh;
+    width: 100vw;
+    max-width: 100%;
+    /* max-height: 100%; */
+    /* overflow: hidden; */
+    
+}
+.input{
+    margin: 10px 0 20px 0;
+    padding: 16.5857px;
+    width: 387px;
+    border-radius: 7px;
+}
+.password{
+    margin-bottom: 2px;
+    padding: 16.5857px;
+    width: 387px;
+    border-radius: 7px;
+
+
+}
+button{
+    padding: 14.49px 65.2051px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 14.49px 65.2051px;
+    margin-top: 60px;
+    border-radius: 10px;
+
+
+}
+.remember{
+    width: 83px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 16px;
+    margin-top: 20px;
+}
+.img{
+    background: url("./Rectangle\ 47.svg");
+    width: 50vw;
+    background-position: center;
+    background-size: cover;
+    width: 494px;
+    height: 528px;
+    margin: 75px 0 75px 0;
+    position: absolute;
+    right: 50vw;
+    border-radius: 40px 0 0 40px;
+
+}
+.div1{
+    background-color: #DBCBEA;
+    width: 50vw;
+    height: 100vh;
+    overflow:hidden;
+}
+.div2{
+    background-color: blueviolet;
+    width: 50vw;
+    height: 100vh;
+    overflow: hidden;
+}
+.login{
+    margin: 75px 0 75px 0;
+    background-color: white;
+    width: 494px;
+    padding: 40px 20px 50px 60px;
+    border-radius:0 40px 40px 0;
+    height: 528px;
+
+}
+.forgot-password{
+    position: absolute;
+    right: calc(100vw  - 82vw);
+    text-decoration: none;
+    color: black;
+}
+.register{
+    text-decoration: none;
+    color: grey;
+}
+.log-btn{
+    margin-top: 40px;
+   outline: auto; 
+   justify-content: center;
+   
+}
+@media only screen and (max-width:700px) {
+    body{
+        overflow: scroll;
+        display: block;
+        justify-content: center;
+        
+    }
+    .img{
+        margin:0;
+        padding: 0;
+    }
+    .login{
+        margin: 0;
+        padding: 0 10px;
+        /* margin: 10px; */
+        width: 700px;
+        max-width: 100%;
+        border: 0;
+        border-radius: 0;
+
+    }
+    input{
+        width: 400px;
+        max-width: 100%;
+
+
+    }
+    .div1{
+        height: 100px;
+        background: none;
+        
+    }
+    .img{
+        text-align: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100px;
+        width: 100px;
+        border-radius: 50%;
+        background-position: center;
+        background-size: cover;
+        
+        
+    }
+    
+   .login .forgot-password{
+        position: relative;
+        right: 10px;
+
+    }
+    .log-btn{
+        margin-left: 120px;
+    }
+}
+@media only screen and (max-width:1000px){
+    
+    .forgot-password{
+        right: calc(100vw  - 77vw);
+        color: blue;
+        text-align: end;
+
+    }
+    .login{
+        width: 50vw;
+        max-width: 100%;
+    }
+    .img{
+        max-width: 50vw;
+    }
+}
+  
