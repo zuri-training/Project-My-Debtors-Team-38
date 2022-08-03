@@ -31,7 +31,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-
+    #new apps
     'accounts.apps.AccountsConfig',
     'message.apps.MessageConfig',
     'posts.apps.PostsConfig',
