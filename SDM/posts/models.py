@@ -5,8 +5,6 @@ from accounts.models import Guardian,School,Student
 
 # Create your models here.
 
-
-
 class Debt(models.Model):
     school_id = models.ForeignKey(School,on_delete=models.CASCADE)
     student_id = models.ForeignKey(Student,on_delete=models.CASCADE)
@@ -26,7 +24,7 @@ class Contend(models.Model):
 
 
 class Comments(models.Model):
-    debt_id = models.ForeignKey()#foriegn key
+    debt_id = models.ForeignKey(Debt, on_delete=models.CASCADE)
     school_id = models.ForeignKey(School,on_delete=models.CASCADE) 
     body = models.TextField()
     created_at = models.DateTimeField(datetime.now)
