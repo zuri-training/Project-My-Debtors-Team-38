@@ -118,4 +118,12 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+# Tell django to use this model as new auth model
 AUTH_USER_MODEL = 'accounts.User'
+AUTHENTICATION_BACKENDS = {
+    'django.contrib.auth.backends.AllowAllUsersModelBackend',
+    'accounts.backends.CaseInsensitiveModeBackend'
+}
+ACCOUNT_AUTHENTICATION_METHOD = "email"

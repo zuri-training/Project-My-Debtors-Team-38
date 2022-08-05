@@ -1,9 +1,49 @@
-from django.contrib.auth.models import AbstractUser
+from django.contrib.auth.hashers import make_password
+from django.contrib.auth.models import AbstractUser, BaseUserManager, PermissionsMixin, AbstractBaseUser
 from django.db import models
 from django.urls import reverse
 
+# custom manager for user
 
-class User(AbstractUser):
+
+class MyAccountManager(BaseUserManager):
+    # custom account manager because we want to use email instead of username
+    use_in_migrations = True
+
+    def _create_user(self, email, password, **extra_fields):
+        """
+        Create and save a user with the given email,name and password.
+        """
+        if not email:
+            raise ValueError("Email must be set")
+        # if not password:
+        #     raise ValueError("Password is not provided")
+
+        email = self.normalize_email(email)
+
+        user = self.model(email=email, **extra_fields)
+
+        user.password = make_password(password)
+        user.save(using=self._db)
+        return user
+
+    def create_user(self, email, password=None, **extra_fields):
+        return self._create_user(email, password, **extra_fields)
+
+    def create_superuser(self, email, password, **extra_fields):
+        extra_fields.setdefault("is_staff", True)
+        extra_fields.setdefault("is_superuser", True)
+        extra_fields.setdefault("is_admin", True)
+
+        if extra_fields.get("is_staff") is not True:
+            raise ValueError("Superuser must have is_staff=True.")
+        if extra_fields.get("is_superuser") is not True:
+            raise ValueError("Superuser must have is_superuser=True.")
+
+        return self._create_user(email, password, **extra_fields)
+
+
+class User(AbstractBaseUser, PermissionsMixin):
 
     # Create Roles for the users
     class Roles(models.TextChoices):
@@ -17,8 +57,36 @@ class User(AbstractUser):
     role = models.CharField(max_length=50,
                             choices=Roles.choices, default=base_role)
 
+    email = models.EmailField(db_index=True, verbose_name='email',
+                              max_length=60, unique=True, null=True)
+    name = models.CharField(max_length=255)
+
+    date_joined = models.DateTimeField(
+        verbose_name='date joined', auto_now_add=True)
+    last_login = models.DateTimeField(
+        verbose_name='last joined', auto_now=True)
+    is_admin = models.BooleanField(default=False)
+    is_active = models.BooleanField(default=True)
+    is_staff = models.BooleanField(default=False)
+    is_superuser = models.BooleanField(default=False)
+    # avatar = models.ImageField(max_length=255, null=True, blank=True, upload_to=, default=)
+
+    objects = MyAccountManager()
+
+    USERNAME_FIELD = 'email'
+    REQUIRED_FIELDS = ['name', ]
+
+    def __str__(self):
+        return self.email
+
+    def has_perm(self, perm, obj=None):
+        return self.is_admin
+
+    def has_module_perms(self, app_label):
+        return True
+
     def get_absolute_url(self):
-        return reverse('users:detail', kwargs={'username': self.username})
+        return reverse('users:detail', kwargs={'email': self.email})
 
     # sets the base role when object is created from user
     def save(self, *args, **kwargs):
@@ -26,26 +94,22 @@ class User(AbstractUser):
             self.role = self.base_role
         return super().save(*args, **kwargs)
 
+
 # for when you query Guardian. returns only objects with role = user.Roles.GUARDIAN
-
-
-class GuardianManager(models.Manager):
+class GuardianManager(MyAccountManager):
     def get_queryset(self, *args, **kwargs):
         return super().get_queryset(*args, **kwargs).filter(role=User.Roles.GUARDIAN)
 
 
 # for when you query School. returns only objects with role = user.Roles.School
-class SchoolManager(models.Manager):
+class SchoolManager(MyAccountManager):
     def get_queryset(self, *args, **kwargs):
         return super().get_queryset(*args, **kwargs).filter(role=User.Roles.SCHOOL)
 
 
 # more fields assicited to Guardian model
-class GuardianMore(models.Model):
+class GuardianProfile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
-    f_name = models.CharField(blank=False, max_length=255)
-    m_name = models.CharField(blank=False, max_length=255)
-    l_name = models.CharField(blank=False, max_length=255)
     phone = models.IntegerField()
 
 
@@ -58,7 +122,7 @@ class Guardian(User):
     # makes GuardianMore an attribute of Guardian.more
     @property
     def more(self):
-        return self.guardianmore
+        return self.guardianprofile
 
     # does not create a new table. gotten from the user table
     class Meta:
@@ -68,36 +132,40 @@ class Guardian(User):
 class GuardianChild(models.Model):
     guardian = models.ForeignKey(User, on_delete=models.CASCADE)
     student_id = models.CharField(max_length=255)
-    f_name = models.CharField(max_length=50)
-    m_name = models.CharField(max_length=50)
-    l_name = models.CharField(max_length=50)
+    name = models.CharField(max_length=50)
+    school_name = models.CharField(max_length=255)
     age = models.IntegerField()
     gender = models.CharField(max_length=10)
     relationship = models.CharField(max_length=30)
 
+    # name to display on the admi panel
+    class Meta:
+        verbose_name = 'Guardian Child'
+        verbose_name_plural = 'Guardian Children'
+
 
 # more fields assicited to School model
-class SchoolMore(models.Model):
+class SchoolProfile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
-    name = models.CharField(blank=False, max_length=255)
     phone = models.IntegerField()
     alt_phone = models.IntegerField()
     lga_code = models.CharField(max_length=3)
     state_code = models.CharField(max_length=3)
     cac = models.CharField(max_length=255)
     moe = models.CharField(max_length=255)
-    # updated = models.DateTimeField(auto_now=True)
-    created = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        verbose_name = 'School Profile'
+        verbose_name_plural = 'School Profiles'
 
 
 class Student(models.Model):
     school = models.ForeignKey(User, on_delete=models.CASCADE)
     student_id = models.CharField(max_length=255)
-    f_name = models.CharField(max_length=50)
-    m_name = models.CharField(max_length=50)
-    l_name = models.CharField(max_length=50)
+    name = models.CharField(max_length=50)
     age = models.IntegerField()
     gender = models.CharField(max_length=10)
+    debt = models.DecimalField(max_digits=10, decimal_places=2)
     class_of_withdrawal = models.CharField(max_length=20)
     date_of_withdrawal = models.DateTimeField(null=True)
 
@@ -110,7 +178,7 @@ class School(User):
     # makes SchoolMore an attribute of School.more
     @property
     def more(self):
-        return self.schoolmore
+        return self.schoolprofile
 
     # does not create a new table. gotten from the user table
     class Meta:
