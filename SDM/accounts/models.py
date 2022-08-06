@@ -55,7 +55,7 @@ class User(AbstractBaseUser, PermissionsMixin):
 
     # what type of user are we?
     role = models.CharField(max_length=50,
-                            choices=Roles.choices, null=True)
+                            choices=Roles.choices, null=True, default=base_role)
 
     email = models.EmailField(db_index=True, verbose_name='email',
                               max_length=60, unique=True, null=True)
@@ -174,7 +174,7 @@ class School(User):
 
 class SchoolProfile(models.Model):
     user = models.OneToOneField(School, on_delete=models.CASCADE)
-    phone = models.CharField(null=True)
+    phone = models.CharField(max_length=15, null=True)
     alt_phone = models.IntegerField(null=True)
     lga_code = models.CharField(max_length=3)
     state_code = models.CharField(max_length=3)
