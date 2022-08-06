@@ -174,7 +174,7 @@ class School(User):
 
 class SchoolProfile(models.Model):
     user = models.OneToOneField(School, on_delete=models.CASCADE)
-    phone = models.IntegerField(null=True)
+    phone = models.CharField(null=True)
     alt_phone = models.IntegerField(null=True)
     lga_code = models.CharField(max_length=3)
     state_code = models.CharField(max_length=3)
