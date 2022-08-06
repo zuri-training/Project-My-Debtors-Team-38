@@ -241,6 +241,7 @@ A total of five respondents were interviewed which included three males and two 
 
 
 # Design Documentation for *Student Debt Monitor (SDM)*
+
 **A. Landing Page**  
 1. Hero Section:  
 - Header - Logo, Home, About, Contact Us (and FAQ), Register button (Primary Button), Login button(Secondary button).
