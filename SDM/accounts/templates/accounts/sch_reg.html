@@ -1,10 +1,420 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>School sign up</title>
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="customstyle.css" />
+    <style>
+body {
+  position: absolute;
+  width: 1440px;
+  height: 2000px;
+}
 
-</body>
+#name {
+  width: 200px;
+}
+#email {
+  width: 200px;
+}
+#tel {
+  width: 200px;
+}
+#password {
+  width: 61px;
+}
+#cpassword {
+  width: 200px;
+}
+
+.cond{
+  width: 375px;
+  height: 29px;
+
+  /* Body/Body Medium */
+
+  font-family: "Playfair Display";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 20px;
+  /* or 143% */
+
+  display: flex;
+  align-items: center;
+  letter-spacing: 0.25px;
+
+  /* Black for Texts */
+
+  color: #1e1a1a;
+
+  /* Inside auto layout */
+
+  flex: none;
+  order: 2;
+  flex-grow: 0;
+}
+.formside {
+  /* School Sign Up */
+  position: absolute;
+  width: 554.24px;
+  height: 1636.47px;
+  right: 165.61px;
+  top: 183px;
+  border-radius: 0px 10px 10px 0px;
+  /* Primary/2 */
+
+  background: white;
+}
+
+
+.sidebar {
+  position: absolute;
+  width: 554.24px;
+  height: 1636.47px;
+  left: 165px;
+  top: 183px;
+  border-radius: 10px 0px 0px 10px;
+
+  /* Primary/2 */
+
+  background: #dbcbea;
+  
+}
+.pic{
+    position:absolute;
+/* Frame 2608179 */
+
+box-sizing: border-box;
+width: 575px;
+height: 521.81px;
+left: 80px;
+top: 1438px;
+
+background: url(".\SDM\static\images\Frame 2608179-1.svg");
+background-image: 4px solid #ffffff;
+/* Shadow 2 */
+
+box-shadow: 0px 2px 6px 2px rgba(0, 0, 0, 0.15);
+filter: drop-shadow(0px 1px 2px rgba(0, 0, 0, 0.3));
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: inherit;
+  padding: 0px;
+  gap: 32px;
+
+  width: 397.57px;
+  height: 915.79px;
+
+  /* Inside auto layout */
+
+  flex: none;
+  order: 0;
+  flex-grow: 0;
+}
+.title {
+  /* Register As A School */
+
+  width: 303.38px;
+  height: 40px;
+
+  font-family: "Playfair Display";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 32.6026px;
+  line-height: 40px;
+  /* identical to box height, or 122% */
+
+  /* Black for Texts */
+
+  color: #1e1a1a;
+
+  /* Inside auto layout */
+
+  flex: none;
+  order: 0;
+  flex-grow: 0;
+}
+.intro {
+  position: absolute;
+  width: 343px;
+  height: 80px;
+  left: 48px;
+  top: 196px;
+
+  /* Header/H1 */
+
+  font-family: "Playfair Display";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 32px;
+  line-height: 40px;
+  /* or 125% */
+
+  /* Black for Texts */
+
+  color: #1e1a1a;
+}
+.not {
+  /* School Notification */
+
+  width: 282px;
+  height: 32px;
+
+  /* Header/H3 */
+
+  font-family: "Playfair Display";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 32px;
+  /* identical to box height, or 133% */
+
+  /* Black for Texts */
+
+  color: #1e1a1a;
+
+  /* Inside auto layout */
+
+  flex: none;
+  order: 0;
+  flex-grow: 0;
+}
+.notification {
+  /* No need to stress, we’ll notify you when your attention is needed. */
+
+  width: 269px;
+  height: 78px;
+
+  /* Header/H4 */
+
+  font-family: "Playfair Display";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 26px;
+  /* or 130% */
+
+  /* Black for Texts */
+
+  color: #1e1a1a;
+
+  /* Inside auto layout */
+
+  flex: none;
+  order: 1;
+  flex-grow: 0;
+}
+.signin {
+  /* Already have an account? Sign In */
+
+  width: 272.59px;
+  height: 24px;
+
+  font-family: "Playfair Display";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18.1125px;
+  line-height: 24px;
+  /* identical to box height, or 130% */
+
+  /* Black for Texts */
+
+  color: #1e1a1a;
+
+  /* Inside auto layout */
+
+  flex: none;
+  order: 1;
+  flex-grow: 0;
+}
+a {
+  text-decoration: none;
+  color: black;
+}
+.dta {
+  /* Clear Data */
+
+  width: 282px;
+  height: 32px;
+
+  /* Header/H3 */
+
+  font-family: "Playfair Display";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 32px;
+  /* identical to box height, or 133% */
+
+  /* Black for Texts */
+
+  color: #1e1a1a;
+
+  /* Inside auto layout */
+
+  flex: none;
+  order: 2;
+  flex-grow: 0;
+}
+.data {
+  /* You can always clear the data of your debtor when the issue has been resolved. */
+
+  width: 269px;
+  height: 78px;
+
+  /* Header/H4 */
+
+  font-family: "Playfair Display";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 26px;
+  /* or 130% */
+
+  /* Black for Texts */
+
+  color: #1e1a1a;
+
+  /* Inside auto layout */
+
+  flex: none;
+  order: 3;
+  flex-grow: 0;
+}
+.custom-btn-primary {
+  /* Auto layout */
+
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+
+  /* Inside auto layout */
+
+  flex: none;
+  order: 1;
+  flex-grow: 0;
+}
+.info {
+  /* Frame 2608533 */
+
+  /* Auto layout */
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0px;
+  gap: 88px;
+
+  position: absolute;
+  width: 282px;
+  height: 420px;
+  left: 48px;
+  top: 372px;
+}
+.left {
+  position: absolute;
+  width: 720px;
+  height: 2000px;
+  left: 0px;
+  top: 0px;
+
+  /* Grey/White */
+
+  background: #fffefe;
+}
+.right {
+  position: absolute;
+  width: 720px;
+  height: 2000px;
+  right: 0px;
+  top: 0px;
+display: flex;
+  /* Primary/5 */
+  background: #7f5eaa;
+}
+
+    </style>
+  </head>
+  <body>
+    <div class="left">
+      <div class="sidebar">
+        <img src="" alt="" id="ellipse1">
+        <h1 class="intro">Get Started Uploading your directory</h1>
+        <div class="info">
+          <h3 class="not">School Notification</h3>
+          <h4 class="notification">
+            No need to stress, we'll notify you when your attention is needed
+          </h4>
+          <h3 class="dta">Clear data</h3>
+          <h4 class="data">
+            You can always clear the data of your debtor when the issue has been
+            resolved
+          </h4>
+        </div>
+        
+      </div>
+      <div class="pic"></div>
+    </div>
+    <div class="right">
+      <div class="formside">
+        <h1 class="title">Register As School</h1>
+        <p class="signin">
+          Already have an account?<a href="login.html">Sign In</a>
+        </p>
+        <form action="">
+          <div>
+            <label for="name" id="name">Full Name of School</label>
+            <input
+              type="text"
+              name="Sname"
+              id="customform-sm"
+              placeholder="Name Of School"
+            />
+          </div>
+          <div>
+            <label for="email" id="email">School Email</label>
+            <input
+              type="email"
+              name="email"
+              id="customform-sm"
+              placeholder="johndoe@gmail.com"
+            />
+          </div>
+          <div>
+            <label for="tel" id="tel">School Phone Number</label>
+            <input
+              type="tel"
+              name="number"
+              id="customform-sm"
+              placeholder="Phone Number"
+              required
+            />
+          </div>
+          <div>
+            <label for="password" id="password">Password</label>
+            <input type="password" name="password" id="customform-sm" class="cond" required/>
+            <p class="cond">At least 8 Characters in length, should contain a mixture of Uppercase (A- Z), Lower case letters (a - z), Numbers (0 - 9) and Special symbols (@,$,*,&)</p>
+          </div>
+          <div>
+            <label for="password" id="cpassword">Confirm Password</label>
+            <input
+              type="password"
+              name="password"
+              id="customform-sm"
+              placeholder="Confirm password"
+              required
+            />
+          </div>
+        </form>
+        <br />
+        <button type="button" class="custom-btn-primary">Register</button>
+      </div>
+    </div>
+  </body>
 </html>
