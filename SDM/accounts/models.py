@@ -193,7 +193,6 @@ class Student(models.Model):
     name = models.CharField(max_length=50)
     age = models.IntegerField()
     gender = models.CharField(max_length=10)
-    debt = models.DecimalField(max_digits=10, decimal_places=2)
     class_of_withdrawal = models.CharField(max_length=20)
     date_of_withdrawal = models.DateTimeField(null=True)
 
