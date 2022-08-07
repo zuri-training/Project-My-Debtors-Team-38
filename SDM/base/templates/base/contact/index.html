@@ -1,0 +1,19 @@
+{% extends 'main_index.html' %} 
+{% load static %}
+
+{% block content %}
+
+<main>
+
+    <form method="post" action=".">
+        {% csrf_token %}
+
+        {{ form.as_p }}
+
+        <button>Submit</button>
+        
+    </form>
+
+    <main/>
+
+{% endblock %}
