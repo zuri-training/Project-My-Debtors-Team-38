@@ -20,6 +20,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent.parent
 
 # SECURITY WARNING: keep the secret key used in production secret!
 
+#Email Testing service
 EMAIL_HOST = 'smtp.mailtrap.io'
 EMAIL_HOST_USER = 'eec51021680f83'
 EMAIL_HOST_PASSWORD = 'dc939bcdc1cfee'
