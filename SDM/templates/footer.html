@@ -1,194 +1,224 @@
 <!DOCTYPE html>
+{% load static %}
 <html lang="en">
-<head>
-    <style>
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,600;1,100&family=Playfair+Display:wght@400;500;600;700&display=swap');
-        *{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-body{
-    line-height: 1.5;
-    font-family: 'Playfair Display';
-}
-.dark-purple{
-    background-color:#3b0c79;
-    height: 10px;
-}
-.footer{
-    background-color: #613995;
-    padding: 60px 0;
-}
-.container{
-    max-width: 1170px;
-    margin: auto;
-}
-.row{
-    display: flex;
-    flex-wrap: wrap;
-}
-.logo {
-    height: 100px;
-    width: 100px;
-    padding-bottom: 50px;
-}
-.footer-col{
-    width: 25%;
-    padding: 0 15px;
-}
-ul{
-    list-style: none;
-}
-.footer-col h4{
-    font-size: 18px;
-    color: #ffffff;
-    margin-bottom: 35px;
-    font-weight: 500;
-}
-.footer-col ul li:not(:last-child){
-    margin-bottom: 10px;
-}
-.footer-col ul li a{
-    font-size: 16px;
-    color: #ffffff;
-    text-decoration: none;
-    font-weight: 300;
-    display: block;
-    transition: all 0.3s ease;
-}
-.footer-col ul li a:hover{
-    color: #ebe1e1;
-    padding-left: 5px;
-}
-.social-img img{
-    transition: all 0.5s ease;
-    display: inline-block;
-    height: 30px;
-    width: 30px;
-    margin-right: 10px;
-    text-align: center;
-    line-height: 40px;
-}
-.social-img img:hover{
-    opacity: 0.5;
-}
-.social-img{
-    margin-top: 10px;
-}
-#footer-email{
-    width: 180px;
-    height: 40px;
-    padding-left: 0.5rem;
-    outline: none;
-    border-radius: 50px;
-    border-radius: none;
-    font-size: 1rem;
-    margin-bottom: 1rem;
-}
-#footer-email-btn{
-    width: 75px;
-    height: 30px;
-    border-radius: 10px;
-    color: white;
-    font-size: .8rem;
-    background-color: rgb(41, 141, 155);
-    cursor: pointer;
-    transition: all .4s ease-out;
-    border: none;
-    outline: none;
-}
-#footer-email-btn:hover{
-    background-color: transparent;
-    border: 2px solid rgb(41, 141, 155);
-}
-.copy{
-    color: white;
-    font-size: .8rem;
-    font-weight: 100;
-    text-align: center;
-    margin-top: 70px;
-}
-/* Responsive */
-@media(max-width:767px){
-    .footer-col{
-        width: 100%;
-        margin-bottom: 30px;
-        text-align: left;
-        margin-left: 40px;
-    }
-    .footer-col .logo{
-        text-align: left;
-    }
-    .social-img{
-        margin-top: 40px;
-    }
-    .social-img img{
-        margin-right: 10px;
-    }
-    #footer-email{
-        width: 220px;
-    }
-    .footer-col h4{
-        font-weight: bold;
-    }
-    .copy{
-        text-align: left;
-        margin-left: 50px;
-        margin-top: 30px;
-    }
-    .logo{
-        padding-bottom: 20px;
-    }
-}
-    </style>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <div class="dark-purple"></div>
-    <footer class="footer">
-        <div class="container">
-            <div class="row">
-                <div class="footer-col">
-                    <img src="/SDM/static/images/SDM.logo.svg" alt="Logo" class="logo">
-                    <div class="social-img">
-                        <img id="img" src="/SDM/static/images/Facebook logo.svg" alt="Facebook">
-                        <img id="img" src="/SDM/static/images/Twitter logo.svg" alt="Twitter">
-                        <img id="img" src="/SDM/static/images/Instagram logo.svg" alt="Instagram">
-                        <img id="img" src="/SDM/static/images/LinkedIn logo.svg" alt="LinkedIn">
+    <head>
+        <style>
+            @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,600;1,100&family=Playfair+Display:wght@400;500;600;700&display=swap');
+
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+
+            body {
+                line-height: 1.5;
+                font-family: 'Playfair Display';
+            }
+
+            .dark-purple {
+                background-color: #3b0c79;
+                height: 10px;
+            }
+
+            .footer {
+                background-color: #613995;
+                padding: 60px 0;
+            }
+
+            .container {
+                max-width: 1170px;
+                margin: auto;
+            }
+
+            .row {
+                display: flex;
+                flex-wrap: wrap;
+            }
+
+            .logo {
+                height: 100px;
+                width: 100px;
+                padding-bottom: 50px;
+            }
+
+            .footer-col {
+                width: 25%;
+                padding: 0 15px;
+            }
+
+            ul {
+                list-style: none;
+            }
+
+            .footer-col h4 {
+                font-size: 18px;
+                color: #ffffff;
+                margin-bottom: 35px;
+                font-weight: 500;
+            }
+
+            .footer-col ul li:not(:last-child) {
+                margin-bottom: 10px;
+            }
+
+            .footer-col ul li a {
+                font-size: 16px;
+                color: #ffffff;
+                text-decoration: none;
+                font-weight: 300;
+                display: block;
+                transition: all 0.3s ease;
+            }
+
+            .footer-col ul li a:hover {
+                color: #ebe1e1;
+                padding-left: 5px;
+            }
+
+            .social-img img {
+                transition: all 0.5s ease;
+                display: inline-block;
+                height: 30px;
+                width: 30px;
+                margin-right: 10px;
+                text-align: center;
+                line-height: 40px;
+            }
+
+            .social-img img:hover {
+                opacity: 0.5;
+            }
+
+            .social-img {
+                margin-top: 10px;
+            }
+
+            #footer-email {
+                width: 180px;
+                height: 40px;
+                padding-left: 0.5rem;
+                outline: none;
+                border-radius: 50px;
+                border-radius: none;
+                font-size: 1rem;
+                margin-bottom: 1rem;
+            }
+
+            #footer-email-btn {
+                width: 75px;
+                height: 30px;
+                border-radius: 10px;
+                color: white;
+                font-size: .8rem;
+                background-color: rgb(41, 141, 155);
+                cursor: pointer;
+                transition: all .4s ease-out;
+                border: none;
+                outline: none;
+            }
+
+            #footer-email-btn:hover {
+                background-color: transparent;
+                border: 2px solid rgb(41, 141, 155);
+            }
+
+            .copy {
+                color: white;
+                font-size: .8rem;
+                font-weight: 100;
+                text-align: center;
+                margin-top: 70px;
+            }
+
+            /* Responsive */
+            @media(max-width:767px) {
+                .footer-col {
+                    width: 100%;
+                    margin-bottom: 30px;
+                    text-align: left;
+                    margin-left: 40px;
+                }
+
+                .footer-col .logo {
+                    text-align: left;
+                }
+
+                .social-img {
+                    margin-top: 40px;
+                }
+
+                .social-img img {
+                    margin-right: 10px;
+                }
+
+                #footer-email {
+                    width: 220px;
+                }
+
+                .footer-col h4 {
+                    font-weight: bold;
+                }
+
+                .copy {
+                    text-align: left;
+                    margin-left: 50px;
+                    margin-top: 30px;
+                }
+
+                .logo {
+                    padding-bottom: 20px;
+                }
+            }
+
+        </style>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+    <body>
+        <div class="dark-purple"></div>
+        <footer class="footer">
+            <div class="container">
+                <div class="row">
+                    <div class="footer-col">
+                        <img src="/SDM/static/images/SDMlogo.svg" alt="Logo" class="logo" />
+                        <div class="social-img">
+                            <img id="img" src="{% static 'images/Facebooklogo.svg' %}" alt="Facebook" />
+                            <img id="img" src="/SDM/static/images/Twitter logo.svg" alt="Twitter" />
+                            <img id="img" src="/SDM/static/images/Instagram logo.svg" alt="Instagram" />
+                            <img id="img" src="/SDM/static/images/LinkedIn logo.svg" alt="LinkedIn" />
+                        </div>
+                    </div>
+                    <div class="footer-col" id="two">
+                        <h4>Company</h4>
+                        <ul>
+                            <li><a href="#">Home</a></li>
+                            <li><a href="#">About</a></li>
+                            <li><a href="#">Contact</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-col">
+                        <h4>Information</h4>
+                        <ul>
+                            <li><a href="#">Privacy Policy</a></li>
+                            <li><a href="#">Terms of Service</a></li>
+                            <li><a href="#">Pricing</a></li>
+                            <li><a href="#">FAQ</a></li>
+                            <li><a href="#">Support Centre</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-col">
+                        <h4>Join Our Mailing List</h4>
+                        <input type="email" placeholder="email address" id="footer-email">
+                        <input type="submit" value="Submit" id="footer-email-btn">
                     </div>
                 </div>
-                <div class="footer-col" id="two">
-                    <h4>Company</h4>
-                    <ul>
-                        <li><a href="#">Home</a></li>
-                        <li><a href="#">About</a></li>
-                        <li><a href="#">Contact</a></li>
-                    </ul>
-                </div>
-                <div class="footer-col">
-                    <h4>Information</h4>
-                    <ul>
-                        <li><a href="#">Privacy Policy</a></li>
-                        <li><a href="#">Terms of Service</a></li>
-                        <li><a href="#">Pricing</a></li>
-                        <li><a href="#">FAQ</a></li>
-                        <li><a href="#">Support Centre</a></li>
-                    </ul>
-                </div>
-                <div class="footer-col">
-                    <h4>Join Our Mailing List</h4>
-                    <input type="email" placeholder="email address" id="footer-email">
-                    <input type="submit" value="Submit" id="footer-email-btn">
-                </div>
             </div>
-        </div>
-    </div>
-    <h2 class="copy">&copy; 2022 Student Debt Monitor Software. All rights reserved</h2>
-</div>
-    </footer>
-</body>
+            </div>
+            <h2 class="copy">&copy; 2022 Student Debt Monitor Software. All rights reserved</h2>
+            </div>
+        </footer>
+    </body>
 </html>
