@@ -8,3 +8,8 @@ def test(request):
         'var': '🤘'
     }
     return render(request, 'test.html', context)
+
+
+def add_debt(request):
+    context = {}
+    return render(request, "add_debt.html", context)
