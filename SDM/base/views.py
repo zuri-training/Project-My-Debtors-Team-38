@@ -8,7 +8,7 @@ def landing_page(request):
 
 
 def school_list_page(request):
-    return render(request, 'base/school_reg_with_us.html')
+    return render(request, 'base/sch_list.html')
 
 
 def contact_us_page(request):

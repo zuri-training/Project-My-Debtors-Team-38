@@ -10,6 +10,8 @@
 
  body {
      font-family: 'Playfair Display';
+    background-image: url("../static/images/unsplash_7JX0-bfiuxQ.svg");
+
  }
 
 
@@ -902,6 +904,18 @@
 }
 
 /* End of media query for hero section */
+
+/* school list starts */
+.student-box {
+     background-color: #DBCBEA;
+     border-radius: 25px;
+ }
+
+ .img-school {
+     height: 12em;
+ }
+
+/* school list ENDS */
 
  /* footer starts*/
  .dark-purple {
