@@ -8,7 +8,7 @@ from accounts.models import Guardian,School,Student
 class Debt(models.Model):
     school = models.ForeignKey(School,on_delete=models.CASCADE)
     student = models.ForeignKey(Student,on_delete=models.CASCADE)
-    debt_incured = models.DecimalField()
+    debt_incured = models.DecimalField(max_digits=11, decimal_places=2)
     status = models.CharField(max_length=50)
     created_at = models.DateTimeField(datetime.now)
     updated_at = models.DateTimeField(datetime.now)
