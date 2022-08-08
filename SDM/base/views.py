@@ -5,7 +5,7 @@ from django.shortcuts import render
 def landing_page(request):
     return render(request, 'base/landing.html')
 
-def school_list_page(request):
+def school_reg_page(request):
     return render(request, 'base/school_reg_with_us.html')
 
 def contact_us_page(request):

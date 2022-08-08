@@ -18,9 +18,7 @@ class SchoolRegistrationForm(forms.UserCreationForm):
 
     error_message = forms.UserCreationForm.error_messages.update(
         {
-            "duplicate_email": (
-                "This email has already been taken."
-            )
+            "duplicate_email": ("This email has already been taken.")
         }
     )
 
