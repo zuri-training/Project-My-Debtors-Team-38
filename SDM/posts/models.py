@@ -8,8 +8,7 @@ from accounts.models import Guardian,School,Student
 class Debt(models.Model):
     school = models.ForeignKey(School,on_delete=models.CASCADE)
     student = models.ForeignKey(Student,on_delete=models.CASCADE)
-
-    debt_incured = models.FloatField()
+    debt_incured = models.DecimalField()
     status = models.CharField(max_length=50)
     created_at = models.DateTimeField(datetime.now)
     updated_at = models.DateTimeField(datetime.now)
@@ -17,10 +16,9 @@ class Debt(models.Model):
 
 
 class Contend(models.Model):
-
     guardian = models.ForeignKey(Guardian, on_delete=models.CASCADE) 
     made_payment = models.BooleanField(default=False)
-    receipt = models.CharField(max_length=400) #think we should use charfield for links in production shar
+    receipt = models.FileField(upload_to= ""  ) 
     created_at = models.DateTimeField(default=datetime.now)
 
 
@@ -28,8 +26,8 @@ class Comments(models.Model):
     debt_post = models.ForeignKey(Debt, on_delete=models.CASCADE)
     school = models.ForeignKey(School,on_delete=models.CASCADE) 
     body = models.TextField()
-    created_at = models.DateTimeField(datetime.now)
-    updated_at = models.DateTimeField(datetime.now)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
 
     def __str__(self):
         return self.body[:20]
