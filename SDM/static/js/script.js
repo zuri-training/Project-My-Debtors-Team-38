@@ -1,0 +1,1 @@
+document.getElementByTagName('h1')
