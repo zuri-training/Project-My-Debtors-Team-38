@@ -1,10 +1,540 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
+  <head>
+    <meta charset="UTF-8" />
     <title>Guardian Contend</title>
-</head>
-<body>
+    <script type="text/javascript">
+      function CheckReasons(val) {
+        var element = document.getElementById("reason");
+        if (val == "pick a reason" || val == "others")
+          element.style.display = "block";
+        else element.style.display = "none";
+      }
+    </script>
+    <style>
+      body {
+        position: absolute;
+        width: 1440px;
+        height: 1026px;
+        left: 14745px;
+        top: 0px;
+        box-sizing: border-box;
+      }
+      h2 {
+        /* Kindly fill the form below */
 
-</body>
+        width: 319px;
+        height: 36px;
+        left: 193.5px;
+
+        /* Header/H2 */
+
+        font-family: "Playfair Display";
+        font-style: normal;
+        font-weight: 400;
+        font-size: 28px;
+        line-height: 36px;
+        /* identical to box height, or 129% */
+
+        text-align: center;
+
+        /* Secondary/12 */
+
+        color: #001a1e;
+
+        /* Inside auto layout */
+
+        flex: none;
+        order: 0;
+        flex-grow: 0;
+      }
+      p {
+        /* Details provided should be true and as accurate as possible. Otherwise, this can lead to a delayed review. */
+
+        width: 706px;
+        height: 53px;
+
+        font-family: "Playfair Display";
+        font-style: normal;
+        font-weight: 400;
+        font-size: 19.8204px;
+        line-height: 26px;
+        /* or 133% */
+
+        text-align: center;
+
+        /* Secondary/12 */
+
+        color: #001a1e;
+
+        /* Inside auto layout */
+
+        flex: none;
+        order: 1;
+        flex-grow: 0;
+      }
+      .top {
+        /* Frame 2608500 */
+
+        /* Auto layout */
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 0px;
+        gap: 8px;
+
+        position: absolute;
+        width: 706px;
+        height: 90px;
+        left: 437px;
+        top: 112px;
+      }
+      .dropdown {
+        /* Dropdown */
+
+        /* Auto layout */
+
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+        padding: 0px;
+
+        position: absolute;
+        width: 288.5px;
+        height: 74.64px;
+        left: 437px;
+        top: 280px;
+      }
+      h4 {
+        /* Relationship with Child */
+
+        width: 288px;
+        height: 18px;
+
+        /* Header/H4 */
+
+        font-family: "Playfair Display";
+        font-style: normal;
+        font-weight: 400;
+        font-size: 18px;
+        line-height: 26px;
+        /* or 130% */
+
+        display: flex;
+        align-items: center;
+
+        /* Secondary/12 */
+
+        color: #001a1e;
+
+        /* Inside auto layout */
+
+        flex: none;
+        order: 0;
+        flex-grow: 0;
+      }
+      .reason {
+        /* Content */
+
+        box-sizing: border-box;
+
+        /* Auto layout */
+
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        padding: 15.9907px;
+        gap: 2.67px;
+
+        width: 288.5px;
+        height: 51.31px;
+
+        /* Grey/White */
+
+        background: #fffefe;
+        /* Secondary/8 */
+
+        border: 0.66628px solid #446f84;
+        border-radius: 5.33024px;
+
+        /* Inside auto layout */
+
+        flex: none;
+        order: 1;
+        align-self: stretch;
+        flex-grow: 0;
+      }
+      option {
+        /* Vector */
+        height: 4.806867599487305px;
+        width: 8.005010604858398px;
+        left: 114.923583984375px;
+        top: 5.330322265625px;
+        border-radius: 0px;
+
+        /* Pri/50 */
+
+        background: #354164;
+
+        /* Inside auto layout */
+
+        flex: none;
+        order: 0;
+        flex-grow: 0;
+      }
+      h3 {
+        /* Upload supporting documents */
+
+        position: absolute;
+        width: 312px;
+        height: 30px;
+        left: 627px;
+        top: 400px;
+
+        font-family: "Playfair Display";
+        font-style: normal;
+        font-weight: 400;
+        font-size: 22.9601px;
+        line-height: 30px;
+        /* identical to box height, or 129% */
+
+        display: flex;
+        align-items: center;
+
+        /* Secondary/12 */
+
+        color: #001a1e;
+      }
+
+      #uploadframe {
+        /* Upload Frame */
+
+        position: absolute;
+        width: 283.72px;
+        height: 284.52px;
+        left: 646px;
+        top: 467.08px;
+
+        /* Grey/White */
+
+        background: #fffefe;
+      }
+      #browse {
+        /* Browse to upload */
+
+        position: absolute;
+        width: 213.19px;
+        height: 20.04px;
+        left: 35.27px;
+        top: 125.83px;
+
+        font-family: "DM Sans";
+        font-style: normal;
+        font-weight: 400;
+        font-size: 12.8236px;
+        line-height: 19px;
+        /* or 150% */
+
+        display: flex;
+        align-items: center;
+        text-align: center;
+        letter-spacing: 0.160294px;
+
+        /* Secondary/12 */
+
+        color: #001a1e;
+      }
+      #upload {
+        /* Rectangle 5 */
+
+        position: absolute;
+        width: 250.86px;
+        height: 173.12px;
+        left: 16.83px;
+        top: 12.02px;
+
+        /* Secondary/12 */
+
+        border: 0.801472px dashed #001a1e;
+        border-radius: 4.00736px;
+      }
+      .filetype {
+        /* Supported formats: JPEG, PNG, PDF, Word */
+
+        position: absolute;
+        width: 258.07px;
+        height: 20.04px;
+        left: 12.82px;
+        top: 197.16px;
+
+        font-family: "DM Sans";
+        font-style: normal;
+        font-weight: 400;
+        font-size: 12.8236px;
+        line-height: 19px;
+        /* or 150% */
+
+        display: flex;
+        align-items: center;
+        text-align: center;
+        letter-spacing: 0.160294px;
+      }
+      #submit {
+        /* Pri Button */
+
+        /* Auto layout */
+
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        padding: 16px 32px;
+
+        position: absolute;
+        width: 137.47px;
+        height: 35.78px;
+        left: 72.13px;
+        top: 236.88px;
+
+        /* Grey/Grey 2 */
+
+        background: #777480;
+        border-radius: 16px;
+        /*label text*/
+        min-width: 196px;
+        min-height: 19px;
+
+        /* Paragraph (Large) */
+
+        font-family: "DM Sans";
+        font-style: normal;
+        font-weight: 400;
+        font-size: 20px;
+        line-height: 10px;
+        /* or 146% */
+
+        display: flex;
+        align-items: center;
+        text-align: center;
+
+        /* Grey/White */
+
+        color: #fffefe;
+
+        /* Inside auto layout */
+
+        flex: none;
+        order: 0;
+        flex-grow: 0;
+      }
+      #filledbtn {
+        /*filled btn*/
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 10px 24px;
+        gap: 10px;
+
+        position: absolute;
+        width: 137.47px;
+        height: 59.36px;
+        left: 719px;
+        top: 798px;
+
+        /* Secondary/5 */
+
+        background: #77aed0;
+        border-radius: 10px;
+        /* label-text */
+
+        min-width: 67px;
+        min-height: 30px;
+
+        /* M3/label/large */
+
+        font-family: "Roboto";
+        font-style: normal;
+        font-weight: 500;
+        font-size: 14px;
+        line-height: 20px;
+        /* or 143% */
+
+        display: flex;
+        align-items: center;
+        text-align: center;
+        letter-spacing: 0.1px;
+
+        /* Black for Texts */
+
+        color: #1e1a1a;
+
+        /* Inside auto layout */
+
+        flex: none;
+        order: 0;
+        flex-grow: 0;
+      }
+      @media only screen and (max-width: 480px) {
+        body {
+          /* Contend Post Page */
+
+          position: absolute;
+          width: 428px;
+          height: 926px;
+          left: 6481px;
+          top: 6px;
+
+          /* Grey/White */
+
+          background: #fffefe;
+          border-radius: 12px;
+        }
+        h2 {
+          /* Kindly fill the form below */
+
+          position: absolute;
+          width: 128px;
+          height: 12px;
+          left: 150px;
+          top: 79px;
+
+          /* CAPTIONS MOBILE/CAPTION SMALL CAPS */
+          font-weight: 600;
+          font-size: 11px;
+          line-height: 12px;
+          /* identical to box height, or 109% */
+
+          display: flex;
+          align-items: flex-end;
+          text-align: center;
+
+          /* Black for Texts */
+
+          color: #1e1a1a;
+        }
+        p {
+          /*Details provided should be true and as accurate as possible. Otherwise, can lead to a delayed review. */
+
+          position: absolute;
+          width: 390px;
+          height: 24px;
+          left: 25px;
+          top: 116px;
+
+          /* CAPTIONS MOBILE/caption small */
+
+          font-size: 11px;
+          line-height: 12px;
+
+          /* Black for Texts */
+
+          color: #1e1a1a;
+        }
+        .dropdown {
+          left: 42px;
+          top: 198px;
+        }
+        h4 {
+          /* Relationship with Child */
+
+          width: 203px;
+          height: 18px;
+
+          /* Header/H4 */
+          font-size: 20px;
+          /* or 130% */
+
+          /* Black for Texts */
+
+          color: #1e1a1a;
+        }
+        #reasons {
+          border: 1px solid #bcbcbc;
+        }
+        h3 {
+          width: 321px;
+          height: 20px;
+          left: 61px;
+          top: 331px;
+          text-align: center;
+
+          /* Black for Texts */
+
+          color: #1e1a1a;
+
+          opacity: 0.8;
+        }
+        #submit {
+          padding: 8.38919px 16.7784px;
+          background: #f1f1f1;
+          /* Primary/5 */
+
+          border: 0.524325px solid #7f5eaa;
+          border-radius: 10px;
+        }
+        #uploadframe {
+          left: 72px;
+          top: 363px;
+        }
+        #upload {
+          /* Ter/110 */
+
+          border: dashed #2a272f;
+        }
+        .filetype {
+          color: #bcbcbc;
+        }
+        #filledbtn {
+          flex-direction: row;
+          padding: 8.38919px 16.7784px;
+          width: 200px;
+          height: 48px;
+          left: 114px;
+          top: 676px;
+
+          /* Primary/5 */
+
+          background: #7f5eaa;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="top">
+      <h2>Kindly fill the form below</h2>
+      <p>
+        Details provided should be true and as accurate as possible. Otherwise,
+        this can lead to a delayed review.
+      </p>
+    </div>
+    <br />
+    <div class="dropdown">
+      <h4>Reason For Contending (Flagging)</h4>
+      <select name="reason" class="reason" onchange="CheckReasons(this.value);">
+        <option value="nondebtor">Not a Debtor</option>
+        <option value="miscalc">Miscalculation of incurred Debt</option>
+        <option value="others">Others(specify)</option>
+      </select>
+      <input type="text" name="reason" id="reason" style="display: none" />
+    </div>
+    <h3>Upload supporting documents</h3>
+    <label for="upload" id="uploadframe"></label>
+    <form
+      enctype="multipart/form-data"
+      action=""
+      method="post"
+      id="uploadframe"
+    >
+      <input type="hidden" name="" value="Browse to Upload" />
+      <input type="file" id="upload" name="upload" accept="JPEG/PNG/PDF/Word" />
+      <p class="filetype">Supported formats: JPEG, PNG, PDF, Word</p>
+      <input type="submit" id="submit" value="Upload Document" />
+    </form>
+
+    <input type="submit" value="submit" id="filledbtn" />
+  </body>
 </html>
