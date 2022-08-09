@@ -10,6 +10,7 @@
  body {
      font-family: 'Playfair Display';
     background-image: url("/static/images/unsplash_7JX0-bfiuxQ.svg");
+    text-align: center;
 
  }
 
@@ -975,6 +976,7 @@ Hero Section
  .row {
      display: flex;
      flex-wrap: wrap;
+     text-align: left;
  }
 
  .footer-logo {
