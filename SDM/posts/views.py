@@ -16,7 +16,7 @@ def test(request):
     return render(request, 'test.html', context)
 
 
-@login_required(login_url='accounts:login')
+# @login_required(login_url='accounts:login')
 def add_debt(request):
     context = {}
     return render(request, "posts/add_debt.html", context)
