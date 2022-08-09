@@ -49,9 +49,7 @@ def add_debt(request):
                     class_of_withdrawal = new_class_of_withdrawal,
                     interest_incured = new_interest_incured
                 )
-            
                 new_debt.save()
-            
                 return redirect('add_debt')
 
         else:
