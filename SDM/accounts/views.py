@@ -90,3 +90,7 @@ def guardian_home_page(request):
 def guardian_add_child_page(request):
     context = {}
     return render(request, 'accounts/chd_form.html', context)
+
+
+def forgot_password(request):
+    return render(request, 'accounts/forgot_pswd.html')
