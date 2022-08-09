@@ -13,3 +13,5 @@ def school_list_page(request):
 
 def contact_us_page(request):
     return render(request, 'base/contact_us.html')
+
+
