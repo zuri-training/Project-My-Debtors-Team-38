@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,600;1,100&family=Playfair+Display:wght@400;500;600;700&display=swap');
+        body{
+            font-family: 'Playfair Display';
+            padding: 30px 140px;
+            position: relative;
+        }
+        .child-container .child-img{
+            height: 80px;
+            width: 80px;
+            border-radius: 50%;
+            margin-top: 20px;
+        }
+        .child-container{
+            background-color: #DBCBEA;
+            border-radius: 10px;
+            padding:50px 200px;
+            position: relative;
+            vertical-align: middle;
+        }
+        .row-2 .p{
+            font-weight: 200;
+        }
+        .row-3 .p{
+            font-weight: 300;
+        }
+        .contend-btn{
+            position: absolute;
+            margin: 0;
+            left: 75%;
+            top: 70%;
+            background-color: #77aed0;
+            border: none;
+            border-radius: 5px;
+            padding: 8px 50px;
+            font-size: 1rem;
+            transition: .8s ease;
+            display: flex;
+            vertical-align: middle;
+        }
+        .contend-btn:hover{
+            background-color: #6595b3;
+        }
+        .btn-img{
+            height: 15px;
+            width: 15px;
+            margin-left: 10px;
+        }
+        .row{
+            display: flex;
+            justify-content: space-between;
+        }
+        h3{
+            text-align: center;
+            font-weight: 500;
+        }
+        #btn1{
+            background-color: #77aed0;
+            padding: 8px 60px;
+            border: none;
+            border-radius: 5px;
+            margin-top: 50px;
+            transition: 0.5s ease;
+            font-size: .9rem;
+        }
+        .btns{
+            position: absolute;
+            margin: 0;
+            left: 40%;
+        }
+        #btn1:hover{
+            background-color: transparent;
+            border: 1px solid #77aed0;
+        }
+        #btn2{
+            background-color: transparent;
+            border: 1px solid #77aed0;
+            border-radius: 5px;
+            margin-top: 50px;
+            padding: 8px 60px;
+            transition: 0.5s ease;
+            font-size: .9rem;
+        }
+        #btn2:hover{
+            background-color: #77aed0;
+        }
+        @media only screen and (max-width:990px){
+            body{
+                padding: 20px 10px;
+            }
+            .child-container{
+                padding: 0px 10px;
+            }
+            .row{
+                justify-content: space-evenly;
+            }
+            .child-container .child-img{
+                height: 55px;
+                width: 55px;
+                margin-top: 25px;
+            }
+            .child-container h4{
+                font-size: smaller;
+            }
+            .contend-btn{
+                padding: 5px;
+                left: 70%;
+                top: 83%;
+                transition: .9s ease;
+                font-size: .8rem;
+            }
+            .btns{
+                left: 20%;
+                margin-top: 50px;
+            }
+            .btns button{
+                margin-right: 10px;
+            }
+        }
+    </style>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add child confirm page</title>
+</head>
+<body>
+    <h3>Is this your child/ward?</h3>
+    <div class="child-container">
+        <div class="row">
+            <div class="row-1">
+                <img class="child-img" src="/SDM/static/images/Ellipse.3.svg" alt="Child image">
+            </div>
+            <div class="row-2">
+                <h4>Name: <span class="p">Audu Aisha Stella</span></h4>
+                <h4>Gender: <span class="p">Female</span></h4>
+                <h4>Month of withdrawal: <span class="p">August</span></h4>
+                <h4>Class before withdrawal: <span class="p">ss3</span></h4>
+                <h4>Unpaid Debt: <span class="p">N64, 000</span></h4>
+                <h4>Interest Incured <span class="p">30%</span></h4>
+            </div>
+            <div class="row-3">
+                <h4>Student ID: <span class="p">SMS1602022</span></h4>
+                <h4>Year of Withdrawal: <span class="p">2020</span></h4>
+                <button class="contend-btn">Contend Post <span><img class="btn-img" src="/SDM/static/images/Vector.svg" alt=""></span></button>
+            </div>
+        </div>
+        </div>
+    </div>
+    <div class="btns">
+        <button id="btn1">Add</button>
+        <button id="btn2">Cancel</button>
+</body>
+</html>

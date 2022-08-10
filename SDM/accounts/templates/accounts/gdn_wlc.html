@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Style for guardian Welcome page -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css" integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,600;1,100&family=Playfair+Display:wght@400;500;600;700&display=swap');
+       body{
+        font-family: 'Playfair Display';
+        position: relative;
+       }
+       button{
+        background-color: #77aed0;
+        padding: 8px 60px;
+        border: none;
+        border-radius: 5px;
+        margin-top: 150px;
+        transition: 0.5s ease;
+        font-size: .9rem;
+        position:absolute;
+        left: 28%;
+       }
+       button:hover{
+        background-color: transparent;
+        border: 1px solid #77aed0;
+       }
+       h2{
+        padding-left: 30px;
+        line-height: 8vh;
+        padding-bottom: 20px;
+       }
+       p{
+        margin-left: 90px;
+       }
+       .wlcm-container{
+        padding: 50px 200px;
+        position: relative;
+       }
+       #plus{
+            font-size: 40px;
+            left: 31%;
+            top: 90%;
+            position: absolute;
+            background-color: #D9D9D9;
+            color: white;
+            padding:15px 25px;
+            border-radius: 50%;
+        }
+       @media only screen and (max-width:990px){
+        .wlcm-container{
+            padding: 50px 50px;
+        }
+        h2{
+            padding-bottom: 50px;
+            font-size: 2rem;
+            font-weight: 300;
+        }
+        p{
+            text-align: center;
+            margin-left: 0;
+        }
+        button{
+            left: 30%;
+            top: 110%;
+        }
+        #plus{
+            font-size: 30px;
+            left: 35%;
+            top: 90%;
+            padding:15px 35px;
+            font-size: 70px;
+        }
+       }
+    </style>
+    <!-- End of style for guardian welcome page -->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guardian Welcome Page</title>
+</head>
+<body>
+    <div class="wlcm-container">
+        <h2>Welcome Rose</h2>
+        <p>Add your child(s)/ward(s) to easily keep track of their debts</p>
+        <label id="plus"><i class="fa fa-plus"></i></label>
+        <button>Add Child</button>
+    </div>
+</body>
+</html>
