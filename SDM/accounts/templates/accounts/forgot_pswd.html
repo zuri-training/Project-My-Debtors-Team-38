@@ -1,10 +1,171 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Forgot Password</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Roboto:wght@500&display=swap&display=swap');
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #7F5EAA;
+            padding: 0;
+            margin: 0;
+        }
+        .container {
+            width: 1440px;
+            height: 1024px;
+            position: relative;
+            margin: 0;
+        }
+        .tinted-box, .purple-box {
+            width: 720px;
+            height: 1024px;
+            position: absolute;
+        }
+        .tinted-box {
+            background: #DBCBEA;
+            left: 0;
+            top: 0;
+        }
+        .purple-box {
+            right: 0;
+            top: 0;
+            box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+        }
+        .tinted-box div {
+            position: absolute;
+            width: 554px;
+            height: 671px;
+            right: 0px;
+            top: 177px;
+            background: url("/images/forgot_pswd.svg");
+            border-top-left-radius: 16px;
+            border-bottom-left-radius: 16px;
+        }
+        .purple-box div {
+            position: absolute;
+            width: 554px;
+            height: 671px;
+            left: 0px;
+            top: 177px;
+            border-top-right-radius: 16px;
+            border-bottom-right-radius: 16px;
+            background: #FFFEFE;
+            padding-top: 130px;
+            font-family: 'Playfair Display'
+            color: #1E1A1A;
+            font-style: normal;
+            text-align: center;
+        }
+        .purple-box div h1 {
+            font-weight: 400;
+            font-size: 45px;
+            line-height: 52px;
+            display: inline-block;
+            width: 358px;
+            height: 52px;
+            margin: 0;
+            {% comment %} width: 358px;
+            height: 52px; {% endcomment %}
+        }
+        .purple-box div p {
+            font-weight: 400;
+            font-size: 16px;
+            line-height: 24px;
+            letter-spacing: 0.1px;
+            display: inline-block;
+            width: 434px;
+            height: 48px;
+            margin: 0;
+        }
+        {% comment %} .purple-box form {
+            position: absolute;
+            top: 292px;
+            left: 105px;
+            margin: 0 auto;
+            height: 69px;
+        } {% endcomment %}
+        .purple-box .form-box {
+            left: 134px;
+            width: 434px;
+            height: auto;
+            margin: 3px auto;
+            text-align: left;
+        }
+        .purple-box .form-box h4 {
+            font-weight: 400;
+            font-size: 20px;
+            line-height: 26px;
+            color: #000000;
+            margin-bottom: 0;
+            {% comment %} margin: 0; {% endcomment %}
+        }
+
+        .purple-box .form-box .form input {
+            width: 387px;
+            height: 50.17px;
+            margin: 2px 0;
+            padding-left: 15px;
+            border: 0.691071px solid #1E1A1A;
+            border-radius: 5.52857px;
+            background: #FFFEFE;
+            margin-top: 5px;
+        }
+        ::placeholder {
+            font-weight: 400;
+            font-size: 16.5857px;
+            line-height: 17px;
+        }
+        #btn {
+            position: relative;
+            left: 145px;
+            width: 111px;
+            height: 55.58px;
+            background: #77AED0;
+            border-radius: 10px;
+            margin-top: 30px;
+            border: #77AED0;
+            font-family: 'Roboto';
+            font-style: normal;
+            font-weight: 500;
+            font-size: 14px;
+            line-height: 20px;
+            letter-spacing: 0.1px;
+            text-align: center;
+            
+        }
+
+    </style>
 </head>
 <body>
-
+    <main class="container">
+        <section class="tinted-box">
+            <div>
+            </div>
+        </section>
+        <section class="purple-box">
+            <div>
+                <h1>Forgot Password?</h1>
+                <p>Please enter the address associated with your account to receive instructions.</p>
+                <section class="form-box">
+                    <h4>Email address</h4>
+                    <form class="form" method="post">
+                    {% csrf_token %}
+                        <input type="input" type="email" name="" placeholder="Enter email address">
+                        
+                        <button id="btn" type="submit">Send</button>
+                            
+                    </form>
+                </section>
+            </div>
+        </section>
+    </main>
 </body>
 </html>
