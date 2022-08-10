@@ -6,11 +6,18 @@ from django.template.loader import render_to_string
 
 # Create your views here.
 
-def landing_page(request):
-    return render(request, 'base/landing.html')
 
-def school_reg_page(request):
-    return render(request, 'base/school_reg_with_us.html')
+def landing_page(request):
+    page = 'home'
+    context = {'page': page}
+    return render(request, 'base/index.html', context=context)
+
+
+def school_list_page(request):
+    page = 'sch_list'
+    context = {'page': page}
+    return render(request, 'base/sch_list.html', context=context)
+
 
 def contact_us_page(request):
     if request.method == 'POST':
@@ -21,11 +28,11 @@ def contact_us_page(request):
             email = form.cleaned_data['email']
             message = form.cleaned_data['message']
 
-            html = render_to_string('base/contact/contact_us_form.html', {
-                'name': name,
-                'email': email,
-                'message': message
-            })
+            # html = render_to_string('base/contact.html', {
+            #     'name': name,
+            #     'email': email,
+            #     'message': message
+            # })
 
             send_mail('Contact Us', 'We have been contacted', 'moshopeowo@gmail.com', ['moshopeowo@gmail.com'], html_message=html)
 
@@ -35,6 +42,5 @@ def contact_us_page(request):
         form = ContactForm()
 
 
-    return render(request, 'base/contact/index.html', {
+    return render(request, 'contact/index.html', {
         'form': form})
-
