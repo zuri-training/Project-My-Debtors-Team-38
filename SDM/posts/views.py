@@ -8,19 +8,6 @@ from django.contrib import messages
 
 # Create your views here.
 
-
-def sch_list(request):
-    context = {}
-    return render(request, "sch_list.html", context)
-
-def add_debt(request):
-    context = {}
-    return render(request,'add_debt.html', context)
-
-def contend_sus(request):
-    context = {}
-    return render(request,'content_sus.html', context)
-
 @login_required(login_url='accounts:login')
 def add_debt(request):
     context = {}
@@ -91,4 +78,3 @@ def sch_post(request):
 def sch_review(request):
     context = {}
     return render(request, "posts/sch_review.html", context)
-
