@@ -1,67 +1,41 @@
-## Jp
+## Ayeesa
 ##### Branches Worked on <br/>
-- https://github.com/zuri-training/Project-My-Debtors-Team-38/branches/all?query=jp
+- 
 
 ##### Tasks <br/>
-- Created db schema
-- setup SDM project and pushed to github
-- created custom user models and forms
-- created school, guardian and student profile models
-- worked on post model
-- linked multiple pages with django views and jinja templating
-- used jinja templating system to include pages based on conditions
-- worked on post page design
-- worked on contend page design
-- worked on school directory page layout
-- worked on guardian add child user flow 
+Things I've worked on:
+Research:
+- Wrote Research questions and Research objectives
+
+Design for Web:
+- Design Documentation
+- Landing Page - Lo-Fi and Hi-Fi
+- Schools registered with us page - Lo-Fi and Hi-Fi
+- Sign Up page for School - Lo-Fi and Hi-Fi
+- Sign Up page for Guardian - Lo-Fi and Hi-Fi
+- School Directory page - Lo-Fi and Hi-Fi
+- Contended post page - Lo-Fi
+- Part of Redesigning the Contended post page for Hi-Fi
+- Progress Report page - Lo-Fi and Hi-Fi
+- Post Page - Lo-Fi
+- Part of Redesigning the Post page for Hi-Fi
+- Inbox page - Lo-Fi
+- Part of Redesigning the Inbox page Hi-Fi
+- Added the Header, Footer, and FAQs to the Contact Us page design
+- Part of Redesigning the Dashboard for Hi-Fi
+- Add Child page Hi-Fi design for Guardian
+- "Is this your child?" page design for Guardian
+- Contend post page Lo-Fi for Guardian
+- Part of Redesigning the Contend post page for Hi-Fi
+- Uncleared Review Update page for Guardian Lo-Fi and Hi-Fi
+- Part of designing the Hi-Fi of "New User" Dashboard for School
+- Designed the Input fields in the Style Guide
+- Designed the Sidebar for School in the style Guide
+- Designed Sidebar for Mobile Lo-Fi
+- Profile Cards of Debtors
+- Alignment and Spacing
+- Addition and Removal of Colours from the designs
+- Created a document for all our Asset files for the Devs.
 
 
 | Issues      | Solutions |
-| :----------- | :----------- |
-| convert django defaut username login to email login| extend django user model, custom user manager, override create user function to use email instead|
-| separate users to enforce role based user flow | used proxy models to extend AbstractBaseUser and created profile models for the seperated users as a 1-1 relationship|
-| pull urls from different django apps  | used django's namespace feature|
-|get nav bar and side bar to show based on requested page| used conditions to check nav variable passed by views to pages|
-
-
-
-
-## Marvel
-#### Branches Worked on <br/>
-- https://github.com/zuri-training/Project-My-Debtors-Team-38/branches/all?query=marvel
-
-## Csonwuka
-#### Branches Worked on <br/>
-- https://github.com/zuri-training/Project-My-Debtors-Team-38/branches/all?query=samuel
-
-## Stephen
-#### Branches Worked on <br/>
-- https://github.com/zuri-training/Project-My-Debtors-Team-38/branches/all?query=stephen
-
-## Mosope
-#### Branches Worked on <br/>
-- https://github.com/zuri-training/Project-My-Debtors-Team-38/branches/all?query=mosope
-
-## Chistian
-#### Branches Worked on <br/>
-- https://github.com/zuri-training/Project-My-Debtors-Team-38/branches/all?query=christian
-
-## Kehindejejelaye
-#### Branches Worked on <br/>
-- https://github.com/zuri-training/Project-My-Debtors-Team-38/branches/all?query=kehinde
-
-## Girlintech
-#### Branches Worked on <br/>
-- https://github.com/zuri-training/Project-My-Debtors-Team-38/branches/all?query=praise
-
-## Sheyvie
-#### Branches Worked on <br/>
-- https://github.com/zuri-training/Project-My-Debtors-Team-38/branches/all?query=sheyvie
-
-## valerie
-#### Branches Worked on <br/>
-- https://github.com/zuri-training/Project-My-Debtors-Team-38/branches/all?query=muhembele
-
-## Marvel
-### Branches Worked on <br/>
-- https://github.com/zuri-training/Project-My-Debtors-Team-38/branches/all?query=marvel
