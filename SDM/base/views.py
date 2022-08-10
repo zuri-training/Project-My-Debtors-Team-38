@@ -16,12 +16,7 @@ def school_list_page(request):
 
 
 def contact_us_page(request):
-<<<<<<< HEAD
-    return render(request, 'base/contact_us.html')
-
-
-=======
     page = 'contact_us'
     context = {'page': page}
     return render(request, 'base/contact.html', context=context)
->>>>>>> 5699b0318966699833da87fd12656567cf0565a9
+
