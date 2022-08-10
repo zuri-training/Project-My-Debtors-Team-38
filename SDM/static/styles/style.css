@@ -1,5 +1,4 @@
  @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,600;1,100&family=Playfair+Display:wght@400;500;600;700&display=swap');
-
  * {
      margin: 0;
      padding: 0;
@@ -10,7 +9,7 @@
 
  body {
      font-family: 'Playfair Display';
-    background-image: url("../static/images/unsplash_7JX0-bfiuxQ.svg");
+    background-image: url("/static/images/unsplash_7JX0-bfiuxQ.svg");
 
  }
 
@@ -144,7 +143,7 @@
 
  /* navbar ends */
 
-/* Hero Section */
+Hero Section
 .hero-container {
     display: grid;
     padding: 4rem 0 2rem 0;
@@ -200,7 +199,7 @@
 
 #img1 {
     height: 400px;
-    width: 140%;
+    /* width: 140%; */
     /* padding-left: 200px; */
     margin-right: -10px;
     border-radius: 10px;
@@ -221,6 +220,7 @@
 }
 
 /* End of Hero section */
+
 /* About Section */
 .about-container {
     display: grid;
@@ -233,7 +233,7 @@
 
 .about-right-side {
     margin-left: 200px;
-    width: 90%;
+    /* width: 90%; */
 }
 
 .about-right-side h2 {
@@ -327,6 +327,7 @@
 }
 
 /* End of About Section */
+
 /* Feature container */
 .feature {
     display: flex;
@@ -375,6 +376,7 @@
 }
 
 /* End of Feature container */
+
 /* choice section */
 .choice-container {
     display: flex;
@@ -551,6 +553,7 @@
 }
 
 /* End of testimonials */
+
 /* Affiliations */
 .affiliations-container {
     background-color: #EBF5FF;
@@ -581,6 +584,7 @@
 }
 
 /* End Affiliations */
+
 /* last container */
 .heading {
     font-weight: 450;
@@ -628,6 +632,7 @@
 }
 
 /* last container end */
+
 
 /* Media query for hero section */
 @media only screen and (max-width:990px) {
@@ -905,6 +910,7 @@
 
 /* End of media query for hero section */
 
+
 /* school list starts */
 .student-box {
      background-color: #DBCBEA;
@@ -916,6 +922,39 @@
  }
 
 /* school list ENDS */
+
+
+/* contact us starts */
+.custom-img {
+    height: 25em;
+}
+
+.custom-text {
+    font-size: 1.5em;
+}
+
+.custom-header {
+    font-size: 2.5em;
+}
+
+.pg-block {
+    background-color: #613995;
+    border-radius: 1em;
+}
+
+.btt {
+    background-color: #77AED0;
+    color: #ffffff;
+    border-radius: 1.25em;
+    width: 10em;
+}
+
+.accordion-button:not(.collapsed) {
+    color: #ffffff;
+    background-color: #613995;
+}
+/*contact us ends*/
+
 
  /* footer starts*/
  .dark-purple {

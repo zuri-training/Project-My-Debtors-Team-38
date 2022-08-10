@@ -1,0 +1,157 @@
+{% extends 'main_index.html' %}
+{% load static %}
+{% block content %}
+<main>
+  <div class="container-md">
+    <div class="text-center my-5">
+      <h1 class="custom-header">Contact Us</h1>
+      <p class="custom-text">If you have any Questions, contact us at any moment</p>
+    </div>
+    <div class="row justify-content-center mb-5">
+      <div class="col-lg-6">
+        <form action="">
+          <div class="col-sm-9">
+            <label for="name" class="form-label">Name</label>
+            <input type="text" class="form-control" id="name" placeholder="Your Full Name" />
+          </div>
+          <div class="col-sm-9 my-5">
+            <label for="email" class="form-label">Email Address</label>
+            <input type="email" class="form-control" id="email" placeholder="Your Email Address" />
+          </div>
+          <div class="col-sm-9">
+            <label for="message">Your Message</label>
+            <textarea name="message" id="message" style="height: 150px" class="form-control"
+              placeholder="write a message"></textarea>
+          </div>
+          <div class="col-sm-9 text-center mt-5">
+            <button type="submit" class="btn btn-lg btt">Send Message</button>
+          </div>
+        </form>
+      </div>
+      <div class="col-sm-6 mt-4">
+        <img src="{% static 'images/Frame 2608179-2.svg' %}" alt="" class="img-fluid rounded custom-img" />
+      </div>
+    </div>
+    <div class="row my-5">
+      <div class="col-sm-9 mx-auto py-1 pg-block">
+
+      </div>
+    </div>
+    <div class="text-center my-5">
+      <h2 class="custom-header">FAQs</h2>
+      <p class="custom-text">These are Frequently Asked Questions. Can't find what you are looking for? Please
+        contact us</p>
+    </div>
+    <div class="accordion accordion-flush my-5" id="accordionFlush">
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="flush-headingOne">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+            data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+            How do I contend a post?
+          </button>
+        </h2>
+        <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne"
+          data-bs-parent="#accordionFlush">
+          <div class="accordion-body">
+            After signing up on the platform,
+            a Parent/Guardian can add their children/wards if they were listed as debtors.
+            When that's done, there is a button underneath the post, that reads "contend post".
+            Submit the necessary documents to support your argument.
+            Lastly, wait for comfirmation from the School.
+          </div>
+        </div>
+      </div>
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="flush-headingTwo">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+            data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
+            How do I know if my contended post has been reviewed?
+          </button>
+        </h2>
+        <div id="flush-collapseTwo" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo"
+          data-bs-parent="#accordionFlush">
+          <div class="accordion-body">
+            A review status shown would signify if the contended post has been reviewed.
+          </div>
+        </div>
+      </div>
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="flush-headingThree">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+            data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
+            How long does it take to review a post?
+          </button>
+        </h2>
+        <div id="flush-collapseThree" class="accordion-collapse collapse" aria-labelledby="flush-headingThree"
+          data-bs-parent="#accordionFlush">
+          <div class="accordion-body">
+            On average, it takes less than 48 hours to review a post.
+            However, it really depends on the availability of documents presented by the Parent/Guardian
+            and the number of posts that have been contended.
+          </div>
+        </div>
+      </div>
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="flush-headingFour">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+            data-bs-target="#flush-collapseFour" aria-expanded="false" aria-controls="flush-collapseFour">
+            Is Registration free?
+          </button>
+        </h2>
+        <div id="flush-collapseFour" class="accordion-collapse collapse" aria-labelledby="flush-headingFour"
+          data-bs-parent="#accordionFlush">
+          <div class="accordion-body">
+            Of course, registration is totally free.
+            This platform is supposed to help you pay debts and not pile them up :)
+          </div>
+        </div>
+      </div>
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="flush-headingFive">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+            data-bs-target="#flush-collapseFive" aria-expanded="false" aria-controls="flush-collapseFive">
+            What if my School ID has gone missing/been misplaced?
+          </button>
+        </h2>
+        <div id="flush-collapseFive" class="accordion-collapse collapse" aria-labelledby="flush-headingFive"
+          data-bs-parent="#accordionFlush">
+          <div class="accordion-body">
+            If your School ID has gone missing,
+            you can send a mail to the former school you attended to request a new copy.
+          </div>
+        </div>
+      </div>
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="flush-headingSix">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+            data-bs-target="#flush-collapseSix" aria-expanded="false" aria-controls="flush-collapseSix">
+            Can I just correct the details on a post myself?
+          </button>
+        </h2>
+        <div id="flush-collapseSix" class="accordion-collapse collapse" aria-labelledby="flush-headingSix"
+          data-bs-parent="#accordionFlush">
+          <div class="accordion-body">
+            No. Only an authenticated School profile can edit a post.
+          </div>
+        </div>
+      </div>
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="flush-headingSeven">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+            data-bs-target="#flush-collapseSeven" aria-expanded="false" aria-controls="flush-collapseSeven">
+            Can a post be flagged more than once?
+          </button>
+        </h2>
+        <div id="flush-collapseSeven" class="accordion-collapse collapse" aria-labelledby="flush-headingSeven"
+          data-bs-parent="#accordionFlush">
+          <div class="accordion-body">
+            No. A post cannot be flagged more than once.
+            The school has probably seen the post and are working on its review.
+            We suggest you hang on tight :)
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+{% endblock %}
