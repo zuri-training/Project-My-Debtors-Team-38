@@ -12,13 +12,22 @@
 - Brain storm on the flow concept for users profile pages (School Profile, Guardian Profile and Student 
 
 
+
+
+| Issues      | Solutions |
+| :----------- | :----------- |
+| Static files not loading | Resolved by rewriting configurations for static url/root correctly in settings.py|
+| Media files storage | Configured in settings.py using Media url and media root, importing settings and static in the project url.py and implemented configurations adjoining it to the default urlpatterns variable|
+| ImproperConf error  | Corrected the variable name, Readjusted the indentation in views and return render|
+| Template not rendering | Added the templates folder name in url path|
+
+
 The Ana
 
 Aisha
 
 
 Issues	Solution
-Static files not loading 	Resolved by rewriting configurations for static url/root correctly in settings.py
 Media files storage 	Configured in settings.py using Media url and media root, importing settings and static in the project url.py and implemented configurations adjoining it to the default urlpatterns variable 
 Newly added Models not migrating 	Added the app name in settings.py and deleted pycache 
 ImproperConf error 	Corrected the variable name, Readjusted the indentation in views and return render
