@@ -1,10 +1,537 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,600;1,100&family=Playfair+Display:wght@400;500;600;700&display=swap');
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+body{
+    font-family: 'Playfair Display';
+}
+.column{
+    display: flex;
+    flex-direction: column;
+}
+.dashboard-container{
+    display: flex;
+    position: relative;
+    padding: 100px 150px;
+    background: rgba(245, 241, 241, 0.8);
+    justify-content: space-between;
+}
+.left-side{
+    width: 50%;
+}
+.right-side{
+    width: 40%;
+}
+.dashboard-text{
+    margin-left: 30px;
+    text-align: center;
+    margin-bottom: 100px;
+}
+.dashboard-text h3{
+    font-style: normal;
+    font-weight: 600;
+    font-size: 2.3rem;
+    line-height: 20px;
+    /* margin-bottom: 10px; */
+}
+.dashboard-text p{
+    margin-top: 30px;
+    font-size: 1.5rem;
+    font-weight: 400;
+}
+.column1{
+    background-color: #BCA7D5;
+    padding: 60px;
+    border-radius: 12px;
+    margin-bottom: 80px;
+}
+.column2{
+    background-color: #BCA7D5;
+    padding: 60px;
+    border-radius: 12px;
+    margin-bottom: 80px;
+}
+.column3{
+    background-color: #BCA7D5;
+    padding: 60px;
+    border-radius: 12px;
+    margin-bottom: 80px;
+}
+.top-row{
+    display: flex;
+    justify-content: space-evenly;
+    margin-bottom: 50px;
+}
+.bottom-row{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: -40px;
+    padding-left: 50px;
+}
+.comments{
+    display: flex;
+}
+.delete-btn{
+    background-color: #4A267E;
+    color: white;
+    font-family: 'Roboto';
+    padding: 14px 40px;
+    border-radius: 100px;
+    font-style: normal;
+    border: none;
+    font-weight: 500;
+    font-size: 1.25rem;
+    line-height: 20px;
+    transition: .3s ease-in-out;
+}
+.delete-btn:hover{
+    background-color: transparent;
+    border: 2px solid #4A267E;
+    color: #1E1A1A;
+}
+.details-btn{
+    background-color: transparent;
+    border: 2px solid #4A267E;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 1.25rem;
+    line-height: 20px;
+    padding: 14px 40px;
+    border-radius: 100px;
+    transition: .3s ease-in-out;
+}
+.details-btn:hover{
+    background-color: #4A267E;
+}
+.mobile-only{
+    display: none;
+}
+.mobile-only-cont{
+    display: none;
+}
+.small-text{
+    font-style: normal;
+    font-weight: 400;
+    font-size: 1.25rem;
+    line-height: 20px;
+}
+.comment-img img{
+    margin-right: 10px;
+}
+.row2-top h2{
+    margin-bottom: 10px;
+}
+.row3-top h2{
+    margin-bottom: 10px;
+}
+.bold{
+    font-style: normal;
+    font-weight: bold;
+    font-size: 1.25rem;
+    line-height: 20px;
+}
+.comment-text a{
+    text-decoration: none;
+    color: black;
+    cursor: pointer;
+}
+.outside-container{
+    position: absolute;
+    top: 40%;
+    left: 45%;
+    color: black;
+    text-decoration: none;
+    font-size: 1.2rem;
+}
+.outside-container2{
+    position: absolute;
+    top: 65%;
+    left: 45%;
+    color: black;
+    text-decoration: none;
+    font-size: 1.2rem;
+}
+.outside-container3{
+    position: absolute;
+    top: 90%;
+    left: 45%;
+    color: black;
+    text-decoration: none;
+    font-size: 1.2rem;
+}
+.container-recent{
+    background-color: #FFFEFE;
+    box-shadow: 0px 8px 12px 6px rgba(0, 0, 0, 0.15), 0px 4px 4px rgba(0, 0, 0, 0.3);
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    padding: 0px 8px;
+    gap: 16px;
+    padding: 30px;
+    position: absolute;
+    width: 650px;
+    height: 650px;
+    left: 60%;
+    top: 47%;
+}
+.container-recent h2{
+    font-style: normal;
+    font-weight: 400;
+    font-size: 32px;
+    line-height: 40px;
+}
+.container-recent .faded{
+    font-style: normal;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 32px;
+    color: #1E1A1A;
+    opacity: 0.6;
+    margin-bottom: 30px;
+}
+.circle{
+    width: 60px;
+    height: 60px;
+    background-color: #D9D9D9;
+    border-radius: 100px;
+}
+.directory-row{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin-bottom: 30px;
+}
+hr{
+    margin-bottom: 10px;
+}
+.name h3{
+    font-style: normal;
+    font-weight: 400;
+    font-size: 2rem;
+    line-height: 32px;
+    text-align: center;
+    margin-top: 15px;
+}
+.add p{
+    font-style: normal;
+    font-weight: 400;
+    font-size: 17px;
+    line-height: 24px;
+    text-align: right;
+    margin-top: 22px;
+}
+@media only screen and (max-width:990px) {
+    .dashboard-container{
+        display: flex;
+        flex-direction: column;
+        padding: 100px 30px;
+    }
+    .left-side{
+        width: 100%;
+    }
+    .dashboard-text{
+        margin-left: 0px;
+    }
+    .dashboard-text p{
+        font-size: 1.2rem;
+    }
+    .dashboard-text .bold{
+        position: absolute;
+        top: 0%;
+        left: 80%;
+    }
+    .column1{
+        background-color: #BCA7D5;
+        padding: 15px;
+    }
+    .column1 .bottom-row{
+        display: none;
+    }
+    .row2-top h2{
+        font-size: 1.1rem;
+        margin-left: 2px;
+        margin-bottom: 25px;
+    }
+    .row2-top p{
+        font-size: 0.1rem;
+    }
+    .row3-top h2{
+        font-size: 1.1rem;
+        margin-left: 2px;
+        margin-bottom: 25px;
+    }
+    .row3-top p{
+        font-size: 0.1rem;
+    }
+    .bottom-row{
+        margin-bottom: 0px;
+        padding-left: 0px;
+    }
+    .delete-btn{
+        padding: 13px 20px;
+        font-size: 1.25rem;
+    }
+    .details-btn{
+        padding: 10px 20px;
+        font-size: 1.25rem;
+    }
+    .top-row{
+        margin-bottom: 10px;
+    }
+    .outside-container{
+        left: 82%;
+        top: 38%;
+    }
+    .outside-container2{
+        left: 82%;
+        top: 63%;
+    }
+    .outside-container3{
+        left: 82%;
+    }
+    .right-side .container-recent{
+        display: none;
+    }
+    .mobile-only{
+        display: block;
+        font-style: normal;
+        font-weight: 600;
+        font-size: 1.5rem;
+        margin-bottom: 10px;
+        line-height: 16px;
+    }
+    .mobile-only-cont{
+        display: block;
+        display: flex;
+        flex-direction: column;
+    }
+    .contended{
+        display: flex;
+    }
+    .column2{
+        background: #EBF5FF;
+        padding: 15px;
+    }
+    .column2 .bottom-row{
+        display: none;
+    }
+    .column3{
+        background: #CAE4F8;
+        padding: 15px;
+    }
+    .column3 .comments{
+        display: none;
+    }
+    .column3 .row3-top{
+        display: none;
+    }
+}
+    </style>
     <meta charset="UTF-8">
     <title>School Dashboard</title>
 </head>
 <body>
-
+    <div class="dashboard-container">
+        <div class="left-side">
+            <div class="dashboard-text">
+                <h3>Scarlet Montessori High School</h3>
+                <p>No 17 McEwen Street, Opposite Herbert Macaulay way, Yaba, Lagos</p>
+                <p class="bold">Sms /ad/2204</p>
+            </div>
+            <div class="column">
+                <h3 class="mobile-only">Contenders </h3>
+                <div class="column1">
+                    <div class="top-row">
+                        <div class="row1-top">
+                            <img src="/SDM/static/images/Ellipse-4.svg" alt="Student image">
+                        </div>
+                        <div class="row2-top">
+                            <h2>Name: <span class="small-text">Okoro Nkechi Williamina</span></h2> 
+                            <h2>Gender: <span class="small-text">Female</span></h2>
+                            <h2>Unpaid Debt: <span class="small-text">N55,000</span></h2>
+                            <h2>Interest Incurred: <span class="small-text">N55,000</span></h2>
+                            <h2 class="mobile-only">Month of withdrawal: <span class="small-text">August</span></h2>
+                        </div>
+                        <div class="row3-top">
+                            <h2>Student ID: <span class="small-text">SMS2001726</span></h2>
+                            <h2>Class before withdrawal: <span class="small-text">JSS2</span></h2>
+                            <h2>Date of withdrawal: <span class="small-text">11/12/2021</span></h2>
+                        </div>
+                    </div>
+                    <div class="bottom-row">
+                        <div class="row1-bottom">
+                            <div class="comments">
+                                <div class="comment-img">
+                                    <img src="/SDM/static/images/" alt="comment-icon"> 
+                                </div>
+                                <div class="comment-text">
+                                    <p class="bold">3 Comments</p> <br>
+                                    <a href="#">View Comments</a>
+                                    <!-- <p>View Comments</p> -->
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row2-bottom">
+                            <button class="delete-btn">Delete from list</button>
+                        </div>
+                        <div class="row3-bottom">
+                            <button class="details-btn">more details</button>
+                        </div>
+                    </div>
+                </div>
+                <a class="outside-container" href="#">View more</a>
+                <h3 class="mobile-only">Reviewing</h3>
+                <div class="column2">
+                    <div class="top-row">
+                        <div class="row1-top">
+                            <img src="/SDM/static/images/Ellipse-4.svg" alt="Student image">
+                        </div>
+                        <div class="row2-top">
+                            <h2>Name: <span class="small-text">Okoro Nkechi Williamina</span></h2> 
+                            <h2>Gender: <span class="small-text">Female</span></h2>
+                            <h2>Unpaid Debt: <span class="small-text">N55,000</span></h2>
+                            <h2>Interest Incurred: <span class="small-text">N55,000</span></h2>
+                            <h2 class="mobile-only">Month of withdrawal: <span class="small-text">August</span></h2>
+                        </div>
+                        <div class="row3-top">
+                            <h2>Student ID: <span class="small-text">SMS2001726</span></h2>
+                            <h2>Class before withdrawal: <span class="small-text">JSS2</span></h2>
+                            <h2>Date of withdrawal: <span class="small-text">11/12/2021</span></h2>
+                        </div>
+                    </div>
+                    <div class="bottom-row">
+                        <div class="row1-bottom">
+                            <div class="comments">
+                                <div class="comment-img">
+                                    <!-- comment icon not added yet -->
+                                    <img src="" alt=""> 
+                                </div>
+                                <div class="comment-text">
+                                    <p class="bold">3 Comments</p> <br>
+                                    <a href="#">View Comments</a>
+                                    <!-- <p>View Comments</p> -->
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row2-bottom">
+                            <button class="delete-btn">Delete from list</button>
+                        </div>
+                        <div class="row3-bottom">
+                            <button class="details-btn">more details</button>
+                        </div>
+                    </div>
+                </div>
+                <a class="outside-container2" href="#">View more</a>
+                <h3 class="mobile-only">Directory</h3>
+                <div class="column3">
+                    <div class="top-row">
+                        <div class="row1-top">
+                            <img src="/SDM/static/images/Ellipse-4.svg" alt="Student image">
+                        </div>
+                        <div class="row2-top">
+                            <h2>Name: <span class="small-text">Okoro Nkechi Williamina</span></h2> 
+                            <h2>Gender: <span class="small-text">Female</span></h2>
+                            <h2>Unpaid Debt: <span class="small-text">N55,000</span></h2>
+                            <h2>Interest Incurred: <span class="small-text">N55,000</span></h2>
+                            <h2 class="mobile-only">Month of withdrawal: <span class="small-text">August</span></h2>
+                        </div>
+                        <div class="row3-top">
+                            <h2>Student ID: <span class="small-text">SMS2001726</span></h2>
+                            <h2>Class before withdrawal: <span class="small-text">JSS2</span></h2>
+                            <h2>Date of withdrawal: <span class="small-text">11/12/2021</span></h2>
+                        </div>
+                        <div class="mobile-only-cont">
+                            <div class="contended">
+                                <div class="comment-img">
+                                    <!-- comment icon not added yet -->
+                                    <img src="" alt=""> 
+                                </div>
+                                <div class="comment-text">
+                                    <p class="bold">Contended</p> <br>
+                                    <a href="#">Reason for Contending</a>
+                                    <!-- <p>View Comments</p> -->
+                                </div>
+                            </div>
+                            <br>
+                            <div class="contended">
+                                <div class="comment-img">
+                                    <!-- comment icon not added yet -->
+                                    <img src="" alt=""> 
+                                </div>
+                                <div class="comment-text">
+                                    <p class="bold">3 Comments</p> <br>
+                                    <a href="#">View Comments</a>
+                                    <!-- <p>View Comments</p> -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bottom-row">
+                        <div class="row1-bottom">
+                            <div class="comments">
+                                <div class="comment-img">
+                                    <!-- comment icon not added yet -->
+                                    <img src="" alt=""> 
+                                </div>
+                                <div class="comment-text">
+                                    <p class="bold">3 Comments</p> <br>
+                                    <a href="#">View Comments</a>
+                                    <!-- <p>View Comments</p> -->
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row2-bottom">
+                            <button class="delete-btn">Delete from list</button>
+                        </div>
+                        <div class="row3-bottom">
+                            <button class="details-btn">more details</button>
+                        </div>
+                    </div>
+                </div>
+                <a class="outside-container3" href="#">View more</a>
+            </div>    
+        </div>
+        <div class="right-side">
+            <div class="pie-chart">
+                <!-- Pie chart should be included or rendered here -->
+            </div>
+            <div class="container-recent">
+                <h2>Recent</h2>
+                <p class="faded">Today</p>
+                <div class="directory">
+                    <div class="directory-row">
+                        <div class="circle"></div>
+                        <div class="name"><h3>Enessi Umoru Lanre</h3></div>
+                        <div class="add"><p>Added to directory</p></div>
+                    </div>
+                    <hr>
+                    <div class="directory-row">
+                        <div class="circle"></div>
+                        <div class="name"><h3>Enessi Umoru Lanre</h3></div>
+                        <div class="add"><p>Debt Resolved</p></div>
+                    </div>
+                    <hr>
+                    <div class="directory-row">
+                        <div class="circle"></div>
+                        <div class="name"><h3>Enessi Umoru Lanre</h3></div>
+                        <div class="add"><p>Contended</p></div>
+                    </div>
+                    <hr>
+                    <div class="directory-row">
+                        <div class="circle"></div>
+                        <div class="name"><h3>Enessi Umoru Lanre</h3></div>
+                        <div class="add"><p>Contended</p></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
 </html>
