@@ -1,6 +1,7 @@
 ## Ayeesa
 ##### Branches Worked on <br/>
-- 
+- https://www.figma.com/file/7bwO6jKANXUQciUYrT2AiF/DESIGN-TEAM-38?node-id=0%3A1
+- https://docs.google.com/document/d/1wlUhsJGkcTDcXEgIurOFfyq4Bzb2I-3j-757JCaujzc/edit#
 
 ##### Tasks <br/>
 Things I've worked on:
