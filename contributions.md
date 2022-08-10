@@ -3,49 +3,9 @@
 - https://github.com/zuri-training/Project-My-Debtors-Team-38/branches/all?query=jp
 
 ##### Tasks <br/>
-- text
+- Create GitHub project tasks tickets
+- Create a base app for the dashboard, registered school page and contact us page
+
 ##### Issues and Solutions <br/>
-- text
-- 
-
-
-
-## Marvel
-#### Branches Worked on <br/>
-- https://github.com/zuri-training/Project-My-Debtors-Team-38/branches/all?query=marvel
-
-## Csonwuka
-#### Branches Worked on <br/>
-- https://github.com/zuri-training/Project-My-Debtors-Team-38/branches/all?query=samuel
-
-## Stephen
-#### Branches Worked on <br/>
-- https://github.com/zuri-training/Project-My-Debtors-Team-38/branches/all?query=stephen
-
-## Mosope
-#### Branches Worked on <br/>
-- https://github.com/zuri-training/Project-My-Debtors-Team-38/branches/all?query=mosope
-
-## Chistian
-#### Branches Worked on <br/>
-- https://github.com/zuri-training/Project-My-Debtors-Team-38/branches/all?query=christian
-
-## Kehindejejelaye
-#### Branches Worked on <br/>
-- https://github.com/zuri-training/Project-My-Debtors-Team-38/branches/all?query=kehinde
-
-## Girlintech
-#### Branches Worked on <br/>
-- https://github.com/zuri-training/Project-My-Debtors-Team-38/branches/all?query=praise
-
-## Sheyvie
-#### Branches Worked on <br/>
-- https://github.com/zuri-training/Project-My-Debtors-Team-38/branches/all?query=sheyvie
-
-## valerie
-#### Branches Worked on <br/>
-- https://github.com/zuri-training/Project-My-Debtors-Team-38/branches/all?query=muhembele
-
-## Marvel
-### Branches Worked on <br/>
-- https://github.com/zuri-training/Project-My-Debtors-Team-38/branches/all?query=marvel
+- Allow user to contact through email in the contact us page
+- Came up with a solution to be able to receive and view emails from the contact us page
