@@ -18,7 +18,6 @@ urlpatterns = [
 
     # guardian
     path('gdn_reg/', views.guardian_register_page, name='gdn_reg'),
-    path('cdh_form/', views.guardian_add_child_page, name='cdh_form'),
     path('gdn_wlc/', views.guardian_home_page, name='gdn_wlc'),
 
 ]

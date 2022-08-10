@@ -95,19 +95,13 @@ def forgot_password(request):
     return render(request, 'accounts/forgot_pswd.html', context=context)
 
 
-@login_required(login_url='login')
+# @login_required(login_url='login')
 def school_dashboard_page(request):
     context = {}
     return render(request, 'accounts/sch_dshbd.html', context)
 
 
-@login_required(login_url='login')
+# @login_required(login_url='login')
 def guardian_home_page(request):
     context = {}
     return render(request, 'accounts/gdn_wlc.html', context)
-
-
-@login_required(login_url='login')
-def guardian_add_child_page(request):
-    context = {}
-    return render(request, 'accounts/chd_form.html', context)
