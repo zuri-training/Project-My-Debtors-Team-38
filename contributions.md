@@ -1,3 +1,8 @@
+## Jp
+##### Branches Worked on <br/>
+- https://github.com/zuri-training/Project-My-Debtors-Team-38/branches/all?query=jp
+
+##### Tasks <br/>
 - Created db schema
 - setup SDM project and pushed to github
 - created custom user models and forms
@@ -17,3 +22,4 @@
 | seperate users to enforce role based user flow | used proxy models to extend AbstractBaseUser and created profile models for the seperated users as a 1-1 relationship|
 | pull urls from different django apps  | used django's namespace feature|
 |get nav bar and side bar to show based on requested page| used conditions to check nav variable passed by views to pages|
+
