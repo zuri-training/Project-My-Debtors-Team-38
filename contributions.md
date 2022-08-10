@@ -19,7 +19,7 @@
 | Issues      | Solutions |
 | :----------- | :----------- |
 | convert django defaut username login to email login| extend django user model, custom user manager, override create user function to use email instead|
-| seperate users to enforce role based user flow | used proxy models to extend AbstractBaseUser and created profile models for the seperated users as a 1-1 relationship|
+| separate users to enforce role based user flow | used proxy models to extend AbstractBaseUser and created profile models for the seperated users as a 1-1 relationship|
 | pull urls from different django apps  | used django's namespace feature|
 |get nav bar and side bar to show based on requested page| used conditions to check nav variable passed by views to pages|
 
