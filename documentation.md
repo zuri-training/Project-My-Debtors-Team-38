@@ -220,21 +220,19 @@ A total of five respondents were interviewed which included three males and two 
 
 ## Research Flow Screenshots
 
-![Empathy map](IMG-20220806-WA0088.jpg)
+![empathy map](https://drive.google.com/uc?export=view&id=1p0UgCdPYFCg6fdBHcj7w5XpJcBOMpaWK)
 
-![Pain Points](IMG-20220806-WA0087.jpg)
+![Pain Points](https://drive.google.com/uc?export=view&id=1SfHNCc_ZVCUn_d8RHmadf7Uk_FkIlmJm)
 
-![User Persona](IMG-20220806-WA0089.jpg)
+![User Persona](https://drive.google.com/uc?export=view&id=1yeYidn2KDWImJH1r6zdmJYeQxbVVmTGB)
 
-![Brainstorm](IMG-20220806-WA0090.jpg)
+![Brainstorm](https://drive.google.com/uc?export=view&id=1Jccf5ijTju4j_4SsPP5bcCZ8_bwKY8aL)
 
-![User Story](IMG-20220806-WA0091.jpg)
+![User Story](https://drive.google.com/uc?export=view&id=10acIyGbz3BqcCJYgFam0fcudI-yNEqfe)
 
-![Idea Prioritization matrix](IMG-20220806-WA0092.jpg)
+![Idea Priotirization Matrix](https://drive.google.com/uc?export=view&id=1FqobtSLEo4jof7iaJq4YM5fpQjJDbNEE)
 
-![User Flow](IMG-20220806-WA0086.jpg)
-
-
+![User Flow](https://drive.google.com/uc?export=view&id=1pAQjDQPdKRSAfreWhv8E6ylfwjLTsfK2)
 
 
 
