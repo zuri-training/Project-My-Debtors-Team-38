@@ -195,6 +195,8 @@ class Student(models.Model):
     gender = models.CharField(max_length=10)
     class_of_withdrawal = models.CharField(max_length=20)
     date_of_withdrawal = models.DateTimeField(null=True)
+    debt_incured = models.DecimalField(max_digits=11, decimal_places=2)
+    interest_incured = models.DecimalField(max_digits=50, decimal_places=2)
 
     avatar = models.ImageField(
         max_length=255, null=True, default='Ellipse 1.svg')
