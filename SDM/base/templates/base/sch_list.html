@@ -1,0 +1,48 @@
+{% extends 'main_index.html' %}
+{% load static %}
+{% block content %}
+<main>
+  <div class="container-md my-5">
+    <div class="text-center">
+      <h3>Schools registered with us</h3>
+    </div>
+    <div class="row my-5">
+      <div class="col-sm-7 rounded">
+        <div class="row mb-5 student-box">
+          <div class="col-9 col-sm-3">
+            <img src="{% static 'images/Ellipse 1.svg' %}" alt="" class="img-fluid img-school" />
+          </div>
+          <div class="col col-sm-9 mt-3">
+            <h4>Scarlett Montessori Group School</h4>
+            <p>scarlettmongs@gmail.com</p>
+            <p>08032764219, 07064931527</p>
+            <p>No22 Agbata Street, Agalo, Mushin, Lagos State</p>
+          </div>
+        </div>
+        <div class="row mb-5 student-box">
+          <div class="col-9 col-sm-3">
+            <img src="{% static 'images/Ellipse 1-2.svg' %}" alt="" class="img-fluid img-school" />
+          </div>
+          <div class="col col-sm-9 mt-3">
+            <h4>Praise Word Secondary School</h4>
+            <p>praisewordchools@gmail.com</p>
+            <p>08032764219, 07064931527</p>
+            <p>No22 Akpoguma Street, Agalo, Ebute-Meta, Lagos State</p>
+          </div>
+        </div>
+        <div class="row mb-5 student-box">
+          <div class="col-9 col-sm-3">
+            <img src="{% static 'images/Group 2608527.svg' %}" alt="" class="img-fluid img-school" />
+          </div>
+          <div class="col col-sm-9 mt-3">
+            <h4>Shinning Light Primary School</h4>
+            <p>shinninglightprisch@gmail.com</p>
+            <p>08032764219, 07064931527</p>
+            <p>No13 Lasun Street, Agalo, Surulere, Lagos State</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+{% endblock %}
