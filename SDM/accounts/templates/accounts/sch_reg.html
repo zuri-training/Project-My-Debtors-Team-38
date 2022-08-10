@@ -1,87 +1,350 @@
-{% load static %}
 <!DOCTYPE html>
+{% load static %}
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <title>School sign up</title>
-        <style type="text/css">
-            .card-signin {
-                width: 100%;
-                max-width: 400px;
-                padding: 15px;
-                margin: auto;
-            }
+  <head>
+    <meta charset="UTF-8">
+    <title>School sign up</title>
+  </head>
+  <body>
 
-            .form-signin input[type="email"] {
-                margin-bottom: 10px;
-                border-bottom-right-radius: 0;
-                border-bottom-left-radius: 0;
-            }
+  </body>
+</html>
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+  <link rel="stylesheet" href="customstyle.css" />
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-            .form-signin input[type="text"] {
-                margin-bottom: 10px;
-                border-bottom-right-radius: 0;
-                border-bottom-left-radius: 0;
-            }
+    body {
+      height: 100vh;
+      background: linear-gradient(to right,
+          #fffefe 0%,
+          #fffefe 50%,
+          #7f5eaa 50%,
+          #7f5eaa 100%);
+    }
 
-            .form-signin input[type="password"] {
-                margin-bottom: -1px;
-                border-top-left-radius: 0;
-                border-top-right-radius: 0;
-            }
-
-        </style>
-    </head>
-    <body>
+    /* ======= Left side of the form ==== */
 
 
-        <div class="container-fluid">
-            <div class="row justify-content-center">
-                <div class="card card-signin">
-                    <div class="card-body">
-                        <form class="form-signin" method="post">
-                            {% csrf_token %}
-                            <div class="d-flex flex-column pb-3">
-                                <img class="img-fluid mx-auto d-block"
-                                    src="{% static 'codingwithmitch/logo_250_250_transparent.png' %}"
-                                    alt="codingwithmitch logo" width="72" height="72">
-                            </div>
-                            <input type="email" name="email" id="inputEmail" class="form-control"
-                                placeholder="Email address" required autofocus>
+    .left {
+      position: absolute;
+      width: 50%;
+      height: 100%;
+      left: 0px;
+      top: 0px;
+      background: #fffefe;
 
-                            <input type="password" name="password1" id="inputPassword1" class="form-control"
-                                placeholder="Password" required>
+    }
 
-                            <input type="password" name="password2" id="inputPassword2" class="form-control"
-                                placeholder="Confirm password" required>
+    .left .sidebar {
+      position: absolute;
+      width: 100%;
+      height: 1200px;
+      margin-left: 165px;
+      margin-top: 195px;
+      border-radius: 10px 0px 0px 10px;
+      background: #dbcbea;
 
-                            {% for field in registration_form %}
-                            <p>
-                                {% for error in field.errors %}
-                                <p style="color: red">
+    }
 
-                                    {{ error }}</p>
-                                {% endfor %}
-                            </p>
-                            {% endfor %}
-                            {% if registration_form.non_field_errors %}
-                            <div style="color: red">
-                                <p>{{registration_form.non_field_errors}}</p>
-                            </div>
+    .logo {
+      width: 186px;
+      height: 80px;
+      margin-top: 48px;
+      margin-left: 40px;
+      cursor: pointer;
+    }
 
-                            {% endif %}
 
-                            <button class="btn btn-lg btn-primary btn-block" type="submit">Register</button>
+    .logo:hover {
+      box-shadow: 0px 2.86194px 8.58582px 2.86194px rgba(0, 0, 0, 0.15);
+      filter: drop-shadow(0px 1.43097px 2.86194px rgba(0, 0, 0, 0.3));
+    }
 
-                        </form>
-                    </div>
-                </div>
+    .intro {
+      position: absolute;
+      width: 343px;
+      height: 80px;
+      left: 48px;
+      top: 196px;
+      font-family: "Playfair Display";
+      font-style: normal;
+      font-weight: 400;
+      font-size: 32px;
+      line-height: 40px;
+      color: #1e1a1a;
+    }
 
-            </div>
-            {% if request.user.is_authenticated %}
-            <h1>{{request.user}}</h1>
-            {% endif %}
+    .notification {
+      position: absolute;
+      left: 55.18px;
+      margin-top: 375.33px;
+    }
+
+    .school {
+      margin-top: 270px;
+      display: flex;
+      flex-direction: column;
+      margin-left: 48px;
+    }
+
+
+    .not {
+      width: 282px;
+      height: 32px;
+      font-family: "Playfair Display";
+      font-style: normal;
+      font-weight: 400;
+      font-size: 24px;
+      line-height: 32px;
+      color: #1e1a1a;
+    }
+
+    .school p {
+      width: 269px;
+      height: 78px;
+      font-family: "Playfair Display";
+      font-style: normal;
+      font-weight: 400;
+      font-size: 20px;
+      line-height: 26px;
+      color: #1e1a1a;
+    }
+
+    .cleardata {
+      margin-left: 48px;
+      margin-top: 91.33px;
+    }
+
+    .dta {
+      width: 282px;
+      height: 32px;
+      font-family: "Playfair Display";
+      font-style: normal;
+      font-weight: 400;
+      font-size: 24px;
+      line-height: 32px;
+      color: #1e1a1a;
+    }
+
+    .data {
+      width: 269px;
+      height: 78px;
+      font-family: "Playfair Display";
+      font-style: normal;
+      font-weight: 400;
+      font-size: 20px;
+      line-height: 26px;
+      color: #1e1a1a;
+    }
+
+    .pic {
+      position: absolute;
+      box-sizing: border-box;
+      width: 575px;
+      height: 521.81px;
+      right: 380px;
+      top: 800px;
+      box-shadow: 0px 2px 6px 2px rgba(0, 0, 0, 0.15);
+      filter: drop-shadow(0px 1px 2px rgba(0, 0, 0, 0.3));
+    }
+
+    /* ======= Right side of the form======== */
+
+    .right {
+      position: absolute;
+      width: 50%;
+      height: 100%;
+      right: 0px;
+      top: 0px;
+      background: #7f5eaa;
+    }
+
+    .formside {
+      position: absolute;
+      width: 70%;
+      height: 1220px;
+      margin-right: 165px;
+      left: 0;
+      top: 195px;
+      border-radius: 6px;
+      background: white;
+    }
+
+    .title {
+      width: 303.38px;
+      height: 40px;
+      margin-left: 86.94px;
+      margin-top: 72.21px;
+      font-family: "Playfair Display";
+      font-style: normal;
+      font-weight: 400;
+      font-size: 32.6026px;
+      line-height: 40px;
+      color: #1e1a1a;
+    }
+
+    .signin {
+      width: 272.59px;
+      height: 24px;
+      margin-left: 86.94px;
+      margin-top: 8px;
+      font-family: "Playfair Display";
+      font-style: normal;
+      font-weight: 400;
+      font-size: 18.1125px;
+      line-height: 24px;
+      color: #1e1a1a;
+
+    }
+
+    .form-group {
+      margin-left: 86.94px;
+      margin-top: 42.45px;
+      gap: 32px;
+    }
+
+    .form-group label {
+      display: block;
+      color: #1E1A1A;
+      font-family: 'Playfair Display';
+      font-style: normal;
+      font-weight: 400;
+      font-size: 20px;
+      line-height: 26px;
+
+    }
+
+    .form-group input {
+      width: 397.57px;
+      padding: 17px;
+      border: 1px solid #1E1A1A;
+      border-radius: 5px;
+    }
+
+    a {
+      text-decoration: none;
+      color: black;
+    }
+
+
+    /* #name {
+  width: 200px;
+}
+#email {
+  width: 200px;
+}
+#tel {
+  width: 200px;
+}
+#password {
+  width: 61px;
+}
+#cpassword {
+  width: 200px;
+} */
+
+    .form-group .cond {
+      width: 375px;
+      height: 29px;
+      margin-top: 20px;
+      font-family: "Playfair Display";
+      font-style: normal;
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 20px;
+      display: flex;
+      align-items: center;
+      letter-spacing: 0.25px;
+      color: #1e1a1a;
+    }
+
+
+    .custom-btn-primary {
+      display: block;
+      width: 179px;
+      height: 55.04px;
+      padding: 16px 32px;
+      margin-top: 152px;
+      margin-left: 182px;
+      background-color: #77aed0;
+      border-radius: 10px;
+    }
+
+  </style>
+</head>
+<body>
+  <div class="left">
+    <div class="sidebar">
+      <img src="{% static '/images/SDMlogo.svg' %}" alt="" id="ellipse1" class="logo">
+      <h1 class="intro">Get Started Uploading your directory</h1>
+      <img src="{% static '/images/notification.svg' %}" alt="notification" class="notification">
+
+      <div class="school">
+
+        <h3 class="not">School Notification</h3>
+        <p>
+          No need to stress, we'll notify you when your attention is needed
+        </p>
+      </div>
+
+      <div class="cleardata">
+        <img src="{% static '/images/confirm.svg' %}" class="confirm" alt="">
+        <h3 class="dta">Clear data</h3>
+        <h4 class="data">
+          You can always clear the data of your debtor when the issue has been
+          resolved
+        </h4>
+      </div>
+      <div class="pic">
+        <img src="{% static '/images/Frame 2608179-1.svg' %}" alt="">
+      </div>
+
+    </div>
+
+  </div>
+
+  <div class="right">
+    <div class="formside">
+      <h1 class="title">Register As School</h1>
+      <p class="signin">
+        Already have an account?<a href="{% url 'accounts:login' %}">Sign In</a>
+      </p>
+      <form action="">
+        <div class="form-group">
+          <label for="name" id="name">Full Name of School</label>
+          <input type="text" name="Sname" id="customform-sm" placeholder="Name Of School" />
         </div>
-
-    </body>
+        <div class="form-group">
+          <label for="email" id="email">School Email</label>
+          <input type="email" name="email" id="customform-sm" placeholder="johndoe@gmail.com" />
+        </div>
+        <div class="form-group">
+          <label for="tel" id="tel">School Phone Number</label>
+          <input type="tel" name="number" id="customform-sm" placeholder="Phone Number" required />
+        </div>
+        <div class="form-group">
+          <label for="password" id="password">Password</label>
+          <input type="password" name="password" id="customform-sm" class="cond" required />
+          <p class="cond">At least 8 Characters in length, should contain a mixture of Uppercase (A- Z), Lower case
+            letters (a - z), Numbers (0 - 9) and Special symbols (@,$,*,&)</p>
+        </div>
+        <div class="form-group">
+          <label for="password" id="cpassword">Confirm Password</label>
+          <input type="password" name="password" id="customform-sm" placeholder="Confirm password" required />
+        </div>
+      </form>
+      <br />
+      <button type="button" class="custom-btn-primary">Register</button>
+    </div>
+  </div>
+</body>
 </html>

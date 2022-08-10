@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./universal.css" />
+
+    <title>Backlogs</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        scroll-behavior: smooth;
+        text-decoration: none;
+        font-family: "DM Sans", sans-serif;
+      }
+
+      body {
+        height: 100%;
+      }
+
+      /* SCHOOL REVIEW PAGE */
+
+      .card {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        margin-top: -70px;
+      }
+
+      .hero {
+        position: relative;
+        height: 100%;
+        left: 30%;
+        width: calc(100% - 50%);
+        /* margin-top: 100px; */
+        /* margin-right: 300px; */
+      }
+
+      .hero2 {
+        position: relative;
+        height: 100%;
+        left: 30%;
+        width: calc(100% - 50%);
+        margin-bottom: 100px;
+        margin-top: -90px;
+      }
+
+      .text {
+        width: 500px;
+        height: 52px;
+        font-family: "Playfair Display";
+        font-style: normal;
+        font-weight: 400;
+        font-size: 41px;
+        line-height: 52px;
+        color: #03050e;
+      }
+
+      .wrapper {
+        width: 500px;
+        height: 194.65px;
+        margin-top: 100px;
+        padding: 16.4px;
+        background-color: #dbcbea;
+        border-radius: 8.4px;
+        display: flex;
+        gap: 20px;
+      }
+
+      .hero-info {
+        display: flex;
+        flex-direction: column;
+        gap: 7px;
+      }
+
+      .hero-info h3 {
+        font-family: "Playfair Display";
+        font-style: normal;
+        font-weight: 700;
+        font-size: 12.603px;
+        line-height: 17px;
+
+        color: #000000;
+      }
+
+      .hero-info span {
+        font-family: "Playfair Display";
+        width: 67px;
+        height: 17px;
+        color: #000000;
+        font-style: normal;
+        font-weight: 400;
+        font-size: 12.603px;
+        line-height: 17px;
+      }
+
+      .status {
+        width: 67px;
+        height: 25px;
+        font-family: "Playfair Display";
+        font-style: normal;
+        font-weight: 500;
+        font-size: 20px;
+        line-height: 20px;
+        display: flex;
+        align-items: center;
+        color: #000000;
+        margin-left: 473px;
+        margin-top: 24px;
+        margin-bottom: 32px;
+      }
+
+      .status2 {
+        margin-top: -70px;
+      }
+
+      .status span {
+        width: 142px;
+        height: 25px;
+        font-family: "Playfair Display";
+        font-style: normal;
+        font-weight: 400;
+        font-size: 20px;
+        /* line-height: 26px; */
+        display: flex;
+        align-items: center;
+        color: #000000;
+        margin-left: 10px;
+      }
+
+      .review {
+        width: 357.5px;
+        height: 56px;
+        padding: 20px 10px;
+        left: 0px;
+        top: 0px;
+        background: #dbcbea;
+        border-radius: 16px;
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        position: relative;
+      }
+
+      .review::after{
+        content: "";
+        position: absolute;
+        display: block;
+        bottom: 7px;
+        left: 5px;
+        background-color: #7F5EAA;
+        width: 260px;
+        height: 0px;
+        border: 1.5px solid #7F5EAA;
+      }
+
+      .review-title {
+        width: 154px;
+        height: 26px;
+        font-family: "Playfair Display";
+        font-style: normal;
+        font-weight: 400;
+        font-size: 20px;
+        line-height: 26px;
+        color: #3e1c73;
+      }
+
+      .review-number {
+        width: 31.17px;
+        height: 22px;
+        margin: auto;
+        padding: 5px;
+        margin-left: 73px;
+        background: #7f5eaa;
+      }
+
+      .review-container {
+        margin-top: 100px;
+        display: flex;
+        justify-content: space-evenly;
+      }
+
+      .backlog {
+        position: relative;
+        border: none;
+        width: 357.5px;
+        height: 56px;
+        padding: 20px 10px;
+        border-radius: 16px;
+        display: flex;
+        align-items: center;
+        gap: 1px;
+        justify-content: space-around;
+      }
+
+      .backlog::after{
+        content: "";
+        position: absolute;
+        display: block;
+        bottom: 7px;
+        left: 5px;
+        background-color: #7F5EAA;
+        width: 260px;
+        height: 0px;
+        border: 1.5px solid #7F5EAA;
+      }      
+
+      .backlog-title {
+        width: 182px;
+        height: 26px;
+        font-family: "Playfair Display";
+        font-style: normal;
+        font-weight: 400;
+        font-size: 20px;
+        line-height: 26px;
+        color: #7f5eaa;
+      }
+
+      .backlog-number{
+        width: 31.17px;
+        height: 22px;
+        margin: auto;
+        padding: 5px;
+        margin-left: 40px;
+        background: #7f5eaa;
+      }
+
+      .search {
+        width: 270px;
+        height: 50px;
+        background-color: #F5F5F5;
+         display: flex; 
+        align-items: center;
+        border-radius: 30px;
+        padding: 20px;
+        margin-left: 550px;
+        margin-top: 50px; 
+      }
+
+      .search > input {
+        flex: 1;
+        height: 24px;
+        border: 5px solid white;
+        font-family: "DM Sans";
+        font-style: normal;
+        font-weight: 400;
+        outline: none;
+        font-size: 18px;
+        padding-left: 15px;
+        border-radius: 5px;
+        line-height: 24px;
+      }
+      .img {
+        cursor: pointer;
+        padding: 5px;
+      } 
+    </style>
+  </head>
+  <body>
+    <section class="container">
+      <div class="review-container">
+        <div class="backlog">
+          <h4 class="review-title">Ongoing Reviews</h4>
+          <h6 class="review-number">2</h6>
+    
+        </div>
+        <div class="review">
+          <h4 class="backlog-title">Backlog</h4>
+          <h6 class="backlog-number">3</h6>
+        </div>
+      </div>
+
+      <div class="search">
+        <img class="img" src="../static/images/search.svg" alt="" />
+        <input class="input-field" type="text" placeholder="Search" />
+      </div>
+      <div class="card">
+        <section class="hero">
+          <div class="wrapper">
+            <div class="hero-img">
+              <img src="../static/images/okoro.svg" alt="ephraim" />
+            </div>
+            <div class="hero-info">
+              <h3>Name: <span>Okoro Nkechi Williamina</span></h3>
+              <h3>Gender: <span>Female</span></h3>
+              <h3>Month of Withdrawal: <span>December</span></h3>
+              <h3>Class before withdrawal: <span>Jss2</span></h3>
+              <h3>Unpaid Debt: <span>#55,000</span></h3>
+              <h3>Interest incurred: <span>10%</span></h3>
+            </div>
+            <div class="hero-info">
+              <h3>Student ID: <span>SMS2001726</span></h3>
+              <h3>Year of withdrawal: <span>2021</span></h3>
+            </div>
+            
+
+            <div>
+              <img src="../static/images/Group 23.svg" alt="" />
+            </div>            
+          </div>
+        </section>
+        <h4 class="status">Status: <span>On-hold</span></h4>
+        <section class="hero2">
+          <div class="wrapper">
+            <div class="hero-img">
+              <img src="../static/images/oluwafemi.svg" alt="ephraim" />
+            </div>
+            <div class="hero-info">
+              <h3>Name: <span>Oluwafemi Feyikemi Hosea</span></h3>
+              <h3>Gender: <span>Male</span></h3>
+              <h3>Month of Withdrawal: <span>October</span></h3>
+              <h3>Class before withdrawal: <span>Jss2</span></h3>
+              <h3>Unpaid Debt: <span>#25,000</span></h3>
+              <h3>Interest incurred: <span>40%</span></h3>
+            </div>
+            <div class="hero-info">
+              <h3>Student ID: <span>SMS1802724</span></h3>
+              <h3>Year of withdrawal: <span>2019</span></h3>
+            </div>
+            <div>
+              <img src="../static/images/Group 23.svg" alt="" />
+            </div>
+          </div>
+        </section>
+        <h4 class="status status2">Status: <span>On-hold</span></h4>
+        <section class="hero2">
+            <div class="wrapper">
+              <div class="hero-img">
+                <img src="../static/images/Ellipse 3.svg" alt="ephraim" />
+              </div>
+              <div class="hero-info">
+                <h3>Name: <span>Ephraim Onyebuchi Derrick</span></h3>
+                <h3>Gender: <span>Male</span></h3>
+                <h3>Month of Withdrawal: <span>January</span></h3>
+                <h3>Class before withdrawal: <span>Jss1</span></h3>
+                <h3>Unpaid Debt: <span>#52,000</span></h3>
+                <h3>Interest incurred: <span>8.75%</span></h3>
+              </div>
+              <div class="hero-info">
+                <h3>Student ID: <span>SMS2201126</span></h3>
+                <h3>Year of withdrawal: <span>2022</span></h3>
+              </div>
+              <div>
+                <img src="../static/images/Group 23.svg" alt="" />
+              </div>
+            </div>
+          </section>
+      </div>
+    </section>
+  </body>
+</html>

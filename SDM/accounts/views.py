@@ -74,6 +74,10 @@ def login_page(request):
     return render(request, 'accounts/login.html', context)
 
 
+def forgot_password(request):
+    return render(request, 'accounts/forgot_pswd.html')
+
+
 @login_required(login_url='login')
 def school_dashboard_page(request):
     context = {}
