@@ -1,10 +1,203 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Login</title>
-</head>
-<body>
+{% extends 'main_index.html' %}
+{% load static %}
+{% block content %}
+<style>
+    {% comment %} #login {
+        background: #7F5EAA;
+        padding: 0;
+        margin: 0;
+        width: 100%;
+    } {% endcomment %}
 
-</body>
-</html>
+    #login {
+        width: 100%;
+        height: 64rem;
+        position: relative;
+        background: #7F5EAA;
+        margin: 0;
+        padding: 0;
+    }
+
+    #login .tinted-box,
+    #login .purple-box {
+        width: 50%;
+        height: 1024px;
+        position: absolute;
+    }
+
+    #login .tinted-box {
+        background: #DBCBEA;
+        left: 0;
+        top: 0;
+    }
+    #login .purple-box {
+        right: 0;
+        top: 0;
+        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    }
+    #login .tinted-box div {
+        position: absolute;
+        width: 80%;
+        height: 671px;
+        right: 0px;
+        top: 177px;
+        background: url("/images/signup-page.svg");
+        border-top-left-radius: 16px;
+        border-bottom-left-radius: 16px;
+    }
+    #login .purple-box div {
+        position: absolute;
+        width: 80%;
+        height: 671px;
+        left: 0px;
+        top: 177px;
+        border-top-right-radius: 16px;
+        border-bottom-right-radius: 16px;
+        background: #FFFEFE;
+        padding-top: 130px;
+        font-family: 'Playfair Display'
+        color: #1E1A1A;
+        font-style: normal;
+        text-align: center;
+        padding-left: 25px;
+    }
+
+    #login .purple-box h1 {
+      width: 334px;
+      height: 40px;
+      font-weight: 400;
+      font-size: 32.6026px;
+      line-height: 40px;
+      color: #1E1A1A;
+
+    }
+    #login .purple-box p {
+      width: 272.59px;
+      height: 24px;
+
+      font-family: 'Playfair Display';
+      font-style: normal;
+      font-weight: 400;
+      font-size: 18.1125px;
+      line-height: 24px;
+    }
+    #login .purple-box p > a {
+      color: #777480;
+    }
+    #login ::placeholder {
+        font-weight: 400;
+        font-size: 16.5857px;
+        line-height: 17px;
+        text-indent: 10px;
+    }
+    #login .purple-box form {
+      {% comment %} margin: 0; {% endcomment %}
+      text-align: left;
+    }
+    #login .purple-box form input{
+      width: 387px;
+      height: 50.17px;
+      background: #FFFEFE;
+      border: 0.691071px solid #1E1A1A;
+      border-radius: 5.52857px;
+        text-indent: 10px;
+    }
+
+    #login .purple-box form label {
+      width: 89px;
+      height: 18px;
+      font-family: 'Playfair Display';
+      font-style: normal;
+      font-weight: 400;
+      font-size: 20px;
+      line-height: 26px;
+    }
+    #pwd {
+      margin-top: 15px;
+    }
+    #login .purple-box form #fgp {
+      width: 102px;
+      height: 16px;
+      font-family: 'Playfair Display';
+      font-style: normal;
+      font-weight: 400;
+      font-size: 12px;
+      line-height: 16px;
+      color: #1E1A1A;
+      text-align: left;
+    }
+    #login .purple-box form #checkbox {
+      width: 13.99px;
+      height: 10px;
+      display: inline-block;
+    }
+    #login .purple-box div form #ch {
+      width: 83px;
+      height: 16px;
+    }
+    #login .purple-box div form #btn {
+      position: relative;
+        left: 145px;
+      text-align: center;
+      margin: 0 auto;
+      width: 139.2px;
+      height: 55.58px;
+      background: #77AED0;
+      border-radius: 20px;
+      border: none;
+      font-style: normal;
+      font-weight: 500;
+      font-size: 14px;
+      line-height: 20px;
+      letter-spacing: 0.1px;
+    }
+
+
+</style>
+<main id="login">
+    <section class="tinted-box">
+        <div>
+        </div>
+    </section>
+    <section class="purple-box">
+        <div>
+          <h1>Login to your account</h1>
+          <p>Don't have an account? <a href="">Register</a></p>
+
+          <form method="POST">
+          {% csrf_token %}
+          <label for="email">Email&nbsp;Address</label><br>
+          <input type="email" name="" placeholder="Enter email address"><br>
+          
+          <label id="pwd" for="password">Password</label><br>
+          <input type="password" name="" placeholder="Enter password"><br>
+          <a id="fgp" href="">Forgot Password?</a> <br> <br>
+
+          <p><input id="checkbox" type="checkbox" name="checkbox">
+          <label id="ch" for="checkbox">
+          Remember&nbsp;me
+          </label></p>
+
+          <button id="btn" type="submit">Send</button>
+          </form>
+        </div>
+    </section>
+    {% comment %} 
+    <section class="purple-box">
+        <div>
+            <h1>Forgot Password?</h1>
+            <p>Please enter the address associated with your account to receive instructions.</p>
+            <section class="form-box">
+                <h4>Email address</h4>
+                <form class="form" method="post">
+                    {% csrf_token %}
+                    <input type="input" type="email" name="" placeholder="Enter email address">
+
+                    <button id="btn" type="submit">Send</button>
+
+                </form>
+            </section>
+        </div>
+    </section> {% endcomment %}
+</main>
+{% endblock %}

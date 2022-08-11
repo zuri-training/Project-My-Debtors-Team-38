@@ -142,7 +142,7 @@ class GuardianChild(models.Model):
     gender = models.CharField(max_length=10)
     relationship = models.CharField(max_length=30)
 
-    # name to display on the admi panel
+    # name to display on the admin panel
     class Meta:
         verbose_name = 'Guardian Child'
         verbose_name_plural = 'Guardian Children'
@@ -195,13 +195,15 @@ class Student(models.Model):
     gender = models.CharField(max_length=10)
     class_of_withdrawal = models.CharField(max_length=20)
     date_of_withdrawal = models.DateTimeField(null=True)
+    debt_incured = models.DecimalField(max_digits=11, decimal_places=2)
+    interest_incured = models.DecimalField(max_digits=50, decimal_places=2)
 
     avatar = models.ImageField(
         max_length=255, null=True, default='Ellipse 1.svg')
 
 
 # Create School
-# school = school.objects.create(enter fields)
+# school = School.objects.create(enter fields)
 
 # Add extra fields to School
 # Schoolprofile.objects.create(user=school_instance, extra_fields...)
