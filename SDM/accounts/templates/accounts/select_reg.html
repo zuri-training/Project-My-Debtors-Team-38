@@ -1,10 +1,476 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Select</title>
-</head>
-<body>
+{% extends 'main_index.html' %}
+{% load static %}
+{% block content %}
+<style>
+  main.select_acc {
+    position: relative;
+    width: 1440px;
+    height: 1024px;
+    box-sizing: border-box;
 
-</body>
-</html>
+    /* Grey/White */
+
+    background: #fffefe;
+  }
+
+  h1.select_acc {
+    /* SignUp to SDM */
+
+    position: absolute;
+    width: 379px;
+    height: 64px;
+    left: 534px;
+    top: 173px;
+
+    /* Display/Display Large */
+
+    font-family: "Playfair Display";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 57px;
+    line-height: 64px;
+    /* identical to box height, or 112% */
+
+    display: flex;
+    align-items: center;
+    text-align: center;
+    letter-spacing: -0.25px;
+
+    /* Black for Texts */
+
+    color: #1e1a1a;
+  }
+
+  h2.select_acc {
+    /*how would you like to join us?*/
+    position: absolute;
+    width: 478px;
+    height: 44px;
+    left: 495px;
+    top: 261px;
+
+    /* Display/Mobile Display Large andWeb Display Small */
+
+    font-family: "Playfair Display";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 36px;
+    line-height: 44px;
+    /* identical to box height, or 122% */
+
+    display: flex;
+    align-items: center;
+    text-align: center;
+
+    /* Black for Texts */
+
+    color: #1e1a1a;
+  }
+
+  #button1 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 24px;
+    gap: 10px;
+
+    position: absolute;
+    width: 1056px;
+    height: 101.87px;
+    left: 192px;
+    top: 534px;
+
+    /* Primary/5 */
+
+    background: #7f5eaa;
+    border-radius: 20px;
+    /* label-text */
+
+    min-width: 140px;
+    min-height: 51px;
+    /* M3/label/large */
+
+    font-family: "Roboto";
+    font-style: normal;
+    font-weight: 500;
+    font-size: 40px;
+    line-height: 20px;
+    /* or 143% */
+
+    display: flex;
+    align-items: center;
+    text-align: center;
+    letter-spacing: 0.1px;
+
+    /* Grey/White */
+
+    color: #fffefe;
+
+    /* Inside auto layout */
+
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+  }
+
+  #button1:hover {
+    border-radius: 0px;
+  }
+
+  #button2 {
+    /* Auto layout */
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 24px;
+    gap: 10px;
+
+    position: absolute;
+    width: 1056px;
+    height: 101.87px;
+    left: 192px;
+    top: 700px;
+
+    /* Grey/White */
+
+    background: #fffefe;
+    border: 1px solid #000000;
+    border-radius: 20px;
+    /* label-text */
+    min-width: 178px;
+    min-height: 51px;
+    /* M3/label/large */
+
+    font-family: "Roboto";
+    font-style: normal;
+    font-weight: 500;
+    font-size: 40px;
+    line-height: 20px;
+    /* or 143% */
+
+    display: flex;
+    align-items: center;
+    text-align: center;
+    letter-spacing: 0.1px;
+
+    /* Primary/12 */
+
+    color: #1c0050;
+
+    /* Inside auto layout */
+
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+  }
+
+  #button2:hover {
+    border-radius: 0px;
+    border-color: #7f5eaa;
+  }
+
+  .footer_select_acc {
+    position: absolute;
+    left: 709px;
+    top: 834px;
+    /* identical to box height, or 122% */
+
+    display: flex;
+    align-items: center;
+    text-align: center;
+  }
+
+  .signin {
+    width: 407px;
+    height: 44px;
+
+    /* Display/Mobile Display Large andWeb Display Small */
+
+    font-family: "Playfair Display";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 36px;
+    line-height: 44px;
+    align-items: center;
+    text-align: center;
+
+    /* Black for Texts */
+
+    color: #1e1a1a;
+
+    opacity: 0.5;
+  }
+
+  a.select_acc {
+    /* Primary Button */
+
+    width: 101px;
+    height: 44px;
+
+    /* Display/Mobile Display Large andWeb Display Small */
+
+    font-family: "Playfair Display";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 36px;
+    line-height: 44px;
+    /* identical to box height, or 122% */
+    text-decoration: none;
+
+    /* Primary/12 */
+
+    color: #1c0050;
+
+    /* Inside auto layout */
+
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+  }
+
+  @media only screen and (max-width: 480px) {
+    main.select_acc {
+      position: absolute;
+      height: 926px;
+      background: #fffefe;
+      border-radius: 12px;
+      box-sizing: border-box;
+      overflow-y: hidden;
+    }
+
+    .container {
+      /* Frame 2608539 */
+
+      /* Auto layout */
+
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      padding: 0px;
+      gap: 8px;
+
+      position: absolute;
+      width: 218px;
+      height: 72px;
+      left: 107px;
+      top: 347px;
+    }
+
+    h1.select_acc {
+      /* SignUp to SDM */
+      width: 215px;
+      height: 40px;
+
+      /* Header/H1 */
+      font-size: 32px;
+      line-height: 40px;
+      /* identical to box height, or 125% */
+      color: #000000;
+
+      /* Inside auto layout */
+
+      flex: none;
+      order: 0;
+      flex-grow: 0;
+    }
+
+    h2.select_acc {
+      /* How would you be joining us? */
+      width: 215px;
+      height: 24px;
+
+      /* Header/H2 */
+      font-size: 16px;
+      line-height: 24px;
+      /* identical to box height, or 150% */
+      letter-spacing: 0.1px;
+
+      /* Ter/100 */
+
+      color: #47404f;
+
+      /* Inside auto layout */
+
+      flex: none;
+      order: 1;
+      flex-grow: 0;
+    }
+
+    .button {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 0px;
+      gap: 8px;
+
+      position: absolute;
+      width: 315px;
+      height: 140px;
+      left: 500px;
+      top: 400px;
+    }
+
+    #button1 {
+      /* Sec Button */
+
+      /* Auto layout */
+
+      padding: 16px 45.3333px 16px 32px;
+      width: 313px;
+      height: 66px;
+
+      background: #7f5eaa;
+      border-radius: 10px;
+      min-width: 93px;
+      min-height: 34px;
+
+      /* Body/Body Large */
+      font-size: 16px;
+      line-height: 24px;
+      /* or 150% */
+      text-align: center;
+      letter-spacing: 0.2px;
+
+      /* Grey/White */
+
+      color: #fffefe;
+
+      /* Inside auto layout */
+
+      flex: none;
+      order: 0;
+      flex-grow: 0;
+    }
+
+    #button2 {
+      /* Auto layout */
+
+      padding: 16px 45.3333px 16px 32px;
+      width: 313px;
+      height: 66px;
+
+      background: #fffefe;
+      border-radius: 10px;
+      min-width: 115px;
+      min-height: 34px;
+
+      /* Body/Body Large */
+
+      font-size: 16px;
+      line-height: 24px;
+      /* or 150% */
+
+      text-align: center;
+      letter-spacing: 0.2px;
+
+      /* Grey/White */
+
+      color: #1c0050;
+      flex: none;
+      order: 1;
+      flex-grow: 0;
+    }
+
+    button:hover {
+      border-radius: 0px;
+      border-color: white;
+    }
+
+    .footer_select_acc {
+      /* Frame 2608529 */
+
+      /* Auto layout */
+
+      display: flex;
+      flex-direction: row;
+      align-items: flex-start;
+      padding: 0px;
+      gap: 4px;
+
+      position: absolute;
+      width: 253px;
+      height: 56px;
+      left: 88px;
+      top: 667px;
+    }
+
+    .signin {
+      /*Already have an account?
+    /* Auto layout */
+
+      width: 194px;
+      height: 32px;
+
+      /* Body/Body Large */
+      min-width: 186px;
+      font-size: 16px;
+      line-height: 24px;
+      /* identical to box height, or 150% */
+      letter-spacing: 0.2px;
+
+      /* Primary/11 */
+
+      color: #280a5c;
+
+      /* Inside auto layout */
+
+      flex: none;
+      order: 0;
+      flex-grow: 0;
+    }
+
+    a.select_acc {
+      /* Auto layout */
+
+      width: 47px;
+      height: 24px;
+
+      /* Inside auto layout */
+
+      flex: none;
+      order: 0;
+      flex-grow: 0;
+
+      /* Body/Body Large */
+
+      font-size: 16px;
+      line-height: 24px;
+      /* identical to box height, or 150% */
+      letter-spacing: 0.2px;
+
+      /* Primary/11 */
+
+      color: #280a5c;
+    }
+  }
+
+</style>
+<main class='select_acc'>
+  <div class="container">
+    <h1 class='select_acc'>SignUp to SDM</h1>
+    <h2 class='select_acc'>How would you be joining us?</h2>
+  </div>
+  <!--button group-->
+  <div class="button">
+    <a href="{% url 'accounts:sch_reg' %}">
+      <button type="button" id="button1">
+        SCHOOL
+      </button>
+    </a>
+    <a href="{% url 'accounts:gdn_reg' %}">
+      <button type="button2" id="button2">
+        GUARDIAN
+      </button>
+    </a>
+  </div>s
+  <!--Footer content-->
+  <div class="footer_select_acc">
+    <p class="signin">Already have an account?</p>
+    <a class='select_acc' href="{% url 'accounts:login' %}">Login</a>
+  </div>
+</main>
+{% endblock%}

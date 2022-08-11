@@ -27,7 +27,6 @@
 ## Marvel
 #### Branches Worked on <br/>
 - https://github.com/zuri-training/Project-My-Debtors-Team-38/branches/all?query=marvel
-
 ##### Tasks <br/>
 
 - Created the Post App Models
@@ -46,6 +45,7 @@
 | Template not rendering | Added the templates folder name in url path|
 
 
+>>>>>>> 5f6b2adce9f897b4d2571adf16d6ab8f43271ab4
 ## Csonwuka
 #### Branches Worked on <br/>
 - https://github.com/zuri-training/Project-My-Debtors-Team-38/branches/all?query=samuel
@@ -78,4 +78,10 @@
 #### Branches Worked on <br/>
 - https://github.com/zuri-training/Project-My-Debtors-Team-38/branches/all?query=muhembele
 
+<<<<<<< HEAD
+## Marvel
+### Branches Worked on <br/>
+- https://github.com/zuri-training/Project-My-Debtors-Team-38/branches/all?query=marvel
+=======
 
+>>>>>>> 5f6b2adce9f897b4d2571adf16d6ab8f43271ab4

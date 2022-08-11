@@ -9,18 +9,25 @@ from django.contrib import messages
 
 
 def select_reg_page(request):
-    context = {}
+    nav = 'nav'
+    page = 'school_reg'
+    context = {'page': page,
+               'nav': nav}
     return render(request, 'accounts/select_reg.html', context)
 
 
 def school_register_page(request, *args, **kwargs):
+    nav = 'nav'
+    page = 'school_reg'
+
     user = request.user
     if user.is_authenticated:
         print(user.role)
 
         return HttpResponse("You are already authenticated as " + str(user.email))
 
-    context = {}
+    context = {'page': page,
+               'nav': nav}
     if request.POST:
         form = SchoolRegistrationForm(request.POST)
         if form.is_valid():
@@ -43,11 +50,14 @@ def school_register_page(request, *args, **kwargs):
 
 
 def guardian_register_page(request, *args, **kwargs):
+    nav = 'nav'
+    page = 'gdn_reg'
     user = request.user
     if user.is_authenticated:
         return HttpResponse("You are already authenticated as " + str(user.email))
 
-    context = {}
+    context = {'page': page,
+               'nav': nav}
     if request.POST:
         form = GuardianRegistrationForm(request.POST)
         if form.is_valid():
@@ -66,31 +76,32 @@ def guardian_register_page(request, *args, **kwargs):
     else:
         form = GuardianRegistrationForm()
         context['registration_form'] = form
-    return render(request, 'accounts/gdn_reg.html', context)
+        print(context)
+    return render(request, 'accounts/gdn_reg.html', context=context)
 
 
 def login_page(request):
-    context = {}
-    return render(request, 'accounts/login.html', context)
+    nav = 'nav'
+    page = 'login'
+    context = {'page': page,
+               'nav': nav}
+    return render(request, 'accounts/login.html', context=context)
 
 
 def forgot_password(request):
-    return render(request, 'accounts/forgot_pswd.html')
+    nav = 'nav'
+    page = 'forgot_password'
+    context = {'nav': nav}
+    return render(request, 'accounts/forgot_pswd.html', context=context)
 
 
-@login_required(login_url='login')
+# @login_required(login_url='login')
 def school_dashboard_page(request):
     context = {}
     return render(request, 'accounts/sch_dshbd.html', context)
 
 
-@login_required(login_url='login')
+# @login_required(login_url='login')
 def guardian_home_page(request):
     context = {}
     return render(request, 'accounts/gdn_wlc.html', context)
-
-
-@login_required(login_url='login')
-def guardian_add_child_page(request):
-    context = {}
-    return render(request, 'accounts/chd_form.html', context)

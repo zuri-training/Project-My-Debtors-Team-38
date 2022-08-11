@@ -16,6 +16,7 @@ urlpatterns = [
 
     path("gdn_clear", views.gdn_clear, name="gdn_clear"),
     path("gdn_confirm", views.gdn_confirm, name="gdn_confirm"),
+    path('cdh_form/', views.guardian_add_child_page, name='cdh_form'),
     path("gdn_contend", views.gdn_contend, name="gdn_contend"),
 
 ]
