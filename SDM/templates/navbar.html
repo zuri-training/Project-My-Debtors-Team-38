@@ -11,12 +11,11 @@
     </div>
     <nav class="nav-bar">
         <ul>
-            <li><a class="home" href="{% url 'base:home' %}">Home</a></li>
-            <li><a class="about" href="#">About</a></li>
-            <li><a class="about" href="{% url 'base:school_registered' %}">Schools</a></li>
-            <li><a class="about" href="{% url 'base:contact_us' %}">Contact Us</a></li>
-            <li><a class="register" href="#">Register</a></li>
-            <li><a class="login" href="#">Login</a></li>
+            <li><a class="nav-btn" href="{% url 'base:home' %}">Home</a></li>
+            <li><a class="nav-btn" href="{% url 'base:school_registered' %}">Schools</a></li>
+            <li><a class="nav-btn" href="{% url 'base:contact_us' %}">Contact Us</a></li>
+            <li><a class="register" href="{% url 'accounts:select_reg' %}">Register</a></li>
+            <li><a class="login" href="{% url 'accounts:login' %}">Login</a></li>
         </ul>
     </nav>
 </header>

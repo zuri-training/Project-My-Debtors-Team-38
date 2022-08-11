@@ -1,621 +1,576 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+{% extends 'main_index.html' %}
+{% load static %}
+{% block content %}
+<style>
+    .cs-img {
+        height: 2em;
+    }
 
-    <!-- BOOTSTRAP STYLE BEGINS -->
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
-      crossorigin="anonymous"
-    />
+    .cs-student-box {
+        background-color: #DBCBEA;
+        border: 1px solid #DBCBEA;
+        border-top-left-radius: 0.6em;
+        border-top-right-radius: 0.6em;
+    }
 
-    <!-- BOOTSTRAP STYLE ENDS -->
+    .cs-student-box-2 {
+        background-color: #DBCBEA;
+        border: 1px solid #DBCBEA;
+        border-bottom-left-radius: 0.6em;
+        border-bottom-right-radius: 0.6em;
+    }
 
-    <!-- CUSTOM STYLE BEGINS -->
+    .cs-para {
+        font-size: 0.9em;
+        margin: 0.6em;
+    }
 
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap');
-        body {
-            background-image: url(../../../static/images/unsplash_7JX0-bfiuxQ\ \(2\).svg);
-            font-family: 'Playfair Display', serif;
-        }
-        .cs-img {
-            height: 2em;
-        }
-        .cs-student-box {
-            background-color: #DBCBEA;
-            border: 1px solid #DBCBEA;
-            border-top-left-radius: 0.6em;
-            border-top-right-radius: 0.6em;
-        }
-        .cs-student-box-2 {
-            background-color: #DBCBEA;
-            border: 1px solid #DBCBEA;
-            border-bottom-left-radius: 0.6em;
-            border-bottom-right-radius: 0.6em;
-        }
-        .cs-para {
-            font-size: 0.9em;
-            margin: 0.6em;
-        }
-        .cs-para-2 {
-            font-size: 0.7em;
-            margin: 0.4em;
-        }
-        .cs-anchor {
-            color: #141414;
-            text-decoration: none;
-        }
+    .cs-para-2 {
+        font-size: 0.7em;
+        margin: 0.4em;
+    }
 
-    </style>
+    .cs-anchor {
+        color: #141414;
+        text-decoration: none;
+    }
 
-    <!-- CUSTOM STYLE ENDS -->
-
-    <title>School Directory</title>
-  </head>
-  <body>
-    <main>
-        <div class="container">
-            <div class="row">
-                <div class="col-sm mt-4">
-                    <h2>Directory</h2>
-                    <p>Below is the directory of your debtors</p>
-                </div>
-                <div class="col-sm-4">
-                    <form action="">
+</style>
+<main id="sch_dir" class='after_login'>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm mt-4">
+                <h2>Directory</h2>
+                <p>Below is the directory of your debtors</p>
+            </div>
+            <div class="col-sm-4">
+                <form action="">
                     <label for="Search" class="form-label"></label>
-                    <input
-                        type="search"
-                        name="Search"
-                        id="Search"
-                        size="20px"
-                        class="form-control rounded"
-                        placeholder="Search"
-                    />
-                    </form>
+                    <input type="search" name="Search" id="Search" size="20px" class="form-control rounded"
+                        placeholder="Search" />
+                </form>
+            </div>
+        </div>
+        <div class="row my-3">
+            <div class="col-3">
+                <p><b>Sort by: </b>Recently added</p>
+            </div>
+            <div class="col-5">
+
+            </div>
+            <div class="col-2">
+                <p>
+                    <a href="#" class="cs-anchor">
+                        Add to List
+                        <img src="../../../static/images/add-circle- plus.svg" alt="plus symbol"
+                            class="img-fluid cs-img">
+                    </a>
+                </p>
+            </div>
+            <div class="col-2">
+                <p>
+                    <a href="#" class="cs-anchor">
+                        Delete all
+                        <img src="../../../static/images/trash.svg" alt="trash symbol" class="img-fluid cs-img">
+                    </a>
+                </p>
+            </div>
+        </div>
+        <div class="row row-cols-1 row-cols-md-2 gx-2 gy-4 my-2">
+            <div class="col px-4">
+                <div class="row pt-2 cs-student-box">
+                    <div class="col-2 mt-2">
+                        <img src="../../../static/images/Ellipse 3- african-boy.svg" alt="picture of a boy"
+                            class="img-fluid" />
+                    </div>
+                    <div class="col-5">
+                        <p class="cs-para"><b>Name</b>: Igbinosa Efosa Boraz</p>
+                        <p class="cs-para"><b>Gender</b>: Male</p>
+                        <p class="cs-para"><b>Unpaid Debt</b>: N65,000</p>
+                        <p class="cs-para"><b>Interest Incurred</b>: 20%</p>
+                    </div>
+                    <div class="col-4">
+                        <p class="cs-para"><b>Student ID</b>: SMS2201826</p>
+                        <p class="cs-para"><b>Withdrawal Class</b>: JS3</p>
+                        <p class="cs-para"><b>Withdrawal Date</b>: 1/1/2019</p>
+                    </div>
+                    <div class="col-1">
+                        <a href="#">
+                            <img src="../../../static/images/add-circle.svg" alt="cancel button" class="img-fluid">
+                        </a>
+                    </div>
+                </div>
+                <div class="row mb-2 cs-student-box-2">
+                    <div class="col-6">
+
+                    </div>
+                    <div class="col-3">
+                        <div class="d-flex justify-content-end">
+                            <span>
+                                <a href="#" class="cs-anchor">
+                                    <img src="../../../static/images/messages-3.svg" alt="message picture"
+                                        class="img-fluid cs-img">
+                                </a>
+                            </span>
+                            <span>
+                                <a href="#" class="cs-anchor">
+                                    <p class="cs-para-2">12 Comments</p>
+                                </a>
+                            </span>
+                        </div>
+                        <div class="row">
+                            <a href="#" class="cs-anchor">
+                                <p class="cs-para-2">View Comments</p>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-3">
+                        <div class="d-flex justify-content-end">
+                            <span>
+                                <a href="#" class="cs-anchor">
+                                    <img src="../../../static/images/Vectorflag.svg" alt="flag post"
+                                        class="img-fluid cs-img">
+                                </a>
+                            </span>
+                            <span>
+                                <a href="#" class="cs-anchor">
+                                    <p class="cs-para-2">Contended</p>
+                                </a>
+                            </span>
+                        </div>
+                        <div class="row">
+                            <p class="cs-para-2">
+                                <a href="#" class="cs-anchor">
+                                    Reason For Contend
+                                </a>
+                            </p>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div class="row my-3">
-                <div class="col-3">
-                    <p><b>Sort by: </b>Recently added</p>
+            <div class="col px-4">
+                <div class="row pt-2 cs-student-box">
+                    <div class="col-2 mt-2">
+                        <img src="../../../static/images/Ellipse 3 (2).svg" alt="picture of a boy" class="img-fluid" />
+                    </div>
+                    <div class="col-5">
+                        <p class="cs-para"><b>Name</b>: Okoro Nkechi Williamina</p>
+                        <p class="cs-para"><b>Gender</b>: Female</p>
+                        <p class="cs-para"><b>Unpaid Debt</b>: N55,000</p>
+                        <p class="cs-para"><b>Interest Incurred</b>: 10%</p>
+                    </div>
+                    <div class="col-4">
+                        <p class="cs-para"><b>Student ID</b>: SMS2001726</p>
+                        <p class="cs-para"><b>Withdrawal Class</b>: JS2</p>
+                        <p class="cs-para"><b>Withdrawal Date</b>: 11/12/2021</p>
+                    </div>
+                    <div class="col-1">
+                        <a href="#">
+                            <img src="../../../static/images/add-circle.svg" alt="cancel button" class="img-fluid">
+                        </a>
+                    </div>
                 </div>
-                <div class="col-5">
+                <div class="row mb-2 cs-student-box-2">
+                    <div class="col-6">
 
-                </div>
-                <div class="col-2">
-                    <p>
-                        <a href="#" class="cs-anchor">
-                            Add to List
-                            <img src="../../../static/images/add-circle- plus.svg" alt="plus symbol" class="img-fluid cs-img">
-                        </a>
-                    </p>
-                </div>
-                <div class="col-2">
-                    <p>
-                        <a href="#" class="cs-anchor">
-                            Delete all 
-                            <img src="../../../static/images/trash.svg" alt="trash symbol" class="img-fluid cs-img">
-                        </a>
-                    </p>
+                    </div>
+                    <div class="col-3">
+                        <div class="d-flex justify-content-end">
+                            <span>
+                                <a href="#" class="cs-anchor">
+                                    <img src="../../../static/images/messages-3.svg" alt="message picture"
+                                        class="img-fluid cs-img">
+                                </a>
+                            </span>
+                            <span>
+                                <a href="#" class="cs-anchor">
+                                    <p class="cs-para-2">12 Comments</p>
+                                </a>
+                            </span>
+                        </div>
+                        <div class="row">
+                            <a href="#" class="cs-anchor">
+                                <p class="cs-para-2">View Comments</p>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-3">
+                        <div class="d-flex justify-content-end">
+                            <span>
+                                <a href="#" class="cs-anchor">
+                                    <img src="../../../static/images/Vectorflag.svg" alt="flag post"
+                                        class="img-fluid cs-img">
+                                </a>
+                            </span>
+                            <span>
+                                <a href="#" class="cs-anchor">
+                                    <p class="cs-para-2">Contended</p>
+                                </a>
+                            </span>
+                        </div>
+                        <div class="row">
+                            <p class="cs-para-2">
+                                <a href="#" class="cs-anchor">
+                                    Reason For Contend
+                                </a>
+                            </p>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div class="row row-cols-1 row-cols-md-2 gx-2 gy-4 my-2">
-                <div class="col px-4">
-                    <div class="row pt-2 cs-student-box">
-                        <div class="col-2 mt-2">
-                            <img
-                            src="../../../static/images/Ellipse 3- african-boy.svg"
-                            alt="picture of a boy"
-                            class="img-fluid"
-                            />
+            <div class="col px-4">
+                <div class="row pt-2 cs-student-box">
+                    <div class="col-2 mt-2">
+                        <img src="../../../static/images/Ellipse 3-ephraim (1).svg" alt="picture of a boy"
+                            class="img-fluid" />
+                    </div>
+                    <div class="col-5">
+                        <p class="cs-para"><b>Name</b>: Ephraim Onyebuchi Derrick</p>
+                        <p class="cs-para"><b>Gender</b>: Male</p>
+                        <p class="cs-para"><b>Unpaid Debt</b>: N52,000</p>
+                        <p class="cs-para"><b>Interest Incurred</b>: 8.75%</p>
+                    </div>
+                    <div class="col-4">
+                        <p class="cs-para"><b>Student ID</b>: SMS2201126</p>
+                        <p class="cs-para"><b>Withdrawal Class</b>: JSS13</p>
+                        <p class="cs-para"><b>Withdrawal Date</b>: 05/01/2022</p>
+                    </div>
+                    <div class="col-1">
+                        <a href="#">
+                            <img src="../../../static/images/add-circle.svg" alt="cancel button" class="img-fluid">
+                        </a>
+                    </div>
+                </div>
+                <div class="row mb-2 cs-student-box-2">
+                    <div class="col-6">
+
+                    </div>
+                    <div class="col-3">
+                        <div class="d-flex justify-content-end">
+                            <span>
+                                <a href="#" class="cs-anchor">
+                                    <img src="../../../static/images/messages-3.svg" alt="message picture"
+                                        class="img-fluid cs-img">
+                                </a>
+                            </span>
+                            <span>
+                                <a href="#" class="cs-anchor">
+                                    <p class="cs-para-2">12 Comments</p>
+                                </a>
+                            </span>
                         </div>
-                        <div class="col-5">
-                            <p class="cs-para"><b>Name</b>: Igbinosa Efosa Boraz</p>
-                            <p class="cs-para"><b>Gender</b>: Male</p>
-                            <p class="cs-para"><b>Unpaid Debt</b>: N65,000</p>
-                            <p class="cs-para"><b>Interest Incurred</b>: 20%</p>
-                        </div>
-                        <div class="col-4">
-                            <p class="cs-para"><b>Student ID</b>: SMS2201826</p>
-                            <p class="cs-para"><b>Withdrawal Class</b>: JS3</p>
-                            <p class="cs-para"><b>Withdrawal Date</b>: 1/1/2019</p>
-                        </div>
-                        <div class="col-1">
-                            <a href="#">
-                                <img src="../../../static/images/add-circle.svg" alt="cancel button" class="img-fluid">
+                        <div class="row">
+                            <a href="#" class="cs-anchor">
+                                <p class="cs-para-2">View Comments</p>
                             </a>
                         </div>
                     </div>
-                    <div class="row mb-2 cs-student-box-2">
-                        <div class="col-6">
-
-                        </div>
-                        <div class="col-3">
-                            <div class="d-flex justify-content-end">
-                                <span>
-                                    <a href="#" class="cs-anchor">
-                                        <img src="../../../static/images/messages-3.svg" alt="message picture" class="img-fluid cs-img">
-                                    </a>
-                                </span>
-                                <span>
-                                    <a href="#" class="cs-anchor">
-                                        <p class="cs-para-2">12 Comments</p>
-                                    </a>
-                                </span>
-                            </div>
-                            <div class="row">
+                    <div class="col-3">
+                        <div class="d-flex justify-content-end">
+                            <span>
                                 <a href="#" class="cs-anchor">
-                                    <p class="cs-para-2">View Comments</p>
+                                    <img src="../../../static/images/Vectorflag.svg" alt="flag post"
+                                        class="img-fluid cs-img">
                                 </a>
-                            </div>
+                            </span>
+                            <span>
+                                <a href="#" class="cs-anchor">
+                                    <p class="cs-para-2">Contended</p>
+                                </a>
+                            </span>
                         </div>
-                        <div class="col-3">
-                            <div class="d-flex justify-content-end">
-                                <span>
-                                    <a href="#" class="cs-anchor">
-                                        <img src="../../../static/images/Vectorflag.svg" alt="flag post" class="img-fluid cs-img">
-                                    </a>
-                                </span>
-                                <span>
-                                    <a href="#" class="cs-anchor">
-                                        <p class="cs-para-2">Contended</p>
-                                    </a>
-                                </span>
-                            </div>
-                            <div class="row">
-                                <p class="cs-para-2">
-                                    <a href="#" class="cs-anchor">
-                                        Reason For Contend
-                                    </a>
-                                </p>
-                            </div>
+                        <div class="row">
+                            <p class="cs-para-2">
+                                <a href="#" class="cs-anchor">
+                                    Reason For Contend
+                                </a>
+                            </p>
                         </div>
                     </div>
                 </div>
-                <div class="col px-4">
-                    <div class="row pt-2 cs-student-box">
-                        <div class="col-2 mt-2">
-                            <img
-                            src="../../../static/images/Ellipse 3 (2).svg"
-                            alt="picture of a boy"
-                            class="img-fluid"
-                            />
+            </div>
+            <div class="col px-4">
+                <div class="row pt-2 cs-student-box">
+                    <div class="col-2 mt-2">
+                        <img src="../../../static/images/Ellipse.3.svg" alt="picture of a boy" class="img-fluid" />
+                    </div>
+                    <div class="col-5">
+                        <p class="cs-para"><b>Name</b>: Audu Aisha Stella</p>
+                        <p class="cs-para"><b>Gender</b>: Female</p>
+                        <p class="cs-para"><b>Unpaid Debt</b>: N64,000</p>
+                        <p class="cs-para"><b>Interest Incurred</b>: 30%</p>
+                    </div>
+                    <div class="col-4">
+                        <p class="cs-para"><b>Student ID</b>: SMS1602022</p>
+                        <p class="cs-para"><b>Withdrawal Class</b>: SS1</p>
+                        <p class="cs-para"><b>Withdrawal Date</b>: 05/08/2020</p>
+                    </div>
+                    <div class="col-1">
+                        <a href="#">
+                            <img src="../../../static/images/add-circle.svg" alt="cancel button" class="img-fluid">
+                        </a>
+                    </div>
+                </div>
+                <div class="row mb-2 cs-student-box-2">
+                    <div class="col-6">
+
+                    </div>
+                    <div class="col-3">
+                        <div class="d-flex justify-content-end">
+                            <span>
+                                <a href="#" class="cs-anchor">
+                                    <img src="../../../static/images/messages-3.svg" alt="message picture"
+                                        class="img-fluid cs-img">
+                                </a>
+                            </span>
+                            <span>
+                                <a href="#" class="cs-anchor">
+                                    <p class="cs-para-2">12 Comments</p>
+                                </a>
+                            </span>
                         </div>
-                        <div class="col-5">
-                            <p class="cs-para"><b>Name</b>: Okoro Nkechi Williamina</p>
-                            <p class="cs-para"><b>Gender</b>: Female</p>
-                            <p class="cs-para"><b>Unpaid Debt</b>: N55,000</p>
-                            <p class="cs-para"><b>Interest Incurred</b>: 10%</p>
-                        </div>
-                        <div class="col-4">
-                            <p class="cs-para"><b>Student ID</b>: SMS2001726</p>
-                            <p class="cs-para"><b>Withdrawal Class</b>: JS2</p>
-                            <p class="cs-para"><b>Withdrawal Date</b>: 11/12/2021</p>
-                        </div>
-                        <div class="col-1">
-                            <a href="#">
-                                <img src="../../../static/images/add-circle.svg" alt="cancel button" class="img-fluid">
+                        <div class="row">
+                            <a href="#" class="cs-anchor">
+                                <p class="cs-para-2">View Comments</p>
                             </a>
                         </div>
                     </div>
-                    <div class="row mb-2 cs-student-box-2">
-                        <div class="col-6">
-
-                        </div>
-                        <div class="col-3">
-                            <div class="d-flex justify-content-end">
-                                <span>
-                                    <a href="#" class="cs-anchor">
-                                        <img src="../../../static/images/messages-3.svg" alt="message picture" class="img-fluid cs-img">
-                                    </a>
-                                </span>
-                                <span>
-                                    <a href="#" class="cs-anchor">
-                                        <p class="cs-para-2">12 Comments</p>
-                                    </a>
-                                </span>
-                            </div>
-                            <div class="row">
+                    <div class="col-3">
+                        <div class="d-flex justify-content-end">
+                            <span>
                                 <a href="#" class="cs-anchor">
-                                    <p class="cs-para-2">View Comments</p>
+                                    <img src="../../../static/images/Vectorflag.svg" alt="flag post"
+                                        class="img-fluid cs-img">
                                 </a>
-                            </div>
+                            </span>
+                            <span>
+                                <a href="#" class="cs-anchor">
+                                    <p class="cs-para-2">Contended</p>
+                                </a>
+                            </span>
                         </div>
-                        <div class="col-3">
-                            <div class="d-flex justify-content-end">
-                                <span>
-                                    <a href="#" class="cs-anchor">
-                                        <img src="../../../static/images/Vectorflag.svg" alt="flag post" class="img-fluid cs-img">
-                                    </a>
-                                </span>
-                                <span>
-                                    <a href="#" class="cs-anchor">
-                                        <p class="cs-para-2">Contended</p>
-                                    </a>
-                                </span>
-                            </div>
-                            <div class="row">
-                                <p class="cs-para-2">
-                                    <a href="#" class="cs-anchor">
-                                        Reason For Contend
-                                    </a>
-                                </p>
-                            </div>
+                        <div class="row">
+                            <p class="cs-para-2">
+                                <a href="#" class="cs-anchor">
+                                    Reason For Contend
+                                </a>
+                            </p>
                         </div>
                     </div>
                 </div>
-                <div class="col px-4">
-                    <div class="row pt-2 cs-student-box">
-                        <div class="col-2 mt-2">
-                            <img
-                            src="../../../static/images/Ellipse 3-ephraim (1).svg"
-                            alt="picture of a boy"
-                            class="img-fluid"
-                            />
+            </div>
+            <div class="col px-4">
+                <div class="row pt-2 cs-student-box">
+                    <div class="col-2 mt-2">
+                        <img src="../../../static/images/Ellipse 3 (1).svg" alt="picture of a boy" class="img-fluid" />
+                    </div>
+                    <div class="col-5">
+                        <p class="cs-para"><b>Name</b>: Olanrewanju Ayomide Daniel</p>
+                        <p class="cs-para"><b>Gender</b>: Male</p>
+                        <p class="cs-para"><b>Unpaid Debt</b>: N170,000</p>
+                        <p class="cs-para"><b>Interest Incurred</b>: 22.5%</p>
+                    </div>
+                    <div class="col-4">
+                        <p class="cs-para"><b>Student ID</b>: SMS1902424</p>
+                        <p class="cs-para"><b>Withdrawal Class</b>: JSS3</p>
+                        <p class="cs-para"><b>Withdrawal Date</b>: 13/02/2021</p>
+                    </div>
+                    <div class="col-1">
+                        <a href="#">
+                            <img src="../../../static/images/add-circle.svg" alt="cancel button" class="img-fluid">
+                        </a>
+                    </div>
+                </div>
+                <div class="row mb-2 cs-student-box-2">
+                    <div class="col-6">
+
+                    </div>
+                    <div class="col-3">
+                        <div class="d-flex justify-content-end">
+                            <span>
+                                <a href="#" class="cs-anchor">
+                                    <img src="../../../static/images/messages-3.svg" alt="message picture"
+                                        class="img-fluid cs-img">
+                                </a>
+                            </span>
+                            <span>
+                                <a href="#" class="cs-anchor">
+                                    <p class="cs-para-2">12 Comments</p>
+                                </a>
+                            </span>
                         </div>
-                        <div class="col-5">
-                            <p class="cs-para"><b>Name</b>: Ephraim Onyebuchi Derrick</p>
-                            <p class="cs-para"><b>Gender</b>: Male</p>
-                            <p class="cs-para"><b>Unpaid Debt</b>: N52,000</p>
-                            <p class="cs-para"><b>Interest Incurred</b>: 8.75%</p>
-                        </div>
-                        <div class="col-4">
-                            <p class="cs-para"><b>Student ID</b>: SMS2201126</p>
-                            <p class="cs-para"><b>Withdrawal Class</b>: JSS13</p>
-                            <p class="cs-para"><b>Withdrawal Date</b>: 05/01/2022</p>
-                        </div>
-                        <div class="col-1">
-                            <a href="#">
-                                <img src="../../../static/images/add-circle.svg" alt="cancel button" class="img-fluid">
+                        <div class="row">
+                            <a href="#" class="cs-anchor">
+                                <p class="cs-para-2">View Comments</p>
                             </a>
                         </div>
                     </div>
-                    <div class="row mb-2 cs-student-box-2">
-                        <div class="col-6">
-
-                        </div>
-                        <div class="col-3">
-                            <div class="d-flex justify-content-end">
-                                <span>
-                                    <a href="#" class="cs-anchor">
-                                        <img src="../../../static/images/messages-3.svg" alt="message picture" class="img-fluid cs-img">
-                                    </a>
-                                </span>
-                                <span>
-                                    <a href="#" class="cs-anchor">
-                                        <p class="cs-para-2">12 Comments</p>
-                                    </a>
-                                </span>
-                            </div>
-                            <div class="row">
+                    <div class="col-3">
+                        <div class="d-flex justify-content-end">
+                            <span>
                                 <a href="#" class="cs-anchor">
-                                    <p class="cs-para-2">View Comments</p>
+                                    <img src="../../../static/images/Vectorflag.svg" alt="flag post"
+                                        class="img-fluid cs-img">
                                 </a>
-                            </div>
+                            </span>
+                            <span>
+                                <a href="#" class="cs-anchor">
+                                    <p class="cs-para-2">Contended</p>
+                                </a>
+                            </span>
                         </div>
-                        <div class="col-3">
-                            <div class="d-flex justify-content-end">
-                                <span>
-                                    <a href="#" class="cs-anchor">
-                                        <img src="../../../static/images/Vectorflag.svg" alt="flag post" class="img-fluid cs-img">
-                                    </a>
-                                </span>
-                                <span>
-                                    <a href="#" class="cs-anchor">
-                                        <p class="cs-para-2">Contended</p>
-                                    </a>
-                                </span>
-                            </div>
-                            <div class="row">
-                                <p class="cs-para-2">
-                                    <a href="#" class="cs-anchor">
-                                        Reason For Contend
-                                    </a>
-                                </p>
-                            </div>
+                        <div class="row">
+                            <p class="cs-para-2">
+                                <a href="#" class="cs-anchor">
+                                    Reason For Contend
+                                </a>
+                            </p>
                         </div>
                     </div>
                 </div>
-                <div class="col px-4">
-                    <div class="row pt-2 cs-student-box">
-                        <div class="col-2 mt-2">
-                            <img
-                            src="../../../static/images/Ellipse.3.svg"
-                            alt="picture of a boy"
-                            class="img-fluid"
-                            />
+            </div>
+            <div class="col px-4">
+                <div class="row pt-2 cs-student-box">
+                    <div class="col-2 mt-2">
+                        <img src="../../../static/images/Ellipse 3boy -writing.svg" alt="picture of a boy"
+                            class="img-fluid" />
+                    </div>
+                    <div class="col-5">
+                        <p class="cs-para"><b>Name</b>: Muhammad Dauda Ben</p>
+                        <p class="cs-para"><b>Gender</b>: Male</p>
+                        <p class="cs-para"><b>Unpaid Debt</b>: N35,000</p>
+                        <p class="cs-para"><b>Interest Incurred</b>: 20%</p>
+                    </div>
+                    <div class="col-4">
+                        <p class="cs-para"><b>Student ID</b>: SMS2202126</p>
+                        <p class="cs-para"><b>Withdrawal Class</b>: JS1</p>
+                        <p class="cs-para"><b>Withdrawal Date</b>: 02/04/2020</p>
+                    </div>
+                    <div class="col-1">
+                        <a href="#">
+                            <img src="../../../static/images/add-circle.svg" alt="cancel button" class="img-fluid">
+                        </a>
+                    </div>
+                </div>
+                <div class="row mb-2 cs-student-box-2">
+                    <div class="col-6">
+
+                    </div>
+                    <div class="col-3">
+                        <div class="d-flex justify-content-end">
+                            <span>
+                                <a href="#" class="cs-anchor">
+                                    <img src="../../../static/images/messages-3.svg" alt="message picture"
+                                        class="img-fluid cs-img">
+                                </a>
+                            </span>
+                            <span>
+                                <a href="#" class="cs-anchor">
+                                    <p class="cs-para-2">12 Comments</p>
+                                </a>
+                            </span>
                         </div>
-                        <div class="col-5">
-                            <p class="cs-para"><b>Name</b>: Audu Aisha Stella</p>
-                            <p class="cs-para"><b>Gender</b>: Female</p>
-                            <p class="cs-para"><b>Unpaid Debt</b>: N64,000</p>
-                            <p class="cs-para"><b>Interest Incurred</b>: 30%</p>
-                        </div>
-                        <div class="col-4">
-                            <p class="cs-para"><b>Student ID</b>: SMS1602022</p>
-                            <p class="cs-para"><b>Withdrawal Class</b>: SS1</p>
-                            <p class="cs-para"><b>Withdrawal Date</b>: 05/08/2020</p>
-                        </div>
-                        <div class="col-1">
-                            <a href="#">
-                                <img src="../../../static/images/add-circle.svg" alt="cancel button" class="img-fluid">
+                        <div class="row">
+                            <a href="#" class="cs-anchor">
+                                <p class="cs-para-2">View Comments</p>
                             </a>
                         </div>
                     </div>
-                    <div class="row mb-2 cs-student-box-2">
-                        <div class="col-6">
-
-                        </div>
-                        <div class="col-3">
-                            <div class="d-flex justify-content-end">
-                                <span>
-                                    <a href="#" class="cs-anchor">
-                                        <img src="../../../static/images/messages-3.svg" alt="message picture" class="img-fluid cs-img">
-                                    </a>
-                                </span>
-                                <span>
-                                    <a href="#" class="cs-anchor">
-                                        <p class="cs-para-2">12 Comments</p>
-                                    </a>
-                                </span>
-                            </div>
-                            <div class="row">
+                    <div class="col-3">
+                        <div class="d-flex justify-content-end">
+                            <span>
                                 <a href="#" class="cs-anchor">
-                                    <p class="cs-para-2">View Comments</p>
+                                    <img src="../../../static/images/Vectorflag.svg" alt="flag post"
+                                        class="img-fluid cs-img">
                                 </a>
-                            </div>
+                            </span>
+                            <span>
+                                <a href="#" class="cs-anchor">
+                                    <p class="cs-para-2">Contended</p>
+                                </a>
+                            </span>
                         </div>
-                        <div class="col-3">
-                            <div class="d-flex justify-content-end">
-                                <span>
-                                    <a href="#" class="cs-anchor">
-                                        <img src="../../../static/images/Vectorflag.svg" alt="flag post" class="img-fluid cs-img">
-                                    </a>
-                                </span>
-                                <span>
-                                    <a href="#" class="cs-anchor">
-                                        <p class="cs-para-2">Contended</p>
-                                    </a>
-                                </span>
-                            </div>
-                            <div class="row">
-                                <p class="cs-para-2">
-                                    <a href="#" class="cs-anchor">
-                                        Reason For Contend
-                                    </a>
-                                </p>
-                            </div>
+                        <div class="row">
+                            <p class="cs-para-2">
+                                <a href="#" class="cs-anchor">
+                                    Reason For Contend
+                                </a>
+                            </p>
                         </div>
                     </div>
                 </div>
-                <div class="col px-4">
-                    <div class="row pt-2 cs-student-box">
-                        <div class="col-2 mt-2">
-                            <img
-                            src="../../../static/images/Ellipse 3 (1).svg"
-                            alt="picture of a boy"
-                            class="img-fluid"
-                            />
-                        </div>
-                        <div class="col-5">
-                            <p class="cs-para"><b>Name</b>: Olanrewanju Ayomide Daniel</p>
-                            <p class="cs-para"><b>Gender</b>: Male</p>
-                            <p class="cs-para"><b>Unpaid Debt</b>: N170,000</p>
-                            <p class="cs-para"><b>Interest Incurred</b>: 22.5%</p>
-                        </div>
-                        <div class="col-4">
-                            <p class="cs-para"><b>Student ID</b>: SMS1902424</p>
-                            <p class="cs-para"><b>Withdrawal Class</b>: JSS3</p>
-                            <p class="cs-para"><b>Withdrawal Date</b>: 13/02/2021</p>
-                        </div>
-                        <div class="col-1">
-                            <a href="#">
-                                <img src="../../../static/images/add-circle.svg" alt="cancel button" class="img-fluid">
-                            </a>
-                        </div>
+            </div>
+            <div class="col px-4">
+                <div class="row pt-2 cs-student-box">
+                    <div class="col-2 mt-2">
+                        <img src="../../../static/images/Ellipse 3 (3).svg" alt="picture of a boy" class="img-fluid" />
                     </div>
-                    <div class="row mb-2 cs-student-box-2">
-                        <div class="col-6">
-
-                        </div>
-                        <div class="col-3">
-                            <div class="d-flex justify-content-end">
-                                <span>
-                                    <a href="#" class="cs-anchor">
-                                        <img src="../../../static/images/messages-3.svg" alt="message picture" class="img-fluid cs-img">
-                                    </a>
-                                </span>
-                                <span>
-                                    <a href="#" class="cs-anchor">
-                                        <p class="cs-para-2">12 Comments</p>
-                                    </a>
-                                </span>
-                            </div>
-                            <div class="row">
-                                <a href="#" class="cs-anchor">
-                                    <p class="cs-para-2">View Comments</p>
-                                </a>
-                            </div>
-                        </div>
-                        <div class="col-3">
-                            <div class="d-flex justify-content-end">
-                                <span>
-                                    <a href="#" class="cs-anchor">
-                                        <img src="../../../static/images/Vectorflag.svg" alt="flag post" class="img-fluid cs-img">
-                                    </a>
-                                </span>
-                                <span>
-                                    <a href="#" class="cs-anchor">
-                                        <p class="cs-para-2">Contended</p>
-                                    </a>
-                                </span>
-                            </div>
-                            <div class="row">
-                                <p class="cs-para-2">
-                                    <a href="#" class="cs-anchor">
-                                        Reason For Contend
-                                    </a>
-                                </p>
-                            </div>
-                        </div>
+                    <div class="col-5">
+                        <p class="cs-para"><b>Name</b>: Gabriel Ngideka Daniella</p>
+                        <p class="cs-para"><b>Gender</b>: Female</p>
+                        <p class="cs-para"><b>Unpaid Debt</b>: N25,500</p>
+                        <p class="cs-para"><b>Interest Incurred</b>: 10%</p>
+                    </div>
+                    <div class="col-4">
+                        <p class="cs-para"><b>Student ID</b>: SMS2001526</p>
+                        <p class="cs-para"><b>Withdrawal Class</b>: SS2</p>
+                        <p class="cs-para"><b>Withdrawal Date</b>: 04/07/2021</p>
+                    </div>
+                    <div class="col-1">
+                        <a href="#">
+                            <img src="../../../static/images/add-circle.svg" alt="cancel button" class="img-fluid">
+                        </a>
                     </div>
                 </div>
-                <div class="col px-4">
-                    <div class="row pt-2 cs-student-box">
-                        <div class="col-2 mt-2">
-                            <img
-                            src="../../../static/images/Ellipse 3boy -writing.svg"
-                            alt="picture of a boy"
-                            class="img-fluid"
-                            />
+                <div class="row mb-2 cs-student-box-2">
+                    <div class="col-6">
+
+                    </div>
+                    <div class="col-3">
+                        <div class="d-flex justify-content-end">
+                            <span>
+                                <a href="#" class="cs-anchor">
+                                    <img src="../../../static/images/messages-3.svg" alt="message picture"
+                                        class="img-fluid cs-img">
+                                </a>
+                            </span>
+                            <span>
+                                <a href="#" class="cs-anchor">
+                                    <p class="cs-para-2">12 Comments</p>
+                                </a>
+                            </span>
                         </div>
-                        <div class="col-5">
-                            <p class="cs-para"><b>Name</b>: Muhammad Dauda Ben</p>
-                            <p class="cs-para"><b>Gender</b>: Male</p>
-                            <p class="cs-para"><b>Unpaid Debt</b>: N35,000</p>
-                            <p class="cs-para"><b>Interest Incurred</b>: 20%</p>
-                        </div>
-                        <div class="col-4">
-                            <p class="cs-para"><b>Student ID</b>: SMS2202126</p>
-                            <p class="cs-para"><b>Withdrawal Class</b>: JS1</p>
-                            <p class="cs-para"><b>Withdrawal Date</b>: 02/04/2020</p>
-                        </div>
-                        <div class="col-1">
-                            <a href="#">
-                                <img src="../../../static/images/add-circle.svg" alt="cancel button" class="img-fluid">
+                        <div class="row">
+                            <a href="#" class="cs-anchor">
+                                <p class="cs-para-2">View Comments</p>
                             </a>
                         </div>
                     </div>
-                    <div class="row mb-2 cs-student-box-2">
-                        <div class="col-6">
-
-                        </div>
-                        <div class="col-3">
-                            <div class="d-flex justify-content-end">
-                                <span>
-                                    <a href="#" class="cs-anchor">
-                                        <img src="../../../static/images/messages-3.svg" alt="message picture" class="img-fluid cs-img">
-                                    </a>
-                                </span>
-                                <span>
-                                    <a href="#" class="cs-anchor">
-                                        <p class="cs-para-2">12 Comments</p>
-                                    </a>
-                                </span>
-                            </div>
-                            <div class="row">
+                    <div class="col-3">
+                        <div class="d-flex justify-content-end">
+                            <span>
                                 <a href="#" class="cs-anchor">
-                                    <p class="cs-para-2">View Comments</p>
+                                    <img src="../../../static/images/Vectorflag.svg" alt="flag post"
+                                        class="img-fluid cs-img">
                                 </a>
-                            </div>
-                        </div>
-                        <div class="col-3">
-                            <div class="d-flex justify-content-end">
-                                <span>
-                                    <a href="#" class="cs-anchor">
-                                        <img src="../../../static/images/Vectorflag.svg" alt="flag post" class="img-fluid cs-img">
-                                    </a>
-                                </span>
-                                <span>
-                                    <a href="#" class="cs-anchor">
-                                        <p class="cs-para-2">Contended</p>
-                                    </a>
-                                </span>
-                            </div>
-                            <div class="row">
-                                <p class="cs-para-2">
-                                    <a href="#" class="cs-anchor">
-                                        Reason For Contend
-                                    </a>
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col px-4">
-                    <div class="row pt-2 cs-student-box">
-                        <div class="col-2 mt-2">
-                            <img
-                            src="../../../static/images/Ellipse 3 (3).svg"
-                            alt="picture of a boy"
-                            class="img-fluid"
-                            />
-                        </div>
-                        <div class="col-5">
-                            <p class="cs-para"><b>Name</b>: Gabriel Ngideka Daniella</p>
-                            <p class="cs-para"><b>Gender</b>: Female</p>
-                            <p class="cs-para"><b>Unpaid Debt</b>: N25,500</p>
-                            <p class="cs-para"><b>Interest Incurred</b>: 10%</p>
-                        </div>
-                        <div class="col-4">
-                            <p class="cs-para"><b>Student ID</b>: SMS2001526</p>
-                            <p class="cs-para"><b>Withdrawal Class</b>: SS2</p>
-                            <p class="cs-para"><b>Withdrawal Date</b>: 04/07/2021</p>
-                        </div>
-                        <div class="col-1">
-                            <a href="#">
-                                <img src="../../../static/images/add-circle.svg" alt="cancel button" class="img-fluid">
-                            </a>
-                        </div>
-                    </div>
-                    <div class="row mb-2 cs-student-box-2">
-                        <div class="col-6">
-
-                        </div>
-                        <div class="col-3">
-                            <div class="d-flex justify-content-end">
-                                <span>
-                                    <a href="#" class="cs-anchor">
-                                        <img src="../../../static/images/messages-3.svg" alt="message picture" class="img-fluid cs-img">
-                                    </a>
-                                </span>
-                                <span>
-                                    <a href="#" class="cs-anchor">
-                                        <p class="cs-para-2">12 Comments</p>
-                                    </a>
-                                </span>
-                            </div>
-                            <div class="row">
+                            </span>
+                            <span>
                                 <a href="#" class="cs-anchor">
-                                    <p class="cs-para-2">View Comments</p>
+                                    <p class="cs-para-2">Contended</p>
                                 </a>
-                            </div>
+                            </span>
                         </div>
-                        <div class="col-3">
-                            <div class="d-flex justify-content-end">
-                                <span>
-                                    <a href="#" class="cs-anchor">
-                                        <img src="../../../static/images/Vectorflag.svg" alt="flag post" class="img-fluid cs-img">
-                                    </a>
-                                </span>
-                                <span>
-                                    <a href="#" class="cs-anchor">
-                                        <p class="cs-para-2">Contended</p>
-                                    </a>
-                                </span>
-                            </div>
-                            <div class="row">
-                                <p class="cs-para-2">
-                                    <a href="#" class="cs-anchor">
-                                        Reason For Contend
-                                    </a>
-                                </p>
-                            </div>
+                        <div class="row">
+                            <p class="cs-para-2">
+                                <a href="#" class="cs-anchor">
+                                    Reason For Contend
+                                </a>
+                            </p>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </main>
-
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
-      crossorigin="anonymous"
-    ></script>
-  </body>
-</html>
+    </div>
+</main>
+{% endblock %}

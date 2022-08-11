@@ -1,14 +1,350 @@
-{% load static %}
 <!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <title>School sign up</title>
+{% extends 'main_index.html' %}
+{% load static %}
+{% block content %}
 
-    </head>
-    <body>
+<style>
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  .gdn_reg {
+    position: relative;
+    height: 200vh;
+    background: linear-gradient(to right,
+        #fffefe 0%,
+        #fffefe 50%,
+        #7f5eaa 50%,
+        #7f5eaa 100%);
+  }
+
+  /* ======= Left side of the form ==== */
 
 
+  .left {
+    position: absolute;
+    width: 50%;
+    /*height: 100%;
+    left: 0px;
+    top: 0px;*/
+    background: #fffefe;
 
-    </body>
-</html>
+  }
+
+  .left .sidebar {
+    position: absolute;
+    width: 100%;
+    height: 1200px;
+    margin-left: 165px;
+    margin-top: 139px;
+    border-radius: 10px 0px 0px 10px;
+    background: #dbcbea;
+
+  }
+
+  .logo {
+    width: 116px;
+    height: 116px;
+    margin-top: 48px;
+    margin-left: 40px;
+    cursor: pointer;
+  }
+
+
+  .logo:hover {
+    border-radius: 50%;
+    box-shadow: 0px 2.86194px 8.58582px 2.86194px rgba(0, 0, 0, 0.15);
+    filter: drop-shadow(0px 1.43097px 2.86194px rgba(0, 0, 0, 0.3));
+  }
+
+  .intro {
+    position: absolute;
+    width: 300px;
+    height: 80px;
+    left: 48px;
+    top: 196px;
+    font-family: "Playfair Display";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 32px;
+    line-height: 40px;
+    color: #1e1a1a;
+  }
+
+  .notification {
+    position: absolute;
+    left: 49px;
+    margin-top: 360px;
+  }
+
+
+  .school {
+    margin-top: 220px;
+    display: flex;
+    flex-direction: column;
+    margin-left: 48px;
+  }
+
+
+  .not {
+    width: 271px;
+    height: 32px;
+    font-family: "Playfair Display";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 32px;
+    color: #1e1a1a;
+  }
+
+  .school p {
+    width: 269px;
+    height: 78px;
+    font-family: "Playfair Display";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 26px;
+    color: #1e1a1a;
+  }
+
+  .cleardata {
+    margin-left: 48px;
+    margin-top: 91.33px;
+  }
+
+  .dta {
+    width: 282px;
+    height: 32px;
+    font-family: "Playfair Display";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 32px;
+    color: #1e1a1a;
+  }
+
+  .data {
+    width: 269px;
+    height: 78px;
+    font-family: "Playfair Display";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 26px;
+    color: #1e1a1a;
+  }
+
+  .pic {
+    position: absolute;
+    box-sizing: border-box;
+    width: 575px;
+    height: 521.81px;
+    right: 380px;
+    top: 900px;
+    left: -100px;
+  }
+
+  /* ======= Right side of the form======== */
+
+  .right {
+    position: absolute;
+    width: 50%;
+    height: 100%;
+    right: 0px;
+    top: 0px;
+    background: #7f5eaa;
+  }
+
+  .formside {
+    position: absolute;
+    width: 70%;
+    height: 1202px;
+    margin-right: 165px;
+    left: 0;
+    top: 139px;
+    border-radius: 6px;
+    background: white;
+  }
+
+  .title {
+    width: 344px;
+    height: 40px;
+    margin-left: 86.94px;
+    margin-top: 72.21px;
+    font-family: "Playfair Display";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 32.6026px;
+    line-height: 40px;
+    color: #1e1a1a;
+  }
+
+  .signin {
+    width: 272.59px;
+    height: 24px;
+    margin-left: 86.94px;
+    margin-top: 8px;
+    font-family: "Playfair Display";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18.1125px;
+    line-height: 24px;
+    color: #1e1a1a;
+
+  }
+
+  .signin span {
+    width: 272.59px;
+    height: 24px;
+    font-family: "Playfair Display";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18.1125px;
+    line-height: 24px;
+    color: #aba8a8;
+  }
+
+  .form-group {
+    margin-left: 86.94px;
+    margin-top: 42.45px;
+    gap: 32px;
+  }
+
+  .form-group label {
+    display: block;
+    color: #1E1A1A;
+    font-family: 'Playfair Display';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 26px;
+
+  }
+
+  .form-group input {
+    width: 397.57px;
+    padding: 17px;
+    border: 1px solid #1E1A1A;
+    border-radius: 5px;
+  }
+
+  a {
+    text-decoration: none;
+    color: black;
+  }
+
+
+  /* #name {
+  width: 200px;
+}
+#email {
+  width: 200px;
+}
+#tel {
+  width: 200px;
+}
+#password {
+  width: 61px;
+}
+#cpassword {
+  width: 200px;
+} */
+
+  .form-group .cond {
+    width: 375px;
+    height: 29px;
+    margin-top: 20px;
+    font-family: "Playfair Display";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 20px;
+    display: flex;
+    align-items: center;
+    letter-spacing: 0.25px;
+    color: #1e1a1a;
+  }
+
+
+  .custom-btn-primary {
+    display: block;
+    width: 179px;
+    height: 55.04px;
+    padding: 16px 32px;
+    margin-top: 152px;
+    margin-left: 182px;
+    background-color: #77aed0;
+    border-radius: 10px;
+    cursor: pointer;
+  }
+
+</style>
+<main class='gdn_reg'>
+  <div class="left">
+    <div class="sidebar">
+      <img src="{% static 'images/logo.svg' %}" alt="" id="ellipse1" class="logo">
+      <h1 class="intro">Get Started tracking your debts</h1>
+      <img src="{% static 'images/Frame 2608337-4.svg' %}" alt="notification" class="notification">
+
+      <div class="school">
+
+        <h3 class="not">Challenge/Contest Post</h3>
+        <p>
+          Why do you have to be tagged a "debtor" when you aren't? Clear your name.
+        </p>
+      </div>
+
+      <div class="cleardata">
+        <img src="{% static 'images/contest.svg' %}" class="confirm" alt="">
+        <h3 class="dta">Status of Contested Post</h3>
+        <h4 class="data">
+          No need to be anxious. We'll update you on the outcome of the review.
+        </h4>
+      </div>
+      <div class="pic">
+        <img src="{% static 'images/guardian.svg' %}" alt="">
+      </div>
+
+    </div>
+
+  </div>
+
+  <div class="right">
+    <div class="formside">
+      <h1 class="title">Register As A Guardian</h1>
+      <p class="signin">
+        Already have an account?<a href="login.html"><span>Sign In</span></a>
+      </p>
+      <form action="">
+        <div class="form-group">
+          <label for="name" id="name">Full Name</label>
+          <input type="text" name="Sname" id="customform-sm" placeholder="Name Of School" />
+        </div>
+        <div class="form-group">
+          <label for="email" id="email">Email Address</label>
+          <input type="email" name="email" id="customform-sm" placeholder="johndoe@gmail.com" />
+        </div>
+        <div class="form-group">
+          <label for="tel" id="tel">Phone Number</label>
+          <input type="tel" name="number" id="customform-sm" placeholder="Phone Number" required />
+        </div>
+        <div class="form-group">
+          <label for="password" id="password">Password</label>
+          <input type="password" name="password" id="customform-sm" class="cond" required />
+          <p class="cond">At least 8 Characters in length, should contain a mixture of Uppercase (A- Z), Lower case
+            letters (a - z), Numbers (0 - 9) and Special symbols (@,$,*,&)</p>
+        </div>
+        <div class="form-group">
+          <label for="password" id="cpassword">Confirm Password</label>
+          <input type="password" name="password" id="customform-sm" placeholder="Confirm password" required />
+        </div>
+      </form>
+      <br />
+      <button type="button" class="custom-btn-primary">Register</button>
+    </div>
+  </div>
+</main>
+{% endblock %}
