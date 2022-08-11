@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./debtors.css" />
-    <title>Side bar</title>
+    <title>Delete confirmation page</title>
     <!-- INTERNAL STYLES -->
 
     <style>
@@ -18,28 +18,63 @@
         font-family: "DM Sans", sans-serif;
       }
 
+      body {
+        height: 100vh;
+        /* background-color: red; */
+      }
+
       .sidebar {
         position: fixed;
-        width: 250px;
+        width: 285px;
         height: 100%;
+        left: 0;
         top: 0;
         padding: 10px 14px;
         background-color: #6e599b;
-        transition: 0.5s ease;
-        transform: translateX(-250px);
+        border-radius: 0px 16px 16px 0px;
+        transition: 0.5s;
+      }
+
+      .sidebar header {
+        position: relative;
       }
 
       /* sidebar- logo */
 
-       .img img {
+      header img {
         width: 146px;
         height: 62.8px;
-        margin-top: 50px;
+        margin-top: 24px;
         margin-left: 24px;
         margin-right: 115px;
         cursor: pointer;
         filter: drop-shadow(0px 1.43097px 2.86194px rgba(0, 0, 0, 0.3));
       }
+
+      .toggle {
+        position: absolute;
+        top: 30%;
+        right: -130px;
+        height: 25px;
+        width: 25px;
+        background-color: #6e599b;
+        transform: translateY(-50%);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        color: #fffefe;
+        font-size: 30px;
+      }
+
+      .sidebar.close {
+        width: 88px;
+      }
+
+      /* .sidebar.close .nav-text {
+        opacity: 0;
+      } */
+      /* sidebar image links */
 
       .sidebar li {
         height: 24px;
@@ -190,6 +225,14 @@
         letter-spacing: 0.2px;
       }
 
+      .hero {
+        position: relative;
+        height: 100%;
+        left: 30%;
+        width: calc(100% - 50%);
+        margin-top: 110px;
+      }
+
       .nav-bottom {
         position: relative;
         margin-top: 50px;
@@ -256,87 +299,32 @@
         line-height: 16px;
         letter-spacing: 0.4px;
       }
-
-      input {
-        display: none;
-        visibility: hidden;
-        -webkit-appearance: none;
+      .direction {
+        margin-left: 309px;
+        margin-top: 102px;
+        display: flex;
+        gap: 350px;
       }
-
-      .toggle {
-        position: absolute;
-        height: 30px;
-        width: 30px;
-        top: 20px;
-        left: 100px;
-        cursor: pointer;
-        background-color: #fff;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-        z-index: 1;
+      .edit-icon{
+        /* background-color: red; */
+        width: 25.24px;
+        height: 25.02px;
       }
-
-      .toggle .common {
-        position: absolute;
-        height: 2px;
-        width: 20px;
-        background-color: #6e599b;
-        border-radius: 50px;
-        transition: 0.3s ease;
-      }
-
-      .toggle .top_line {
-        top: 30%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-      }
-      .toggle .middle_line {
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-      }
-
-      .toggle .bottom_line {
-        top: 70%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-      }
-
-      input:checked ~ .toggle .top_line {
-        left: 2px;
-        top: 14px;
-        width: 25px;
-        transform: rotate(45deg);
-      }
-
-      input:checked ~ .toggle .bottom_line {
-        left: 2px;
-        top: 14px;
-        width: 25px;
-        transform: rotate(-45deg);
-      }
-      input:checked ~ .toggle .middle_line {
-        opacity: 0;
-        transform: translateX(20px);
-      }
-      input:checked ~ .sidebar {
-        transform: translateX(0);
-        box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+      .delete-icon{
+        width: 25.24px;
+        height: 25.02px;
       }
     </style>
   </head>
   <body>
-    <label>
-    <input type="checkbox" />
-    <div class="toggle">
-      <span class="top_line common"></span>
-      <span class="middle_line common"></span>
-      <span class="bottom_line common"></span>
-    </div>
-      <div class="sidebar">
+    <div class="container">
+      <nav class="sidebar">
+        <header>
           <div class="img">
             <img src="../static/images/SDM.logo.svg" alt="logo" />
           </div>
-      
+          <!-- <img class="toggle" src="../static/images/bx-chevron-right.svg" alt=""> -->
+        </header>
         <div class="menu-bar">
           <div class="menu">
             <ul class="menu-links">
@@ -442,8 +430,42 @@
             </ul>
           </div>
         </div>
-      </div>
-      </label>
-  
+      </nav>
+      <section class="direction">
+        
+          <div class="section-text">
+            <h2>Directory</h2>
+            <p>Below is the directory for your debtors</p>
+            <p><span>Sort by:</span>Recently added</p>
+          </div>
+          <div>
+            <div class="section-text2">
+              <img src="../static/images/search.svg" alt="" />
+              <input type="text" placeholder="Search" />
+            </div>
+            <div>
+                <h3>Add to list</h3>
+                <img src="../static/images/add.svg" alt="">
+            </div>
+            <div>
+                <h3>Edit</h3>
+                <img class="edit-icon" src="../static/images/document-edit-icon.svg" alt="">
+            </div>
+            <div>
+                <h3>Delete All</h3>
+                <img class="delete-icon" src="../static/images/delete-icon.svg" alt="">
+            </div>
+          </div>
+        
+      </section>
+    </div>
+
+    <!-- <script>
+        const sidebar = document.querySelector(".sidebar")
+        const toggle = document.querySelector(".toggle")
+        toggle.addEventListener("click", () => {
+            sidebar.classList.toggle("close")
+        })
+    </script> -->
   </body>
 </html>
