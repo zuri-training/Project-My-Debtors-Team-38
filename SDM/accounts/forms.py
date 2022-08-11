@@ -18,9 +18,7 @@ class SchoolRegistrationForm(forms.UserCreationForm):
 
     error_message = forms.UserCreationForm.error_messages.update(
         {
-            "duplicate_email": (
-                "This email has already been taken."
-            )
+            "duplicate_email": ("This email has already been taken.")
         }
     )
 
@@ -54,7 +52,7 @@ class GuardianRegistrationForm(forms.UserCreationForm):
 
     class Meta:
         model = Guardian
-        fields = ("email",)
+        fields = ("email", 'name')
         # field_classes = {"email": UsernameField}
 
     def clean_email(self):
