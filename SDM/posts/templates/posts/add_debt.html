@@ -1,122 +1,93 @@
-<!DOCTYPE html>
 {% extends 'main_index.html' %}
 {% load static %}
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+{% block content %}
 
-    <!-- BOOTSTRAP STYLES BEGIN-->
+<style>
+  #add_debt .btn-doc {
+    background-color: #777480;
+    color: #ffffff;
+    border-radius: 16px;
+  }
 
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
-      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
-    {% block content %}
-    <!-- BOOTSRAP STYLES END -->
+  #add_debt .btn-add {
+    background-color: #77AED0;
+    color: #ffffff;
+    border-radius: 12px;
+  }
 
-    <!-- CUSTOM STYLES BEGIN -->
+  #add_debt input[type=file] {
+    max-width: 23em;
+  }
 
-    <style>
-      body {
-        background-image: url(../../../static/images/unsplash_7JX0-bfiuxQ.svg);
-      }
+</style>
 
-      .btn-doc {
-        background-color: #777480;
-        color: #ffffff;
-        border-radius: 16px;
-      }
+<main id="add_debt" class='after_login'>
+  <div class="container-lg mt-5">
+    <div class="text-center">
+      <h1 class="head-1">Add a debtor to your directory</h1>
+      <h4>Fill in the details of the debtor below</h4>
+    </div>
+    <div class="row">
+      <div class="col-sm-4">
+        <label for="fname" class="form-label">Full Name</label>
+        <input type="text" class="form-control form-control-lg" id="fname" placeholder="Full Name" />
 
-      .btn-add {
-        background-color: #77AED0;
-        color: #ffffff;
-        border-radius: 12px;
-      }
+        <label for="std-id" class="form-label mt-3">Student ID</label>
+        <input type="number" class="form-control form-control-lg" id="std-id" placeholder="Student ID" />
 
-      input[type=file] {
-        max-width: 23em;
-      }
+        <label for="dt-wtd" class="form-label mt-3">Date of Withdrawal</label>
+        <input type="date" class="form-control form-control-lg" id="dt-wtd" />
 
-    </style>
+        <label for="debt-in" class="form-label mt-3">Debt Incured</label>
+        <input type="number" class="form-control form-control-lg" id="debt-in" placeholder="Amount" />
 
-    <!-- CUSTOM STYLES END -->
+        <label for="gender" class="form-label mt-3">Gender</label>
+        <select class="form-select form-select-lg" id="gender" aria-label="Default select example">
+          <option selected>Select</option>
+          <option value="male">Male</option>
+          <option value="female">Female</option>
+        </select>
 
-    <title>Add Debtor</title>
-  </head>
-  <body>
-    <main>
-      <div class="container-lg mt-5">
-        <div class="text-center">
-          <h1 class="head-1">Add a debtor to your directory</h1>
-          <h4>Fill in the details of the debtor below</h4>
+        <label for="cl-wtd" class="form-label mt-3">Class Of Withdrawal</label>
+        <select class="form-select form-select-lg" id="cl-wtd" aria-label="Default select example">
+          <option selected>Select</option>
+          <option value="JS1">JS1</option>
+          <option value="JS2">JS2</option>
+          <option value="JS3">JS3</option>
+          <option value="SS1">SS1</option>
+          <option value="SS2">SS2</option>
+          <option value="SS3">SS3</option>
+        </select>
+
+        <label for="inter-in" class="form-label mt-3">Interest Incured</label>
+        <input type="number" class="form-control form-control-lg" id="inter-in" placeholder="Amount" />
+      </div>
+      <div class="d-grid gap-5 col-sm my-5">
+        <div class="row-6">
         </div>
         <div class="row">
-          <div class="col-sm-4">
-            <label for="fname" class="form-label">Full Name</label>
-            <input type="text" class="form-control form-control-lg" id="fname" placeholder="Full Name" />
-
-            <label for="std-id" class="form-label mt-3">Student ID</label>
-            <input type="number" class="form-control form-control-lg" id="std-id" placeholder="Student ID" />
-
-            <label for="dt-wtd" class="form-label mt-3">Date of Withdrawal</label>
-            <input type="date" class="form-control form-control-lg" id="dt-wtd" />
-
-            <label for="debt-in" class="form-label mt-3">Debt Incured</label>
-            <input type="number" class="form-control form-control-lg" id="debt-in" placeholder="Amount" />
-
-            <label for="gender" class="form-label mt-3">Gender</label>
-            <select class="form-select form-select-lg" id="gender" aria-label="Default select example">
-              <option selected>Select</option>
-              <option value="male">Male</option>
-              <option value="female">Female</option>
-            </select>
-
-            <label for="cl-wtd" class="form-label mt-3">Class Of Withdrawal</label>
-            <select class="form-select form-select-lg" id="cl-wtd" aria-label="Default select example">
-              <option selected>Select</option>
-              <option value="JS1">JS1</option>
-              <option value="JS2">JS2</option>
-              <option value="JS3">JS3</option>
-              <option value="SS1">SS1</option>
-              <option value="SS2">SS2</option>
-              <option value="SS3">SS3</option>
-            </select>
-
-            <label for="inter-in" class="form-label mt-3">Interest Incured</label>
-            <input type="number" class="form-control form-control-lg" id="inter-in" placeholder="Amount" />
-          </div>
-          <div class="d-grid gap-5 col-sm my-5">
-            <div class="row-6">
-            </div>
+          <div class="col text-center">
+            <img src="../../../static/images/Upload Frame (2).svg" alt="" class="img-fluid">
+            <p>Supported Formats: JPEG or PNG</p>
             <div class="row">
-              <div class="col text-center">
-                <img src="../../../static/images/Upload Frame (2).svg" alt="" class="img-fluid">
-                <p>Supported Formats: JPEG or PNG</p>
-                <div class="row">
-                  <div class="col-3 col-sm-4"></div>
-                  <div class="col-6 col-sm-4  mb-3">
-                    <form action="">
-                      <label for="formFile" class="form-label">
-                      </label>
-                      <input type="file" id="formFile" class="form-control">
-                    </form>
-                  </div>
-                  <div class="col-3 col-sm-4"></div>
-                </div>
-                <button type="button" class="btn btn-doc mb-3">Upload Document</button>
-                <br>
-                <br>
-                <button type="button" class="btn btn-lg btn-add">Add</button>
+              <div class="col-3 col-sm-4"></div>
+              <div class="col-6 col-sm-4  mb-3">
+                <form action="">
+                  <label for="formFile" class="form-label">
+                  </label>
+                  <input type="file" id="formFile" class="form-control">
+                </form>
               </div>
+              <div class="col-3 col-sm-4"></div>
             </div>
+            <button type="button" class="btn btn-doc mb-3">Upload Document</button>
+            <br>
+            <br>
+            <button type="button" class="btn btn-lg btn-add">Add</button>
           </div>
         </div>
       </div>
-    </main>
-    <!-- offset-3 offset-md-5 -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
-    </script>
-  </body>
-  {% endblock %}
-</html>
+    </div>
+  </div>
+</main>
+{% endblock %}
