@@ -1,13 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="./debtors.css" />
-    <title>Side bar</title>
-    <!-- INTERNAL STYLES -->
-
+{% load static %}
     <style>
       * {
         margin: 0;
@@ -18,7 +9,7 @@
         font-family: "DM Sans", sans-serif;
       }
 
-      .sidebar {
+      .sidebar #hsb{
         position: fixed;
         width: 250px;
         height: 100%;
@@ -31,7 +22,7 @@
 
       /* sidebar- logo */
 
-       .img img {
+       #hsb .img img {
         width: 146px;
         height: 62.8px;
         margin-top: 50px;
@@ -308,7 +299,8 @@
     </style>
   </head>
   <body>
-    <label>
+    <nav>
+
     <input type="checkbox" />
     <div class="toggle">
       <span class="top_line common"></span>
@@ -316,42 +308,38 @@
       <span class="bottom_line common"></span>
     </div>
       <div class="sidebar">
+        <div class="hsb">
           <div class="img">
-            <img src="../static/images/SDMlogo.svg " alt="logo" />
+            <img src="{% static 'images/SDMlogo.svg} " alt="logo" />
           </div>
-      
+        </div>
         <div class="menu-bar">
           <div class="menu">
             <ul class="menu-links">
               <li class="nav-link">
-                <a href="#dashboard">
+                <a href="{% url 'accounts:sch_dshbd' %}">
                   <img
                     class="nav-img"
-                    src="../static/images/Frame 2608337.svg"
+                    src="{% static 'images/Frame 2608337.svg' %}"
                     alt="dashboard"
                   />
                   <span class="nav-text">Dashboard</span>
                 </a>
               </li>
               <li class="nav-link">
-                <a href="#directory">
-                  <img
-                    class="nav-img"
-                    src="../static/images/Frame 2608337-1.svg"
+                <a href="{% url 'posts:sch_dir' %}">
+                  
+                  <img class="nav-img" src="{% static 'images/Frame 2608337-1.svg' %}"
                     alt="directory"
                   />
                   <span class="nav-text">Directory</span>
                 </a>
               </li>
               <li class="nav-link">
-                <a href="#dashboard">
-                  <img
-                    class="nav-img img-post"
-                    src="../static/images/Frame 2608337-2.svg"
-                    alt="posts"
-                  />
-                  <span class="nav-text post">Contended Posts</span>
-                </a>
+                a href="{% url 'posts:sch_contend' %}">
+            <img class="nav-img img-post" src="{% static 'images/Frame 2608337-2.svg' %}" alt="posts" />
+            <span class="nav-text post">Contended Posts</span>
+          </a>
               </li>
               <li class="nav-link">
                 <a href="#dashboard">
@@ -364,53 +352,33 @@
                 </a>
               </li>
               <li class="nav-link">
-                <a href="#dashboard">
-                  <img
-                    class="nav-img"
-                    src="../static/images/Frame 2608337-4.svg"
-                    alt="comment"
-                  />
+                <a href="{% url 'posts:sch_post' %}">
+                  <img class="nav-img" src="{% static 'images/Frame 2608337-4.svg' %}" alt="comment" />
                   <span class="nav-text">Posts</span>
                 </a>
               </li>
               <li class="nav-link">
-                <a href="#dashboard">
-                  <img
-                    class="nav-img"
-                    src="../static/images/Frame 2608337-5.svg"
-                    alt="inbox"
-                  />
+                <a href="{% url 'accounts:sch_dshbd' %}">
+                  <img class="nav-img" src="{% static 'images/Frame 2608337-5.svg' %}" alt="inbox" />
                   <span class="nav-text">Inbox</span>
                 </a>
               </li>
               <div class="nav-bottom">
                 <li class="nav-link">
-                  <a href="#dashboard">
-                    <img
-                      class="nav-img"
-                      src="../static/images/settings.svg"
-                      alt="inbox"
-                    />
+                  <a href="{% url 'accounts:sch_dshbd' %}">
+                    <img class="nav-img" src="{% static 'images/settings.svg' %}" alt="inbox" />
                     <span class="nav-text">Settings</span>
                   </a>
                 </li>
                 <li class="nav-link">
-                  <a href="#dashboard">
-                    <img
-                      class="nav-img"
-                      src="../static/images/Frame 2608337-6.svg"
-                      alt="inbox"
-                    />
+                  <a href="{% url 'base:contact_us' %}">
+                    <img class="nav-img" src="{% static 'images/Frame 2608337-6.svg' %}" alt="inbox" />
                     <span class="nav-text">About</span>
                   </a>
                 </li>
                 <li class="nav-link">
-                  <a href="#dashboard">
-                    <img
-                      class="nav-img img-post"
-                      src="../static/images/thumbs.svg"
-                      alt="inbox"
-                    />
+                  <a href="{% url 'accounts:sch_dshbd' %}">
+                    <img class="nav-img img-post" src="{% static 'images/thumbs.svg' %}" alt="inbox" />
                     <span class="nav-text post">Support Us</span>
                   </a>
                 </li>
@@ -426,7 +394,4 @@
           </div>
         </div>
       </div>
-      </label>
-  
-  </body>
-</html>
+    </nav>
