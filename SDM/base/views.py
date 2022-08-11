@@ -20,6 +20,14 @@ def school_list_page(request):
 
 
 def contact_us_page(request):
+    # page = 'contact_us'
+    # context = {'page': page}
+    # return render(request, 'base/contact.html', context=context)
+
+
+
+
+
     if request.method == 'POST':
         form = ContactForm(request.POST)
 
@@ -28,19 +36,19 @@ def contact_us_page(request):
             email = form.cleaned_data['email']
             message = form.cleaned_data['message']
 
-            # html = render_to_string('base/contact.html', {
-            #     'name': name,
-            #     'email': email,
-            #     'message': message
-            # })
+            html = render_to_string('base/contact.html', {
+                'name': name,
+                'email': email,
+                'message': message
+            })
 
             send_mail('Contact Us', 'We have been contacted', 'moshopeowo@gmail.com', ['moshopeowo@gmail.com'], html_message=html)
 
-            return redirect('index')
+            return redirect('index.html')
 
     else:
         form = ContactForm()
 
 
-    return render(request, 'contact/index.html', {
+    return render(request, 'base/contact.html', {
         'form': form})
