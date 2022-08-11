@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./debtors.css" />
+    <title>Delete confirmation page</title>
+    <!-- INTERNAL STYLES -->
+
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        scroll-behavior: smooth;
+        text-decoration: none;
+        font-family: "DM Sans", sans-serif;
+      }
+
+      body {
+        height: 100vh;
+        /* background-color: red; */
+      }
+
+      .sidebar {
+        position: fixed;
+        width: 285px;
+        height: 100%;
+        left: 0;
+        top: 0;
+        padding: 10px 14px;
+        background-color: #6e599b;
+        border-radius: 0px 16px 16px 0px;
+        transition: 0.5s;
+      }
+
+      .sidebar header {
+        position: relative;
+      }
+
+      /* sidebar- logo */
+
+      header img {
+        width: 146px;
+        height: 62.8px;
+        margin-top: 24px;
+        margin-left: 24px;
+        margin-right: 115px;
+        cursor: pointer;
+        filter: drop-shadow(0px 1.43097px 2.86194px rgba(0, 0, 0, 0.3));
+      }
+
+      .toggle {
+        position: absolute;
+        top: 30%;
+        right: -130px;
+        height: 25px;
+        width: 25px;
+        background-color: #6e599b;
+        transform: translateY(-50%);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        color: #fffefe;
+        font-size: 30px;
+      }
+
+      .sidebar.close {
+        width: 88px;
+      }
+
+      /* .sidebar.close .nav-text {
+        opacity: 0;
+      } */
+      /* sidebar image links */
+
+      .sidebar li {
+        height: 24px;
+        list-style: none;
+        display: flex;
+        align-items: center;
+        padding: 4px;
+      }
+
+      .sidebar .nav-img {
+        min-width: 10px;
+        width: 30px;
+        height: 30.83px;
+        top: 5.83px;
+        left: 5px;
+        min-width: 60px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .sidebar li .nav-img:hover,
+      .nav-text:hover {
+        border: 2px solid #6e599b;
+      }
+
+      .img-post {
+        margin-left: 40px;
+      }
+
+      .sidebar li a {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        height: 100%;
+        width: 100%;
+        gap: 30px;
+        margin-right: 51px;
+      }
+
+      .menu-links {
+        margin-top: 70px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 23px;
+      }
+
+      .nav-link {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .nav-link a {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 4px;
+      }
+
+      .active {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        background-color: #fffefe;
+        width: 61px;
+        height: 53px;
+        border-radius: 8px;
+      }
+
+      .active-img {
+        position: absolute;
+        left: 35.42%;
+        top: 14.58%;
+        bottom: 8.33%;
+      }
+
+      .nav-text {
+        width: 80px;
+        height: 24px;
+        color: #c4c4c4;
+        font-style: normal;
+        font-weight: 400;
+        font-size: 6.86641px;
+        line-height: 24px;
+        font-size: 16px;
+        letter-spacing: 0.2px;
+        transition: 0.5s;
+      }
+
+      .post {
+        width: 125px;
+        height: 24px;
+        color: #c4c4c4;
+        font-family: "Playfair Display";
+        font-style: normal;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 24px;
+        letter-spacing: 0.2px;
+      }
+
+      .nav-settings {
+        width: 59px;
+        height: 24px;
+        color: #cdcdcf;
+        font-family: "Playfair Display";
+        font-style: normal;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 24px;
+        text-align: right;
+        letter-spacing: 0.2px;
+      }
+
+      .nav-about {
+        width: 44px;
+        height: 24px;
+        top: 8px;
+        left: 56px;
+        color: #cdcdcf;
+        font-family: "Playfair Display";
+        font-style: normal;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 24px;
+        text-align: right;
+        letter-spacing: 0.2px;
+      }
+
+      .nav-support {
+        width: 82px;
+        height: 24px;
+        top: 8px;
+        left: 56px;
+        color: #cdcdcf;
+        font-family: "Playfair Display";
+        font-style: normal;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 24px;
+        text-align: right;
+        letter-spacing: 0.2px;
+      }
+
+      .hero {
+        position: relative;
+        height: 100%;
+        left: 30%;
+        width: calc(100% - 50%);
+        margin-top: 110px;
+      }
+
+      .nav-bottom {
+        position: relative;
+        margin-top: 50px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 20px;
+      }
+
+      .nav-bottom::after {
+        content: "";
+        position: absolute;
+        display: block;
+        bottom: 100px;
+        height: 0px;
+        width: 285px;
+        border: 1px solid #fffefe;
+      }
+
+      .img-bottom {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        margin-top: 61px;
+      }
+
+      .img-bottom img {
+        width: 60px;
+        height: 60px;
+        filter: drop-shadow(0px 1.43097px 2.86194px rgba(0, 0, 0, 0.3));
+        cursor: pointer;
+      }
+
+      .img-bottom img:hover {
+        filter: drop-shadow(0px 1.43097px 2.86194px rgba(0, 0, 0, 0.3));
+      }
+
+      .bottom-text {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .bottom-text h3 {
+        width: 136px;
+        height: 24px;
+        color: #fffefe;
+        font-family: "Playfair Display";
+        font-style: normal;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 24px;
+        letter-spacing: 0.2px;
+      }
+      .bottom-text p {
+        width: 145px;
+        height: 16px;
+        color: #fffefe;
+        font-family: "Playfair Display";
+        font-style: normal;
+        font-weight: 400;
+        font-size: 8px;
+        line-height: 16px;
+        letter-spacing: 0.4px;
+      }
+      .direction {
+        margin-left: 309px;
+        margin-top: 102px;
+        display: flex;
+        gap: 350px;
+      }
+      .edit-icon{
+        /* background-color: red; */
+        width: 25.24px;
+        height: 25.02px;
+      }
+      .delete-icon{
+        width: 25.24px;
+        height: 25.02px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <nav class="sidebar">
+        <header>
+          <div class="img">
+            <img src="../static/images/SDM.logo.svg" alt="logo" />
+          </div>
+          <!-- <img class="toggle" src="../static/images/bx-chevron-right.svg" alt=""> -->
+        </header>
+        <div class="menu-bar">
+          <div class="menu">
+            <ul class="menu-links">
+              <li class="nav-link">
+                <a href="#dashboard">
+                  <img
+                    class="nav-img"
+                    src="../static/images/Frame 2608337.svg"
+                    alt="dashboard"
+                  />
+                  <span class="nav-text">Dashboard</span>
+                </a>
+              </li>
+              <li class="nav-link">
+                <a href="#directory">
+                  <img
+                    class="nav-img"
+                    src="../static/images/Frame 2608337-1.svg"
+                    alt="directory"
+                  />
+                  <span class="nav-text">Directory</span>
+                </a>
+              </li>
+              <li class="nav-link">
+                <a href="#dashboard">
+                  <img
+                    class="nav-img img-post"
+                    src="../static/images/Frame 2608337-2.svg"
+                    alt="posts"
+                  />
+                  <span class="nav-text post">Contended Posts</span>
+                </a>
+              </li>
+              <li class="nav-link">
+                <a href="#dashboard">
+                  <img
+                    class="nav-img img-post"
+                    src="../static/images/Frame 2608337-3.svg"
+                    alt="progress"
+                  />
+                  <span class="nav-text post">Progress Report</span>
+                </a>
+              </li>
+              <li class="nav-link">
+                <a href="#dashboard">
+                  <img
+                    class="nav-img"
+                    src="../static/images/Frame 2608337-4.svg"
+                    alt="comment"
+                  />
+                  <span class="nav-text">Posts</span>
+                </a>
+              </li>
+              <li class="nav-link">
+                <a href="#dashboard">
+                  <img
+                    class="nav-img"
+                    src="../static/images/Frame 2608337-5.svg"
+                    alt="inbox"
+                  />
+                  <span class="nav-text">Inbox</span>
+                </a>
+              </li>
+              <div class="nav-bottom">
+                <li class="nav-link">
+                  <a href="#dashboard">
+                    <img
+                      class="nav-img"
+                      src="../static/images/settings.svg"
+                      alt="inbox"
+                    />
+                    <span class="nav-text">Settings</span>
+                  </a>
+                </li>
+                <li class="nav-link">
+                  <a href="#dashboard">
+                    <img
+                      class="nav-img"
+                      src="../static/images/Frame 2608337-6.svg"
+                      alt="inbox"
+                    />
+                    <span class="nav-text">About</span>
+                  </a>
+                </li>
+                <li class="nav-link">
+                  <a href="#dashboard">
+                    <img
+                      class="nav-img img-post"
+                      src="../static/images/thumbs.svg"
+                      alt="inbox"
+                    />
+                    <span class="nav-text post">Support Us</span>
+                  </a>
+                </li>
+                <div class="img-bottom close">
+                  <img src="../static/images/Ellipse 1.svg" alt="logo" />
+                  <div class="bottom-text">
+                    <h3>Scarlet Montessori</h3>
+                    <p>scarletmontessorischool@gmail.com</p>
+                  </div>
+                </div>
+              </div>
+            </ul>
+          </div>
+        </div>
+      </nav>
+      <section class="direction">
+        
+          <div class="section-text">
+            <h2>Directory</h2>
+            <p>Below is the directory for your debtors</p>
+            <p><span>Sort by:</span>Recently added</p>
+          </div>
+          <div>
+            <div class="section-text2">
+              <img src="../static/images/search.svg" alt="" />
+              <input type="text" placeholder="Search" />
+            </div>
+            <div>
+                <h3>Add to list</h3>
+                <img src="../static/images/add.svg" alt="">
+            </div>
+            <div>
+                <h3>Edit</h3>
+                <img class="edit-icon" src="../static/images/document-edit-icon.svg" alt="">
+            </div>
+            <div>
+                <h3>Delete All</h3>
+                <img class="delete-icon" src="../static/images/delete-icon.svg" alt="">
+            </div>
+          </div>
+        
+      </section>
+    </div>
+
+    <!-- <script>
+        const sidebar = document.querySelector(".sidebar")
+        const toggle = document.querySelector(".toggle")
+        toggle.addEventListener("click", () => {
+            sidebar.classList.toggle("close")
+        })
+    </script> -->
+  </body>
+</html>
