@@ -1,0 +1,110 @@
+#customform-sm{
+    
+    /* Auto layout */
+    
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    padding: 17.0387px;
+    gap: 5.68px;
+    
+    width: 397.57px;
+    height: 52.08px;
+    
+    /* Grey/White */
+    
+    background: #FFFEFE;
+    /* Black for Texts */
+    
+    border: 0.709946px solid #1E1A1A;
+    border-radius: 5.67957px;
+    
+    /* Inside auto layout */
+    
+    flex: none;
+    order: 1;
+    flex-grow: 0;
+    }
+    label{
+        /* Title */
+    height:19px;
+    
+    /* Header/H4 */
+    
+    font-family: 'Playfair Display';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 26px;
+    /* or 130% */
+    
+    display: flex;
+    align-items: center;
+    
+    /* Black for Texts */
+    
+    color: #1E1A1A;
+    
+    
+    /* Inside auto layout */
+    
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+    }
+    .custom-btn-primary{
+        /* Pri Button */
+    align-items: center;
+    padding: 16px 32px;
+    
+    width: 179px;
+    height: 55.04px;
+    
+    /* Secondary/5 */
+    
+    background: #77AED0;
+    border-radius: 20px;
+    min-width: 73px;
+    min-height: 29px;
+    
+    /* Paragraph (Large) */
+    
+    font-family: 'DM Sans';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 35px;
+    /* or 146% */
+    
+    display: flex;
+    align-items: center;
+    text-align: center;
+    
+    /* Black for Texts */
+    
+    color: #1E1A1A;
+    
+    
+    /* Inside auto layout */
+    
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+    }
+    ::placeholder{
+        width: 200px;
+    height: 18px;
+    
+    font-family: 'DM Sans';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 17.0387px;
+    line-height: 17px;
+    /* or 100% */
+    
+    display: flex;
+    align-items: center;
+    
+    color: rgba(188, 188, 188, 0.5);
+    }
+    
