@@ -10,9 +10,19 @@
  body {
      font-family: 'Playfair Display';
     background-image: url("/static/images/unsplash_7JX0-bfiuxQ.svg");
+    text-align: center;
 
  }
+a{
+    text-decoration: none;
+}
+ main {
+     position: relative;
+ }
 
+ .after_login{
+     margin-left: 18rem;
+ }
 
  /* Navbar starts */
  header {
@@ -46,7 +56,7 @@
      display: block;
      color: white;
      font-size: 15px;
-     padding: 10px 45px;
+     padding: 10px 30px;
      transition: 0.2s;
      margin: 0 5px;
  }
@@ -55,7 +65,10 @@
      color: rgb(214, 202, 202);
  }
 
- .home {
+ a.nav-btn {
+     text-decoration: none;
+ }
+ .nav-btn:hover {
      background-color: #7F5EAA;
      border-radius: 8px;
  }
@@ -975,6 +988,7 @@ Hero Section
  .row {
      display: flex;
      flex-wrap: wrap;
+     text-align: left;
  }
 
  .footer-logo {
