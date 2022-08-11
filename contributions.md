@@ -12,3 +12,5 @@
 - worked on Sidebar page
 - worked on project reveiw page
 - worked on debtor's confirm page
+- worked on debtor's cleared page
+- worked on debtor's uncleared page
