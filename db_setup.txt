@@ -1,0 +1,4 @@
+install mysql
+run requirements.txt
+set ur sql to the django setting.
+make migrations and migrate app by app

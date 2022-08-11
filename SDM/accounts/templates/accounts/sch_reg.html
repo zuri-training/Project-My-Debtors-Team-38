@@ -244,7 +244,7 @@
 
 </style>
 </head>
-<main id="sch_reg">
+<main id="sch_reg" class='after_login'>
   <div class="left">
     <div class="sidebar">
       <img src="{% static '/images/SDMlogo.svg' %}" alt="" id="ellipse1" class="logo">
@@ -281,10 +281,11 @@
       <p class="signin">
         Already have an account?<a href="{% url 'accounts:login' %}">Sign In</a>
       </p>
-      <form action="">
+      <form action="" method="post">
+        {% csrf_token%}
         <div class="form-group">
           <label for="name" id="name">Full Name of School</label>
-          <input type="text" name="Sname" id="customform-sm" placeholder="Name Of School" />
+          <input type="text" name="name" id="customform-sm" placeholder="Name Of School" />
         </div>
         <div class="form-group">
           <label for="email" id="email">School Email</label>
@@ -295,18 +296,18 @@
           <input type="tel" name="number" id="customform-sm" placeholder="Phone Number" required />
         </div>
         <div class="form-group">
-          <label for="password" id="password">Password</label>
+          <label for="password" id="password1">Password</label>
           <input type="password" name="password" id="customform-sm" class="cond" required />
           <p class="cond">At least 8 Characters in length, should contain a mixture of Uppercase (A- Z), Lower case
             letters (a - z), Numbers (0 - 9) and Special symbols (@,$,*,&)</p>
         </div>
         <div class="form-group">
           <label for="password" id="cpassword">Confirm Password</label>
-          <input type="password" name="password" id="customform-sm" placeholder="Confirm password" required />
+          <input type="password" name="password2" id="customform-sm" placeholder="Confirm password" required />
         </div>
+        <button type="submit" class="custom-btn-primary">Register</button>
       </form>
       <br />
-      <button type="button" class="custom-btn-primary">Register</button>
     </div>
   </div>
 </main>

@@ -10,6 +10,7 @@ urlpatterns = [
     # log in and reg
     path('select_reg/', views.select_reg_page, name='select_reg'),
     path('login/', views.login_page, name='login'),
+    path('logout/', views.logout_user, name='logout'),
     path('forgot_password/', views.forgot_password, name='forgot_password'),
 
     # school
