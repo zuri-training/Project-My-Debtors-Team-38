@@ -18,7 +18,13 @@ def test(request):
 
 @login_required(login_url='accounts:login')
 def add_debt(request):
+    page = 'add_debt'
     context = {}
+
+    if request.method == "POST":
+        pass
+        
+
     return render(request, "posts/add_debt.html", context)
 
 
@@ -86,3 +92,8 @@ def sch_post(request):
 def sch_review(request):
     context = {}
     return render(request, "posts/sch_review.html", context)
+
+@login_required(login_url='accounts:login')
+def guardian_add_child_page(request):
+    context = {}
+    return render(request, "posts/chd_form.html", context)

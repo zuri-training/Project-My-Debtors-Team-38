@@ -6,7 +6,7 @@ from django.contrib.auth.decorators import login_required
 from .forms import SchoolRegistrationForm, GuardianRegistrationForm
 from django.db.models import Q
 from django.contrib import messages
-
+from django.urls import reverse
 
 def select_reg_page(request):
     nav = 'nav'
@@ -23,7 +23,6 @@ def school_register_page(request, *args, **kwargs):
     user = request.user
     if user.is_authenticated:
         print(user.role)
-
         return HttpResponse("You are already authenticated as " + str(user.email))
 
     context = {'page': page,
