@@ -47,7 +47,7 @@ A platform that allows schools in a certain locality list directory of people ow
 - [Mosope Owolabi](https://www.github.com/mosope-codes)
 - [Marvelous Ezechi](https://www.github.com/reekofgeek)
 - [Christian Tom](https://www.github.com/Chrisss17)
-- [Add your name](https://www.github.com/your-username)
+- [Praise Adedoyin](https://www.github.com/praise4997)
 - [Add your name](https://www.github.com/your-username)
 - [Add your name](https://www.github.com/your-username)
 - [Add your name](https://www.github.com/your-username)

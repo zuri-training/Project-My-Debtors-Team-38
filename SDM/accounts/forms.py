@@ -52,7 +52,7 @@ class GuardianRegistrationForm(forms.UserCreationForm):
 
     class Meta:
         model = Guardian
-        fields = ("email",)
+        fields = ("email", 'name')
         # field_classes = {"email": UsernameField}
 
     def clean_email(self):

@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Debtor Cleared Page</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx"
+      crossorigin="anonymous"
+    />
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+      .img {
+        height: 50px;
+        width: 50px;
+        border-radius: 50%;
+        background-image: url("pexels-monstera-6281963\ \(1\).svg");
+        background-position: center;
+        background-size: cover;
+      }
+      .card {
+        background-color: #dbcbea;
+        width: 674px;
+        height: 238px;
+        margin-top: 16px;
+        margin-left: 200px;
+      }
+      .p {
+        margin: 0;
+        border: 0;
+        padding: 0;
+      }
+      body {
+        position: relative;
+        align-items: center;
+        margin-top: 96px;
+      }
+      .div {
+        position: relative;
+        align-items: center;
+      }
+      .reason{
+        margin-left: 200px;
+        margin-top: 13px;
+      }
+
+      .title{
+        width: 562px;
+        height: 36px;
+        margin-left: 300px;
+        font-family: 'Playfair Display';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 28px;
+        line-height: 36px;
+        text-align: center;
+        color: #001A1E;
+      }
+
+      .p-title{
+        width: 706px;
+        height: 53px;
+        margin-left: 200px;
+        font-family: 'Playfair Display';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 19.8204px;
+        line-height: 26px;
+        text-align: center;
+        color: #001A1E;
+
+      }
+      .clear{
+        background-color: #56CC42;
+        margin-top: 63px;
+        width: 100px;
+        height: 100px;
+        margin-left: 500px;
+        top: 256px;
+        border-radius: 50%;
+      }
+      .clear img{
+        margin-top: 15px;
+        margin-left:  15px;
+        
+      }
+      .payment{
+        margin-left: 200px;
+        margin-top: 32px;
+      }
+
+      .payment h3{
+        width: 726px;
+        height: 43px;
+        left: 464px;
+        top: 388px;
+        font-family: 'Playfair Display';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 36px;
+        line-height: 44px;
+        color: #001A1E;
+      }
+
+      .img, .info, .info2{
+        margin-top: 20.58px;
+      }
+      .contend{
+        padding: 10.2919px 20.5838px;
+        gap: 9.78px;
+        display: flex;
+        position: absolute;
+        width: 134.95px;
+        height: 40.58px;
+        left: 475.63px;
+        top: -21.18px;
+        box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.3), 0px 2px 6px 2px rgba(0, 0, 0, 0.15);
+        border-radius: 10px;
+        background-color: #77aed0;
+        cursor: pointer;
+        
+      }
+
+      .contend button {
+        width: 68px;
+        height: 17px;
+        font-family: 'Playfair Display';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 12.8649px;
+        line-height: 17px;
+        background-color: #77aed0;
+        border: none;
+        color: #000000;
+
+      }
+      @media screen and (max-width: 700px) {
+        .div {
+          text-align: start;
+        }
+        .card {
+          width: 100;
+        }
+      }
+    </style>
+  </head>
+  <body class="col-sm-12 container">
+    <div class="div col-sm-12">
+      <p class="position-absolute end-0 top-2">Sms /ad/2204</p>
+      <h3 class="title">Update on the review of your contended post</h3>
+      <p class="p-title">
+        Review of your contended post has concluded. Kindly check the status of
+        the review below.
+      </p>
+    </div>
+    <div class="clear">
+      <img src="../static/images/clearpage.svg" alt="">
+    </div>
+
+      <div class="payment">
+        <h3>Payment made! Your debt has been resolved!</h3>
+      </div>
+      
+      <div class="card col-sm-6">
+        <div class="d-flex justify-content-around">
+          <div class="img">
+            <img src="../static/images/audu.svg" alt="">
+          </div>
+          <div class="info">
+            <p class="p"><strong>Name:</strong>Audu Aisha Stella</p>
+            <p class="p"><strong>Gender:</strong>Female</p>
+            <p class="p"><strong>Month of withdrawal:</strong>August</p>
+            <p class="p"><strong>Year of withdrawal:</strong>2020</p>
+            <p class="p"><strong>Class before withdrawal:</strong>SS3</p>
+            <p class="p"><strong>Unpaid Debt:</strong>N64,000</p>
+            <p class="p"><strong>Interest incurred:</strong>30%</p>
+          </div>
+          <div class="info2">
+            <p><strong>Student ID:</strong>SMS1602022</p>
+            <p><strong>Year of withdrawal:</strong>2020</p>
+          </div>
+        </div>
+        <div class="position-relative end-0 mb-5 me-5 pe-5">
+          <div class=" contend">
+            <button class="">
+              Contended
+            </button>
+            <img src="../static/images/Vectorflag.svg" alt="">
+          </div>
+        </div>
+      </div>
+       
+      <div class="reason">
+        <p><strong>Status of Review:</strong>No longer a Debtor</p>
+      </div>
+    <div>
+      <p class="reason">
+        You have been sent an email of confirmation of your debt resolution.
+        Your child/ward’s details <br />
+        will be withdrawn from this platform in the next 12hrs.
+      </p>
+    </div>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>

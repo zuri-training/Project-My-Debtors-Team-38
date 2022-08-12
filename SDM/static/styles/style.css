@@ -10,9 +10,19 @@
  body {
      font-family: 'Playfair Display';
     background-image: url("/static/images/unsplash_7JX0-bfiuxQ.svg");
+    text-align: center;
 
  }
+a{
+    text-decoration: none;
+}
+ main {
+     position: relative;
+ }
 
+ .after_login{
+     margin-left: 18rem;
+ }
 
  /* Navbar starts */
  header {
@@ -40,13 +50,14 @@
 
  .nav-bar ul {
      display: flex;
+     margin-top: 1em;
  }
 
  .nav-bar ul li a {
      display: block;
      color: white;
      font-size: 15px;
-     padding: 10px 45px;
+     padding: 10px 30px;
      transition: 0.2s;
      margin: 0 5px;
  }
@@ -55,7 +66,10 @@
      color: rgb(214, 202, 202);
  }
 
- .home {
+ a.nav-btn {
+     text-decoration: none;
+ }
+ .nav-btn:hover {
      background-color: #7F5EAA;
      border-radius: 8px;
  }
@@ -144,17 +158,22 @@
  /* navbar ends */
 
 Hero Section
-.hero-container {
+
+.hero{
+   padding-bottom: 3em; 
+}
+
+.Girlintech {
     display: grid;
     padding: 4rem 0 2rem 0;
     grid-auto-flow: column;
-    grid-template-columns: 5fr 5fr;
+    grid-template-columns: 6fr 4fr;
     margin: 50px 100px;
 }
 
-.hero-left-side h2 {
+.hero-left-side-G h2 {
     font-weight: 400;
-    font-size: 1.7rem;
+    font-size: 1em;
     margin-bottom: 20px;
     width: 350px;
     font-style: normal;
@@ -162,12 +181,12 @@ Hero Section
     letter-spacing: -0.25px
 }
 
-.hero-left-side p {
+.hero-left-side-G p {
     font-weight: 450;
     margin-bottom: 25px;
-    width: 80%;
+    width: 40%;
     line-height: 4vh;
-    font-size: 1rem;
+    font-size: .8em;
     font-style: normal;
     font-weight: 400;
     line-height: 5vh;
@@ -197,11 +216,26 @@ Hero Section
     color: white;
 }
 
-#img1 {
+#girl-text{
+    font-size: 2em;
+    text-align: left;
+    width: 50%;
+}
+
+#girl-p{
+    font-size: 1em;
+    text-align: left;
+    width: 60%;
+}
+
+#img1-G {
     height: 400px;
+    position: absolute;
+    top: 1.2%;
+    left: 63%;
     /* width: 140%; */
     /* padding-left: 200px; */
-    margin-right: -10px;
+    /* margin-right: -10px; */
     border-radius: 10px;
     /* box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.3), 0px 2px 6px 2px rgba(0, 0, 0, 0.15); */
     border-radius: 16px;
@@ -355,6 +389,7 @@ Hero Section
 .second-feature {
     margin-right: 50px;
     width: 20%;
+    text-align: left;
 }
 
 .third-feature {
@@ -427,7 +462,7 @@ Hero Section
     margin-top: 100px;
 }
 
-#img3 {
+#img3-G {
     height: 500px;
     width: 500px;
     border-radius: 10px;
@@ -636,14 +671,28 @@ Hero Section
 
 /* Media query for hero section */
 @media only screen and (max-width:990px) {
-    .hero-container {
+    .hero-G-container {
         display: inline-block;
         margin: 0 50px;
         width: 80%;
         padding-bottom: -50px;
     }
 
-    .hero-left-side h2 {
+    .Girlintech{
+        margin-bottom: 7em;
+    }
+
+    #girl-text{
+        width: 200%;
+        margin-left: -1.2em;
+    }
+
+    #girl-p{
+        width: 200%;
+        margin-left: -2.2em;
+    }
+
+    .hero-left-side-G h2 {
         width: 100%;
         font-size: xx-large;
         font-style: normal;
@@ -651,7 +700,7 @@ Hero Section
         line-height: 35px;
     }
 
-    .hero-left-side p {
+    .hero-left-side-G p {
         width: 100%;
         font-style: normal;
         font-weight: 400;
@@ -666,12 +715,15 @@ Hero Section
         padding: 9px 12px;
     }
 
-    #img1 {
+    #img1-G {
         padding-right: 120px;
-        width: 80%;
+        width: 60%;
+        position: absolute;
         margin-top: -135px;
         margin-left: 200px;
         border-radius: 90px;
+        top: 9%;
+        left: 15%;
     }
 
     /* about */
@@ -849,7 +901,7 @@ Hero Section
         flex: 100%;
     }
 
-    #img3 {
+    #img3-G {
         width: 400px;
         align-items: center;
         height: 400px;
@@ -975,6 +1027,7 @@ Hero Section
  .row {
      display: flex;
      flex-wrap: wrap;
+     text-align: left;
  }
 
  .footer-logo {

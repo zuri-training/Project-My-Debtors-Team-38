@@ -506,37 +506,48 @@
     </script>
   </head>
   <body>
-    <div class="top">
-      <h2>Kindly fill the form below</h2>
-      <p>
-        Details provided should be true and as accurate as possible. Otherwise,
-        this can lead to a delayed review.
-      </p>
-    </div>
-    <br />
-    <div class="dropdown">
-      <h4>Reason For Contending (Flagging)</h4>
-      <select name="reason" class="reason" onchange="CheckReasons(this.value);">
-        <option value="nondebtor">Not a Debtor</option>
-        <option value="miscalc">Miscalculation of incurred Debt</option>
-        <option value="others">Others(specify)</option>
-      </select>
-      <input type="text" name="reason" id="reason" style="display: none" />
-    </div>
-    <h3>Upload supporting documents</h3>
-    <label for="upload" id="uploadframe"></label>
-    <form
-      enctype="multipart/form-data"
-      action=""
-      method="post"
-      id="uploadframe"
-    >
-      <input type="hidden" name="" value="Browse to Upload" />
-      <input type="file" id="upload" name="upload" accept="JPEG/PNG/PDF/Word" />
-      <p class="filetype">Supported formats: JPEG, PNG, PDF, Word</p>
-      <input type="submit" id="submit" value="Upload Document" />
-    </form>
+    <main>
+      <div class="top">
+        <h2>Kindly fill the form below</h2>
+        <p>
+          Details provided should be true and as accurate as possible.
+          Otherwise, this can lead to a delayed review.
+        </p>
+      </div>
+      <br />
+      <div class="dropdown">
+        <h4>Reason For Contending (Flagging)</h4>
+        <select
+          name="reason"
+          class="reason"
+          onchange="CheckReasons(this.value);"
+        >
+          <option value="nondebtor">Not a Debtor</option>
+          <option value="miscalc">Miscalculation of incurred Debt</option>
+          <option value="others">Others(specify)</option>
+        </select>
+        <input type="text" name="reason" id="reason" style="display: none" />
+      </div>
+      <h3>Upload supporting documents</h3>
+      <label for="upload" id="uploadframe"></label>
+      <form
+        enctype="multipart/form-data"
+        action=""
+        method="post"
+        id="uploadframe"
+      >
+        <input type="hidden" name="" value="Browse to Upload" />
+        <input
+          type="file"
+          id="upload"
+          name="upload"
+          accept="JPEG/PNG/PDF/Word"
+        />
+        <p class="filetype">Supported formats: JPEG, PNG, PDF, Word</p>
+        <input type="submit" id="submit" value="Upload Document" />
+      </form>
 
-    <input type="submit" value="submit" id="filledbtn" />
+      <input type="submit" value="submit" id="filledbtn" />
+    </main>
   </body>
 </html>

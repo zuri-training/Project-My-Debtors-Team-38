@@ -34,7 +34,7 @@
     </head>
     <body>
         <!-- condiition to include side bar based on pages -->
-        {% if  page == 'home'  or         page == 'sch_list'  or        page == 'contact_us'%}
+        {% if  nav == 'nav' %}
         {% include 'navbar.html' %}
         {% else %}
         {% include 'sidebar.html' %}
@@ -45,7 +45,9 @@
 
         {% endblock  %}
 
+        {% if page == 'home' or page == 'sch_list' or page == 'contact_us' %}
         {% include 'footer.html' %}
+        {% endif %}
 
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
             integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
