@@ -1,12 +1,12 @@
 from django.forms import ModelForm
 from django.contrib.auth import get_user_model, forms
 from django.core.exceptions import ValidationError
-from .models import SchoolProfile, Student, GuardianProfile, GuardianChild, School, Guardian, User
+from .models import SchoolProfile, Student, GuardianProfile, GuardianChild, School, Guardian
 
 from django import forms as d_forms
 # from allauth.account.forms import SignupForm
 
-# User = get_user_model()
+User = get_user_model()
 
 
 class UserChangeForm(forms.UserChangeForm):
@@ -24,7 +24,7 @@ class SchoolRegistrationForm(forms.UserCreationForm):
 
     class Meta:
         model = School
-        fields = ("email",)
+        fields = ("name", "email", "password")
         # field_classes = {"email": UsernameField}
 
     def clean_email(self):
