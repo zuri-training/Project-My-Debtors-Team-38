@@ -98,9 +98,13 @@ def sch_backlog(request):
     return render(request, "posts/sch_backlog.html", context)
 
 
-@login_required(login_url='accounts:login')
-def sch_contend(request):
+#@login_required(login_url='accounts:login')
+def sch_contend(request, id):
     context = {}
+    debt = Debt.objects.get(pk=id)
+
+
+
     return render(request, "posts/sch_contend.html", context)
 
 
