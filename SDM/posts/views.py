@@ -132,7 +132,7 @@ def sch_contend(request):
 # @login_required(login_url='accounts:login')
 def sch_post(request):
     context = {}
-    return render(request, "posts/sch_post.html", context)
+    return render(request, "posts/post_comment.html", context)
 
 
 # @login_required(login_url='accounts:login')

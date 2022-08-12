@@ -1,4 +1,6 @@
-{% extends 'main_index.html' %} {% load static %} {% block content %}
+{% extends 'main_index.html' %}
+{% load static %}
+{% block content %}
 
 <style>
   #add_debt .cs1-header {
@@ -31,39 +33,44 @@
     </div>
     <div class="row mt-3 justify-content-center">
       <div class="col-sm-8">
-        <form action="">
+        <form action="" method="post">
+          {% csrf_token %}
           <div class="col">
             <label for="fname" class="form-label">Full Name</label>
-            <input type="text" class="form-control form-control-lg" id="fname" placeholder="Full Name" />
+            <input type="text" class="form-control form-control-lg" name="fname" placeholder="Full Name" />
           </div>
           <div class="row">
             <div class="col-md mt-3 mt-sm-4">
               <label for="std-id" class="form-label">Student ID</label>
-              <input type="number" class="form-control form-control-lg" id="std-id" placeholder="Enter ID" />
+              <input type="number" class="form-control form-control-lg" name="std-id" placeholder="Enter ID" />
             </div>
             <div class="col-md mt-3 mt-sm-4">
               <label for="dt-wtd" class="form-label">Date Of Withdrawal</label>
-              <input type="date" class="form-control form-control-lg" id="dt-wtd" placeholder="Date" />
+              <input type="date" class="form-control form-control-lg" name="dt-wtd" placeholder="Date" />
             </div>
           </div>
           <div class="row">
             <div class="col-md mt-3 mt-sm-4">
               <label for="debt-in" class="form-label">Debt Incurred</label>
-              <input type="number" class="form-control form-control-lg" id="debt-in" placeholder="Amount" />
+              <input type="number" class="form-control form-control-lg" name="debt-in" placeholder="Amount" />
             </div>
             <div class="col-md mt-3 mt-sm-4">
               <label for="gender" class="form-label">Gender</label>
-              <select class="form-select form-select-lg" aria-label="Default select example" id="gender">
+              <select class="form-select form-select-lg" aria-label="Default select example" name="gender">
                 <option selected>Select</option>
                 <option value="male">Male</option>
                 <option value="female">Female</option>
               </select>
             </div>
+            <div class="col-md mt-3 mt-sm-4">
+              <label for="std-id" class="form-label">Age</label>
+              <input type="number" class="form-control form-control-lg" name="age" placeholder="Age" />
+            </div>
           </div>
           <div class="row">
             <div class="col-md mt-3 mt-sm-4">
               <label for="cl-wtd" class="form-label">Class Of Withdrawal</label>
-              <select class="form-select form-select-lg" aria-label="Default select example" id="cl-wtd">
+              <select class="form-select form-select-lg" aria-label="Default select example" name="cl-wtd">
                 <option selected>Select</option>
                 <option value="JS1">JS1</option>
                 <option value="JS2">JS2</option>
@@ -75,7 +82,7 @@
             </div>
             <div class="col-md mt-3 mt-sm-4">
               <label for="inter-in" class="form-label">Interest Incurred</label>
-              <input type="number" class="form-control form-control-lg" id="inter-in" placeholder="Amount" />
+              <input type="number" class="form-control form-control-lg" name="inter-in" placeholder="Amount" />
             </div>
           </div>
           <div class="row mt-5 justify-content-center">
