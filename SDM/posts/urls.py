@@ -5,7 +5,7 @@ app_name = 'posts'
 
 urlpatterns = [
     path('', views.test, name='test'),
-    path("add_debt", views.add_debt, name=""),
+    path("add_debt", views.add_debt, name="add_debt"),
     path("debt_confirm", views.debt_confirm, name="debt_confirm"),
     path("debt_sus", views.debt_sus, name="debt_sus"),
     path("sch_dir", views.sch_dir, name="sch_dir"),
@@ -17,7 +17,7 @@ urlpatterns = [
 
     path("gdn_clear", views.gdn_clear, name="gdn_clear"),
     path("gdn_confirm", views.gdn_confirm, name="gdn_confirm"),
-    path('cdh_form/', views.guardian_add_child_page, name='cdh_form'),
+    path('chd_form/', views.guardian_add_child_page, name='chd_form'),
     path("gdn_contend", views.gdn_contend, name="gdn_contend"),
 
 ]

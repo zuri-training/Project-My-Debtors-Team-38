@@ -1,6 +1,15 @@
 {% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+  </head>
+  <body>
     <style>
-      * {
+      #hsb {
         margin: 0;
         padding: 0;
         box-sizing: border-box;
@@ -9,7 +18,7 @@
         font-family: "DM Sans", sans-serif;
       }
 
-      .sidebar #hsb{
+      .sidebar #hsb {
         position: fixed;
         width: 250px;
         height: 100%;
@@ -22,7 +31,7 @@
 
       /* sidebar- logo */
 
-       #hsb .img img {
+      #hsb .img img {
         width: 146px;
         height: 62.8px;
         margin-top: 50px;
@@ -94,7 +103,7 @@
         gap: 4px;
       }
 
-      
+
 
       .nav-text {
         width: 80px;
@@ -219,6 +228,7 @@
         line-height: 24px;
         letter-spacing: 0.2px;
       }
+
       .bottom-text p {
         width: 145px;
         height: 16px;
@@ -263,6 +273,7 @@
         left: 50%;
         transform: translate(-50%, -50%);
       }
+
       .toggle .middle_line {
         top: 50%;
         left: 50%;
@@ -275,28 +286,31 @@
         transform: translate(-50%, -50%);
       }
 
-      input:checked ~ .toggle .top_line {
+      input:checked~.toggle .top_line {
         left: 2px;
         top: 14px;
         width: 25px;
         transform: rotate(45deg);
       }
 
-      input:checked ~ .toggle .bottom_line {
+      input:checked~.toggle .bottom_line {
         left: 2px;
         top: 14px;
         width: 25px;
         transform: rotate(-45deg);
       }
-      input:checked ~ .toggle .middle_line {
+
+      input:checked~.toggle .middle_line {
         opacity: 0;
         transform: translateX(20px);
       }
-      input:checked ~ .sidebar {
+
+      input:checked~.sidebar {
         transform: translateX(0);
         box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
       }
-      button{
+
+      button {
         width: 80%;
         height: 80%;
         padding: 10px;
@@ -310,17 +324,16 @@
         color: #000000;
         cursor: pointer;
       }
-    </style>
-  </head>
-  <body>
-    <nav>
 
-    <input type="checkbox" />
-    <div class="toggle">
-      <span class="top_line common"></span>
-      <span class="middle_line common"></span>
-      <span class="bottom_line common"></span>
-    </div>
+    </style>
+    <nav id='hsb'>
+
+      <input type="checkbox" />
+      <div class="toggle">
+        <span class="top_line common"></span>
+        <span class="middle_line common"></span>
+        <span class="bottom_line common"></span>
+      </div>
       <div class="sidebar">
         <div class="hsb">
           <div class="img">
@@ -332,15 +345,11 @@
             <ul class="menu-links">
               <li class="nav-link">
                 <a href="{% url 'accounts:sch_dshbd' %}">
-                  <img
-                    class="nav-img"
-                    src="{% static 'images/Frame 2608337.svg' %}"
-                    alt="dashboard"
-                  />
-                  <span class="nav-text">Dashboard</span>
-                </a>
-              </li>
-              <!-- <li class="nav-link">
+            <img class="nav-img" src="{% static 'images/Frame 2608337.svg' %}" alt="dashboard" />
+            <span class="nav-text">Dashboard</span>
+            </a>
+            </li>
+            <!-- <li class="nav-link">
                 <a href="{% url 'accounts:sch_dshbd' %}">
                   <img
                     class="nav-img"
@@ -350,7 +359,7 @@
                   <span class="nav-text">Add Child</span>
                 </a>
               </li> -->
-              <!-- <li class="nav-link">
+            <!-- <li class="nav-link">
                 <a href="#dashboard">
                   <img
                     class="nav-img img-post"
@@ -360,7 +369,7 @@
                   <span class="nav-text post">Contended Posts</span>
                 </a>
               </li> -->
-              <!-- <li class="nav-link">
+            <!-- <li class="nav-link">
                 <a href="#dashboard">
                   <img
                     class="nav-img img-post"
@@ -370,73 +379,71 @@
                   <span class="nav-text post">Review Update</span>
                 </a>
               </li> -->
+            <li class="nav-link">
+              <a href="{% url 'posts:sch_dir' %}">
+
+                <img class="nav-img" src="{% static 'images/Frame 2608337-1.svg' %}" alt="directory" />
+                <span class="nav-text">Directory</span>
+              </a>
+            </li>
+            <li class="nav-link">
+              a href="{% url 'posts:sch_contend' %}">
+              <img class="nav-img img-post" src="{% static 'images/Frame 2608337-2.svg' %}" alt="posts" />
+              <span class="nav-text post">Contended Posts</span>
+              </a>
+            </li>
+            <li class="nav-link">
+              <a href="#dashboard">
+                <img class="nav-img img-post" src="../static/images/Frame 2608337-3.svg" alt="progress" />
+                <span class="nav-text post">Progress Report</span>
+              </a>
+            </li>
+            <li class="nav-link">
+              <a href="{% url 'posts:sch_post' %}">
+                <img class="nav-img" src="{% static 'images/Frame 2608337-4.svg' %}" alt="comment" />
+                <span class="nav-text">Posts</span>
+              </a>
+            </li>
+            <li class="nav-link">
+              <a href="{% url 'accounts:sch_dshbd' %}">
+                <img class="nav-img" src="{% static 'images/Frame 2608337-5.svg' %}" alt="inbox" />
+                <span class="nav-text">Inbox</span>
+              </a>
+            </li>
+            <!-- <button class="btn">Log Out</button> -->
+            <div class="nav-bottom">
               <li class="nav-link">
-                <a href="{% url 'posts:sch_dir' %}">
-                  
-                  <img class="nav-img" src="{% static 'images/Frame 2608337-1.svg' %}"
-                    alt="directory"
-                  />
-                  <span class="nav-text">Directory</span>
+                <a href="{% url 'accounts:sch_dshbd' %}">
+                  <img class="nav-img" src="{% static 'images/settings.svg' %}" alt="inbox" />
+                  <span class="nav-text">Settings</span>
                 </a>
               </li>
               <li class="nav-link">
-                a href="{% url 'posts:sch_contend' %}">
-            <img class="nav-img img-post" src="{% static 'images/Frame 2608337-2.svg' %}" alt="posts" />
-            <span class="nav-text post">Contended Posts</span>
-          </a>
-              </li>
-              <li class="nav-link">
-                <a href="#dashboard">
-                  <img
-                    class="nav-img img-post"
-                    src="../static/images/Frame 2608337-3.svg"
-                    alt="progress"
-                  />
-                  <span class="nav-text post">Progress Report</span>
-                </a>
-              </li>
-              <li class="nav-link">
-                <a href="{% url 'posts:sch_post' %}">
-                  <img class="nav-img" src="{% static 'images/Frame 2608337-4.svg' %}" alt="comment" />
-                  <span class="nav-text">Posts</span>
+                <a href="{% url 'base:contact_us' %}">
+                  <img class="nav-img" src="{% static 'images/Frame 2608337-6.svg' %}" alt="inbox" />
+                  <span class="nav-text">About</span>
                 </a>
               </li>
               <li class="nav-link">
                 <a href="{% url 'accounts:sch_dshbd' %}">
-                  <img class="nav-img" src="{% static 'images/Frame 2608337-5.svg' %}" alt="inbox" />
-                  <span class="nav-text">Inbox</span>
+                  <img class="nav-img img-post" src="{% static 'images/thumbs.svg' %}" alt="inbox" />
+                  <span class="nav-text post">Support Us</span>
                 </a>
               </li>
-              <!-- <button class="btn">Log Out</button> -->
-              <div class="nav-bottom">
-                <li class="nav-link">
-                  <a href="{% url 'accounts:sch_dshbd' %}">
-                    <img class="nav-img" src="{% static 'images/settings.svg' %}" alt="inbox" />
-                    <span class="nav-text">Settings</span>
-                  </a>
-                </li>
-                <li class="nav-link">
-                  <a href="{% url 'base:contact_us' %}">
-                    <img class="nav-img" src="{% static 'images/Frame 2608337-6.svg' %}" alt="inbox" />
-                    <span class="nav-text">About</span>
-                  </a>
-                </li>
-                <li class="nav-link">
-                  <a href="{% url 'accounts:sch_dshbd' %}">
-                    <img class="nav-img img-post" src="{% static 'images/thumbs.svg' %}" alt="inbox" />
-                    <span class="nav-text post">Support Us</span>
-                  </a>
-                </li>
-                <div class="img-bottom close">
-                  <img src="../static/images/Ellipse 1.svg" alt="logo" />
-                  <div class="bottom-text">
-                    <h3>Scarlet Montessori</h3>
-                    <p>scarletmontessorischool@gmail.com</p>
-                  </div>
+              <div class="img-bottom close">
+                <img src="../static/images/Ellipse 1.svg" alt="logo" />
+                <div class="bottom-text">
+                  <h3>Scarlet Montessori</h3>
+                  <p>scarletmontessorischool@gmail.com</p>
                 </div>
               </div>
+            </div>
             </ul>
           </div>
         </div>
       </div>
     </nav>
+
+
+  </body>
+</html>

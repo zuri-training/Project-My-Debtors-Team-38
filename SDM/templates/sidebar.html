@@ -289,6 +289,7 @@
     </div>
     <!-- <img class="toggle" src="{% static 'images/bx-chevron-right.svg' %}" alt=""> -->
   </div>
+  {%if request.user.role == 'SCHOOL' %}
   <div class="menu-bar">
     <div class="menu">
       <ul class="menu-links">
@@ -328,6 +329,7 @@
             <span class="nav-text">Inbox</span>
           </a>
         </li>
+        {% endif %}
         <div class="nav-bottom">
           <li class="nav-link">
             <a href="{% url 'accounts:sch_dshbd' %}">
@@ -342,9 +344,9 @@
             </a>
           </li>
           <li class="nav-link">
-            <a href="{% url 'accounts:sch_dshbd' %}">
+            <a href="{% url 'accounts:logout' %}">
               <img class="nav-img img-post" src="{% static 'images/thumbs.svg' %}" alt="inbox" />
-              <span class="nav-text post">Support Us</span>
+              <span class="nav-text post">Logout</span>
             </a>
           </li>
           <div class="img-bottom close">
