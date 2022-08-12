@@ -16,22 +16,22 @@ def add_debt(request):
         # ensures an image is uploaded along with the form 
         school = request.user
         if request.FILES.get('avatar') != None: 
-        student = Student.objects.create(
-            school=school,
-            student_id=request.POST.get('std-id'),
-            name=request.POST.get('fname'),
-            gender=request.POST.get('gender'),
-            class_of_withdrawal=request.POST.get('cl-wtd'),
-            date_of_withdrawal=request.POST.get('dt-wtd'),
-            debt_incured=request.POST.get('debt-in'),
-            interest_incured=request.POST.get('inter-in'),
-            age=request.POST.get('age'),
-            avatar=request.POST.get('avatar')
-        )
-        student.save()
-        return redirect('posts:sch_dir')
+            student = Student.objects.create(
+                school=school,
+                student_id=request.POST.get('std-id'),
+                name=request.POST.get('fname'),
+                gender=request.POST.get('gender'),
+                class_of_withdrawal=request.POST.get('cl-wtd'),
+                date_of_withdrawal=request.POST.get('dt-wtd'),
+                debt_incured=request.POST.get('debt-in'),
+                interest_incured=request.POST.get('inter-in'),
+                age=request.POST.get('age'),
+                avatar=request.POST.get('avatar')
+            )
+            student.save()
+            return redirect('posts:sch_dir')
         
-        else: else
+        else:
             messages.error(request, "Please upload picture of student!")
             return redirect("posts:add_debt")
     else:
@@ -129,7 +129,7 @@ def sch_backlog(request):
 #@login_required(login_url='accounts:login')
 def sch_contend(request, id):
     context = {}
-    debt = Debt.objects.get(pk=id)
+    
 
 
     return render(request, "posts/sch_contend.html", context)
