@@ -16,13 +16,17 @@ def test(request):
     return render(request, 'test.html', context)
 
 
-@login_required(login_url='accounts:login')
+#@login_required(login_url='accounts:login')
 def add_debt(request):
     page = 'add_debt'
     context = {}
 
     if request.method == "POST":
-        pass
+        full_name = request.POST['full_name']
+        student = request.POST['student_id']
+        date_of_withdrawal = request.POST['date_of_withdrawal']
+        debt_incured = request.POST['debt_incured']
+        
 
     else:
         pass
