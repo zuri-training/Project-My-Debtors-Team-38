@@ -23,7 +23,10 @@ def add_debt(request):
 
     if request.method == "POST":
         pass
-        
+
+    else:
+        pass
+
 
     return render(request, "posts/add_debt.html", context)
 

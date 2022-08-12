@@ -75,8 +75,19 @@ WSGI_APPLICATION = 'SDM.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'sdm',
+        'USER': 'root',
+        'PASSWORD': 'marve',
+        'PORT': 3306,
+        'HOST': 'localhost',
+
+
+        # 'OPTIONS': {
+        #     'init_command': 'SET default_storage_engine=INNODB',
+        # }
+
+
     }
 }
 
@@ -116,7 +127,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
 
 STATIC_URL = 'static/'
-
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static') ]
 
 

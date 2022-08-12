@@ -36,7 +36,7 @@ class Contend(models.Model):
     updated_at = models.DateTimeField(datetime.now)
 
 
-class Comment(models.Model):
+class Comments(models.Model):
     post = models.ForeignKey(Post, on_delete=models.CASCADE)
     school = models.ForeignKey(School, on_delete=models.CASCADE)
     body = models.TextField()
