@@ -30,8 +30,8 @@ def add_debt(request):
         )
         student.save()
         return redirect('posts:sch_dir')
-
-        else:
+        
+        else: else
             messages.error(request, "Please upload picture of student!")
             return redirect("posts:add_debt")
     else:
@@ -130,7 +130,7 @@ def sch_backlog(request):
 def sch_contend(request, id):
     context = {}
     debt = Debt.objects.get(pk=id)
-    
+
 
     return render(request, "posts/sch_contend.html", context)
 
