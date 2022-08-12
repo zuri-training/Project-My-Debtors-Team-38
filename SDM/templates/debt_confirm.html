@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./debtors.css" />
+    <title>Debtor Confirmation Page</title>
+    <!-- INTERNAL STYLES -->
+
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        scroll-behavior: smooth;
+        text-decoration: none;
+        font-family: "DM Sans", sans-serif;
+      }
+
+      body {
+        height: 100%;
+      }
+
+      .hero {
+        position: relative;
+        height: 100%;
+        left: 30%;
+        width: calc(100% - 50%);
+        margin-top: 110px;
+      }
+
+      .text {
+        width: 500px;
+        height: 52px;
+        font-family: "Playfair Display";
+        font-style: normal;
+        font-weight: 400;
+        font-size: 41px;
+        line-height: 52px;
+        color: #03050e;
+      }
+
+      .wrapper {
+        width: 500px;
+        height: 194.65px;
+        margin-top: 115px;
+        padding: 16.4px;
+        background-color: #dbcbea;
+        border-radius: 8.4px;
+        display: flex;
+        gap: 20px;
+      }
+
+      .hero-info {
+        display: flex;
+        flex-direction: column;
+        gap: 7px;
+      }
+
+      .hero-info h3 {
+        font-family: "Playfair Display";
+        font-style: normal;
+        font-weight: 700;
+        font-size: 12.603px;
+        line-height: 17px;
+
+        color: #000000;
+      }
+
+      .hero-info span {
+        font-family: "Playfair Display";
+        width: 67px;
+        height: 17px;
+        color: #000000;
+        font-style: normal;
+        font-weight: 400;
+        font-size: 12.603px;
+        line-height: 17px;
+      }
+
+      .btn button {
+        width: 165.2px;
+        height: 55.58px;
+        margin-left: 180px;
+        margin-top: 56.3px;
+        background: #77aed0;
+        border-radius: 12px;
+        cursor: pointer;
+        transition: 0.3s;
+      }
+
+      .btn-text {
+        width: 99px;
+        height: 28px;
+        font-family: "Roboto";
+        font-style: normal;
+        font-weight: 500;
+        font-size: 14px;
+        line-height: 20px;
+        letter-spacing: 0.1px;
+        color: #1e1a1a;
+      }
+
+      .btn button:hover {
+        border: 3px solid #613995;
+      }
+
+      @media (max-width: 600px) {
+        .hero {
+          background-color: red;
+          width: 100%;
+          /* max-width: 384px; */
+          /* margin-right: 22px; */
+        }
+        .text {
+          width: 341px;
+          height: 76px;
+        }
+
+        .wrapper {
+          width: 384px;
+          height: 278px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <section class="hero">
+        <h1 class="text">Add a debtor to your directory</h1>
+        <div class="wrapper">
+          <div class="hero-img">
+            <img src="../static/images/ephraim- ellipse3.svg" alt="ephraim" />
+          </div>
+          <div class="hero-info">
+            <h3>Name: <span>Ephraim Onyebuchi Derrick</span></h3>
+            <h3>Gender: <span>Male</span></h3>
+            <h3>Month of Withdrawal: <span>January</span></h3>
+            <h3>Class before withdrawal: <span>Jss1</span></h3>
+            <h3>Unpaid Debt: <span>#52,000</span></h3>
+            <h3>Interest incurred: <span>8.75%</span></h3>
+          </div>
+          <div class="hero-info">
+            <h3>Student ID: <span>SMS2201126</span></h3>
+            <h3>Year of withdrawal: <span>2022</span></h3>
+          </div>
+        </div>
+        <div class="btn">
+          <button class="btn-text">Add Debtor</button>
+        </div>
+      </section>
+    </div>
+  </body>
+</html>

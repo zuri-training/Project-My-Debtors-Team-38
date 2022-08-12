@@ -28,7 +28,11 @@
 
 
 =======
+<<<<<<< HEAD
+>>>>>>> 887a37c9d95ac9f777bba095e3ac5feead2b3907
+=======
 >>>>>>> 5f6b2adce9f897b4d2571adf16d6ab8f43271ab4
+>>>>>>> 4653fc44367330d0b261f26c81724b0481cdca28
 ## Marvel
 #### Branches Worked on <br/>
 - https://github.com/zuri-training/Project-My-Debtors-Team-38/branches/all?query=marvel
@@ -53,7 +57,11 @@
 | Template not rendering | Added the templates folder name in url path|
 
 
+<<<<<<< HEAD
+>>>>>>> 887a37c9d95ac9f777bba095e3ac5feead2b3907
+=======
 >>>>>>> 5f6b2adce9f897b4d2571adf16d6ab8f43271ab4
+>>>>>>> 4653fc44367330d0b261f26c81724b0481cdca28
 ## Csonwuka
 #### Branches Worked on <br/>
 - https://github.com/zuri-training/Project-My-Debtors-Team-38/branches/all?query=samuel
@@ -92,4 +100,8 @@
 - https://github.com/zuri-training/Project-My-Debtors-Team-38/branches/all?query=marvel
 =======
 
+<<<<<<< HEAD
+>>>>>>> 887a37c9d95ac9f777bba095e3ac5feead2b3907
+=======
 >>>>>>> 5f6b2adce9f897b4d2571adf16d6ab8f43271ab4
+>>>>>>> 4653fc44367330d0b261f26c81724b0481cdca28
