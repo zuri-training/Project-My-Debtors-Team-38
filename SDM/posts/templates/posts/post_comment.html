@@ -52,6 +52,7 @@
         </form>
       </div>
     </div>
+    {% for post in posts %}
     <div class="row my-3 px-3 py-3">
       <div class="col-sm-8">
         <div class="row cs6-school-box">
@@ -59,7 +60,7 @@
             <img src="../../../static/images/Ellipse 1.svg" alt="" class="img-fluid custom-img">
           </div>
           <div class="col-sm-10 my-auto">
-            <h3 class="cs6-school-header">Scarlet Montessori School</h3>
+            <h3 class="cs6-school-header">{{post.school}}</h3>
           </div>
           <div class="col-sm-1 my-auto">
             <img src="../../../static/images/Vectorflag.svg" alt="" class="img-fluid">
@@ -72,14 +73,14 @@
                 <img src="../../../static/images/Ellipse 3- african-boy.svg" alt="" class="img-fluid cs6-img-2" />
               </div>
               <div class="col-4 mt-3 cs6-para-container">
-                <p><b>Name</b>: Igbinosa Efosa Boraz</p>
-                <p><b>Student</b>: SMS2201826</p>
-                <p><b>Gender</b>: Male</p>
-                <p><b>Unpaid Debt</b>: N22,000</p>
+                <p><b>Name</b>: {{post.student.name}}</p>
+                <p><b>Student</b>: SMS{{post.student.student_id}}</p>
+                <p><b>Gender</b>: {{post.student.gender}}</p>
+                <p><b>Unpaid Debt</b>: #{{post.student.debt_incured}}</p>
               </div>
               <div class="col-4 mt-3 cs6-para-container">
-                <p><b>Class before withdrawal</b>: JSS3</p>
-                <p><b>Date of withdrawal</b>: 5th Feb 2021</p>
+                <p><b>Class before withdrawal</b>: {{post.student.class_of_withdrawal}}</p>
+                <p><b>Date of withdrawal</b>: {{post.student.date_of_withdrawal}}</p>
                 <p><b>Date Contended</b>: 23rd July, 2022</p>
               </div>
               <div class="col-2 mt-3">
@@ -103,210 +104,7 @@
       <div class="col-2">
       </div>
     </div>
-    <div class="row my-3 px-3 py-3">
-      <div class="col-sm-8">
-        <div class="row cs6-school-box">
-          <div class="col-sm-1">
-            <img src="../../../static/images/Ellipse 1-2.svg" alt="" class="img-fluid custom-img">
-          </div>
-          <div class="col-sm-10 my-auto">
-            <h3 class="cs6-school-header">Praise Word School</h3>
-          </div>
-          <div class="col-sm-1 my-auto">
-            <img src="../../../static/images/Vectorflag.svg" alt="" class="img-fluid">
-          </div>
-        </div>
-        <div class="row cs6-student-box">
-          <div class="col-10">
-            <div class="row mt-3">
-              <div class="col-2 mt-3">
-                <img src="../../../static/images/Ellipse 3- boy-smiling.svg" alt="boy smiling"
-                  class="img-fluid cs6-img-2" />
-              </div>
-              <div class="col-4 mt-3 cs6-para-container">
-                <p><b>Name</b>: Emenike Chukwubuikem Moses</p>
-                <p><b>Student</b>: PWS1801123</p>
-                <p><b>Gender</b>: Male</p>
-                <p><b>Unpaid Debt</b>: N14,000</p>
-              </div>
-              <div class="col-4 mt-3 cs6-para-container">
-                <p><b>Class before withdrawal</b>: JSS3</p>
-                <p><b>Date of withdrawal</b>: 11th August 2020</p>
-              </div>
-              <div class="col-2 mt-3">
-                <p>
-                  <img src="../../../static/images/messages-3.svg" alt="" srcset="" />
-                  3 Comments
-                </p>
-                <a href="#" class="cs6-view-comm">
-                  View Comments
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col-sm-1">
-        <a href="#">
-          <img src="../../../static/images/add-circle.svg" alt="cancel" class="img-fluid">
-        </a>
-      </div>
-      <div class="col-2">
-      </div>
-    </div>
-    <div class="row my-3 px-3 py-3">
-      <div class="col-sm-8">
-        <div class="row cs6-school-box">
-          <div class="col-sm-1">
-            <img src="../../../static/images/Ellipse 3- top-lane.svg" alt="" class="img-fluid custom-img">
-          </div>
-          <div class="col-sm-10 my-auto">
-            <h3 class="cs6-school-header">Top Lane School</h3>
-          </div>
-          <div class="col-sm-1 my-auto">
-            <img src="../../../static/images/Vectorflag.svg" alt="" class="img-fluid">
-          </div>
-        </div>
-        <div class="row cs6-student-box">
-          <div class="col-10">
-            <div class="row mt-3">
-              <div class="col-2 mt-3">
-                <img src="../../../static/images/Ellipse 3-fine-girl.svg" alt="" class="img-fluid cs6-img-2" />
-              </div>
-              <div class="col-4 mt-3 cs6-para-container">
-                <p><b>Name</b>: Ayodeji Tomiwa Mary</p>
-                <p><b>Student</b>: TLS1700623</p>
-                <p><b>Gender</b>: Female</p>
-                <p><b>Unpaid Debt</b>: N18,000</p>
-              </div>
-              <div class="col-4 mt-3 cs6-para-container">
-                <p><b>Class before withdrawal</b>: SS1</p>
-                <p><b>Date of withdrawal</b>: 2nd May 2021</p>
-                <p><b>Date Contended</b>: 21st Feb, 2022</p>
-              </div>
-              <div class="col-2 mt-3">
-                <p>
-                  <img src="../../../static/images/messages-3.svg" alt="" srcset="" />
-                  12 Comments
-                </p>
-                <a href="#" class="cs6-view-comm">
-                  View Comments
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col-sm-1">
-        <a href="#">
-          <img src="../../../static/images/add-circle.svg" alt="cancel" class="img-fluid">
-        </a>
-      </div>
-      <div class="col-2">
-      </div>
-    </div>
-    <div class="row my-3 px-3 py-3">
-      <div class="col-sm-8">
-        <div class="row cs6-school-box">
-          <div class="col-sm-1">
-            <img src="../../../static/images/Ellipse 1.svg" alt="" class="img-fluid custom-img">
-          </div>
-          <div class="col-sm-10 my-auto">
-            <h3 class="cs6-school-header">Scarlet Montessori School</h3>
-          </div>
-          <div class="col-sm-1 my-auto">
-            <img src="../../../static/images/Vectorflag.svg" alt="" class="img-fluid">
-          </div>
-        </div>
-        <div class="row cs6-student-box">
-          <div class="col-10">
-            <div class="row mt-3">
-              <div class="col-2 mt-3">
-                <img src="../../../static/images/Ellipse 3.svg" alt="" class="img-fluid cs6-img-2" />
-              </div>
-              <div class="col-4 mt-3 cs6-para-container">
-                <p><b>Name</b>: Ephriam Onyebuchi Derrick</p>
-                <p><b>Student</b>: SMS1658210</p>
-                <p><b>Gender</b>: Male</p>
-                <p><b>Unpaid Debt</b>: N52,000</p>
-              </div>
-              <div class="col-4 mt-3 cs6-para-container">
-                <p><b>Class before withdrawal</b>: JS1</p>
-                <p><b>Date of withdrawal</b>: 5th Jan 2022</p>
-                <p><b>Date Contended</b>: 21st Feb, 2022</p>
-              </div>
-              <div class="col-2 mt-3">
-                <p>
-                  <img src="../../../static/images/messages-3.svg" alt="" srcset="" />
-                  12 Comments
-                </p>
-                <a href="#" class="cs6-view-comm">
-                  View Comments
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col-sm-1">
-        <a href="#">
-          <img src="../../../static/images/add-circle.svg" alt="cancel" class="img-fluid">
-        </a>
-      </div>
-      <div class="col-2">
-      </div>
-    </div>
-    <div class="row my-3 px-3 py-3">
-      <div class="col-sm-8">
-        <div class="row cs6-school-box">
-          <div class="col-sm-1">
-            <img src="../../../static/images/Group 2608527.svg" alt="" class="img-fluid custom-img">
-          </div>
-          <div class="col-sm-10 my-auto">
-            <h3 class="cs6-school-header">Shining Light School</h3>
-          </div>
-          <div class="col-sm-1 my-auto">
-            <img src="../../../static/images/Vectorflag.svg" alt="" class="img-fluid">
-          </div>
-        </div>
-        <div class="row cs6-student-box">
-          <div class="col-10">
-            <div class="row mt-3">
-              <div class="col-2 mt-3">
-                <img src="../../../static/images/Ellipse 3- glasses-boy.svg" alt="" class="img-fluid cs6-img-2" />
-              </div>
-              <div class="col-4 mt-3 cs6-para-container">
-                <p><b>Name</b>: Odiro Adigun Shabi</p>
-                <p><b>Student</b>: SLS2001526</p>
-                <p><b>Gender</b>: Male</p>
-                <p><b>Unpaid Debt</b>: N76,000</p>
-              </div>
-              <div class="col-4 mt-3 cs6-para-container">
-                <p><b>Class before withdrawal</b>: JSS3</p>
-                <p><b>Date of withdrawal</b>: 14th March 2022</p>
-                <p><b>Date Contended</b>: 30th June, 2022</p>
-              </div>
-              <div class="col-2 mt-3">
-                <p>
-                  <img src="../../../static/images/messages-3.svg" alt="" srcset="" />
-                  12 Comments
-                </p>
-                <a href="#" class="cs6-view-comm">
-                  View Comments
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col-sm-1">
-        <a href="#">
-          <img src="../../../static/images/add-circle.svg" alt="cancel" class="img-fluid">
-        </a>
-      </div>
-      <div class="col-2">
-      </div>
-    </div>
+    {% endfor %}
   </div>
 </main>
 {% endblock %}

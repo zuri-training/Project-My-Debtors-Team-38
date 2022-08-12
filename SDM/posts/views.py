@@ -33,6 +33,7 @@ def add_debt(request):
             age=request.POST.get('age'),
         )
         student.save()
+        Post.objects.create(school=student.school, student=student)
         return redirect('posts:sch_dir')
 
     else:
@@ -131,7 +132,10 @@ def sch_contend(request):
 
 # @login_required(login_url='accounts:login')
 def sch_post(request):
-    context = {}
+    posts = Post.objects.all()
+    context = {
+        'posts': posts
+    }
     return render(request, "posts/post_comment.html", context)
 
 
