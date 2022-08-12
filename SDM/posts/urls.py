@@ -5,7 +5,7 @@ app_name = 'posts'
 
 urlpatterns = [
     path('', views.test, name='test'),
-    path("add_debt", views.add_debt, name=""),
+    path("add_debt", views.add_debt, name="add_debt"),
     path("debt_confirm", views.debt_confirm, name="debt_confirm"),
     path("debt_sus", views.debt_sus, name="debt_sus"),
     path("sch_dir", views.sch_dir, name="sch_dir"),

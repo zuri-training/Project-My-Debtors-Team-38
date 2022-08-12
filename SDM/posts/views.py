@@ -4,6 +4,8 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from django.db.models import Q
 from django.contrib import messages
+from .models import Post, Contend
+from accounts.models import Student
 
 
 def test(request):
@@ -18,8 +20,9 @@ def add_debt(request):
     context = {}
 
     if request.method == 'POST':
-
+        school = request.user
         student = Student.objects.create(
+            school=school,
             student_id=request.POST.get('std-id'),
             name=request.POST.get('fname'),
             gender=request.POST.get('gender'),
@@ -27,9 +30,11 @@ def add_debt(request):
             date_of_withdrawal=request.POST.get('dt-wtd'),
             debt_incured=request.POST.get('debt-in'),
             interest_incured=request.POST.get('inter-in'),
-            avatar=request.POST.get('formFile'),
+            age=request.POST.get('age'),
         )
         student.save()
+        return redirect('posts:sch_dir')
+
     else:
         return render(request, "posts/add_debt.html", context)
 
@@ -102,7 +107,13 @@ def gdn_contend(request):
 
 # @login_required(login_url='accounts:login')
 def sch_dir(request):
-    context = {}
+    page = 'sch_dir'
+
+    students = Student.objects.all()
+
+    context = {
+        'students': students,
+    }
     return render(request, "posts/sch_dir.html", context)
 
 
