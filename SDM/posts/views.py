@@ -1,10 +1,10 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
-from django.contrib.auth import login, authenticate
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from django.db.models import Q
 from django.contrib import messages
+from accounts.models import Guardian, School, GuardianProfile, SchoolProfile, GuardianChild
 
 # Create your views here.
 
@@ -55,8 +55,30 @@ def gdn_confirm(request):
 
 
 def guardian_add_child_page(request):
-    context = {}
-    return render(request, 'accounts/chd_form.html', context)
+    page = 'chd_form'
+    user = request.user
+    if request.method == 'POST':
+        guardian = user
+        student_id = request.POST.get('student_id')
+        name = request.POST.get('name')
+        school = request.POST.get('school')
+        gender = request.POST.get('gender')
+        relationship = request.POST.get('relationship')
+
+        try:
+            child = GuardianChild.objects.create(guardian=guardian, student_id=student_id,
+                                                 name=name, school_name=school, gender=gender, relationship=relationship)
+            # print(child.name)
+
+        except:
+            pass
+        else:
+            return redirect('accounts:gdn_wlc')
+
+    context = {
+        'page': page,
+    }
+    return render(request, 'posts/chd_form.html', context)
 
 # @login_required(login_url='accounts:login')
 

@@ -36,6 +36,7 @@
     .wlcm-container {
         padding: 50px 200px;
         position: relative;
+        margin-bottom: 50px;
     }
 
     #plus {
@@ -48,6 +49,7 @@
         padding: 15px 25px;
         border-radius: 50%;
     }
+
 
     @media only screen and (max-width:990px) {
         .wlcm-container {
@@ -81,11 +83,21 @@
 
 </style>
 <main id="gdn_wlc" class='after_login'>
+    {%for child in children %}
+    {% if child.guardian == request.user %}
+
+    {{ child.name }}
+    {% endif %}
+    {% endfor %}
     <div class="wlcm-container">
         <h2>Welcome Rose</h2>
         <p>Add your child(s)/ward(s) to easily keep track of their debts</p>
         <label id="plus"><i class="fa fa-plus"></i></label>
-        <button>Add Child</button>
+        <a href="{% url 'posts:chd_form' %}">
+            <button>Add Child</button>
+        </a>
     </div>
+
+    {% include 'card.html'%}
 </main>
 {% endblock%}
