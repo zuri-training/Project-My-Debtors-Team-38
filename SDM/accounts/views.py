@@ -1,17 +1,28 @@
 from django.contrib.auth.hashers import make_password
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
-from django.contrib.auth import login, authenticate
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from .forms import SchoolRegistrationForm, GuardianRegistrationForm
 from django.db.models import Q
 from django.contrib import messages
+from .models import Guardian, School, GuardianProfile, SchoolProfile
+from django.contrib.auth import get_user_model
+
+
+User = get_user_model()
 
 
 def select_reg_page(request):
     nav = 'nav'
     page = 'school_reg'
+
+    if request.user.is_authenticated:
+        if request.user.role == 'GUARDIAN':
+            return redirect('acounts:gdn_wlc')
+        elif request.user.role == 'SCHOOL':
+            return redirect('accounts:sch_dshbd')
+
     context = {'page': page,
                'nav': nav}
     return render(request, 'accounts/select_reg.html', context)
@@ -20,10 +31,16 @@ def select_reg_page(request):
 def school_register_page(request, *args, **kwargs):
     nav = 'nav'
     page = 'school_reg'
-    context = {}
+
+    if request.user.is_authenticated:
+        if request.user.role == 'GUARDIAN':
+            return redirect('acounts:gdn_wlc')
+        elif request.user.role == 'SCHOOL':
+            return redirect('accounts:sch_dshbd')
 
     if request.method == 'POST':
         password = request.POST.get('password1')
+        print(password)
         password = make_password(password)
 
         school = School.objects.create(
@@ -38,13 +55,23 @@ def school_register_page(request, *args, **kwargs):
     else:
         messages.error(request, 'An error occured during registration')
 
-    return render(request, 'accounts/sch_reg.html', context)
+    context = {
+        'nav': nav,
+        'page': page,
+    }
+
+    return render(request, 'accounts/sch_reg.html', context=context)
 
 
 def guardian_register_page(request, *args, **kwargs):
     nav = 'nav'
     page = 'gdn_reg'
-    context = {}
+
+    if request.user.is_authenticated:
+        if request.user.role == 'GUARDIAN':
+            return redirect('acounts:gdn_wlc')
+        elif request.user.role == 'SCHOOL':
+            return redirect('accounts:sch_dshbd')
 
     if request.method == 'POST':
         password = request.POST.get('password1')
@@ -62,12 +89,48 @@ def guardian_register_page(request, *args, **kwargs):
     else:
         messages.error(request, 'An error occured during registration')
 
+    context = {
+        'nav': nav,
+        'page': page,
+    }
+
     return render(request, 'accounts/gdn_reg.html', context=context)
 
 
 def login_page(request):
     nav = 'nav'
     page = 'login'
+
+    if request.user.is_authenticated:
+        if request.user.role == 'GUARDIAN':
+            return redirect('accounts:gdn_wlc')
+        elif request.user.role == 'SCHOOL':
+            return redirect('accounts:sch_dshbd')
+
+    if request.method == 'POST':
+        email = request.POST.get('email').lower()
+        password = request.POST.get('password')
+
+        try:
+            user = User.objects.get(email=email)
+        except:
+            messages.error(request, 'User does not exist')
+            print('this')
+        else:
+            user = authenticate(request, username=email, password=password)
+            print(type(user))
+            if user is not None:
+                login(
+                    request, user, backend='django.contrib.auth.backends.AllowAllUsersModelBackend')
+
+                if request.user.role == 'GUARDIAN':
+                    return redirect('accounts:gdn_wlc')
+                elif request.user.role == 'SCHOOL':
+                    return redirect('accounts:sch_dshbd')
+
+            else:
+                messages.error(request, 'Username or Password does not exist')
+
     context = {'page': page,
                'nav': nav}
     return render(request, 'accounts/login.html', context=context)

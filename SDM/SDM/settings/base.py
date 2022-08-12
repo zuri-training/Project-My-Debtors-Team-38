@@ -144,6 +144,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 AUTH_USER_MODEL = 'accounts.User'
 AUTHENTICATION_BACKENDS = {
     'django.contrib.auth.backends.AllowAllUsersModelBackend',
+    'accounts.backends.EmailAuthBackend',
     'accounts.backends.CaseInsensitiveModeBackend'
 }
-ACCOUNT_AUTHENTICATION_METHOD = "email"
+# ACCOUNT_AUTHENTICATION_METHOD = "email"
