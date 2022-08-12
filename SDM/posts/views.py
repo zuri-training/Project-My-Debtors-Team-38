@@ -5,7 +5,6 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from django.db.models import Q
 from django.contrib import messages
-from accounts.models import Student, School
 
 # Create your views here.
 
@@ -21,19 +20,6 @@ def test(request):
 def add_debt(request):
     context = {}
 
-    if request.method == 'POST':
-
-        student = Student.objects.create(
-            student_id = request.POST.get('std-id'),
-            name = request.POST.get('fname'),
-            gender = request.POST.get('gender'),
-            class_of_withdrawal = request.POST.get('cl-wtd'),
-            date_of_withdrawal = request.POST.get('dt-wtd'),
-            debt_incured = request.POST.get('debt-in'),
-            interest_incured = request.POST.get('inter-in'),
-            avatar = request.POST.get('formFile'),
-        )
-        student.save()
     else:
         return render(request, "posts/add_debt.html", context)
 
