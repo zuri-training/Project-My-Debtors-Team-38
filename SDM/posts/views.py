@@ -1,3 +1,4 @@
+from email import message
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from django.contrib.auth import login, authenticate
@@ -5,6 +6,7 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from django.db.models import Q
 from django.contrib import messages
+from .models import Debt, Comments, Contend, Post
 
 # Create your views here.
 
@@ -22,14 +24,27 @@ def add_debt(request):
     context = {}
 
     if request.method == "POST":
-        full_name = request.POST['full_name']
-        student = request.POST['student_id']
-        date_of_withdrawal = request.POST['date_of_withdrawal']
-        debt_incured = request.POST['debt_incured']
-        
-
-    else:
-        pass
+        #ensures an image is uploaded along with the form 
+        if request.FILES.get('image') != None: 
+            image = request.POST.get("image")
+            full_name = request.POST['full_name']
+            student = request.POST['student_id']
+            date_of_withdr = request.POST['date_of_withdr']
+            debt_incured = request.POST['debt_incured']
+            gender = request.POST['gender']
+            class_of_withdr = request.POST['class_of_withdr']
+            interest_incured = request.POST['interest_incured']
+            # Instance for debt of student
+            student_debt = Debt.objects.create(
+                image=image, full_name=full_name, student=student,
+                date_of_withdrawal=date_of_withdr, debt_incured=debt_incured,
+                gender=gender,class_of_withdrawal=class_of_withdr,interest_incured=interest_incured
+            )
+            student_debt.save()
+   
+        else:
+            messages.error(request, "Please upload picture of student!")
+            return redirect("posts:add_debt")
 
 
     return render(request, "posts/add_debt.html", context)
