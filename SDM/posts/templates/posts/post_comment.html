@@ -92,7 +92,7 @@
                 <a href="{% url 'posts:sch_comment' post.id %}" class="cs6-view-comm">
                   <p>
                     <img src="../../../static/images/messages-3.svg" alt="" srcset="" />
-                    12 Comments
+                    {{post.comments_set.count}} Comments
                   </p>
                 </a>
               </div>
