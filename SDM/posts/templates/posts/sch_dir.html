@@ -115,7 +115,7 @@
                             </span>
                             <span>
                                 <a href="{% url 'posts:sch_comment' post.id %}" class="cs-anchor">
-                                    <p class="cs-para-2">12 Comments</p>
+                                    <p class="cs-para-2">{{post.comments_set.count}}<br> Comments</p>
                                 </a>
                             </span>
                         </div>
