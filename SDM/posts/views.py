@@ -13,27 +13,21 @@ def add_debt(request):
     page = 'add_debt'
     context = {}
     if request.method == 'POST':
-        # ensures an image is uploaded along with the form 
         school = request.user
-        if request.FILES.get('avatar') != None: 
-            student = Student.objects.create(
-                school=school,
-                student_id=request.POST.get('std-id'),
-                name=request.POST.get('fname'),
-                gender=request.POST.get('gender'),
-                class_of_withdrawal=request.POST.get('cl-wtd'),
-                date_of_withdrawal=request.POST.get('dt-wtd'),
-                debt_incured=request.POST.get('debt-in'),
-                interest_incured=request.POST.get('inter-in'),
-                age=request.POST.get('age'),
-                avatar=request.POST.get('avatar')
-            )
-            student.save()
-            return redirect('posts:sch_dir')
-        
-        else:
-            messages.error(request, "Please upload picture of student!")
-            return redirect("posts:add_debt")
+        student = Student.objects.create(
+            school=school,
+            student_id=request.POST.get('std-id'),
+            name=request.POST.get('fname'),
+            gender=request.POST.get('gender'),
+            class_of_withdrawal=request.POST.get('cl-wtd'),
+            date_of_withdrawal=request.POST.get('dt-wtd'),
+            debt_incured=request.POST.get('debt-in'),
+            interest_incured=request.POST.get('inter-in'),
+            age=request.POST.get('age'),
+        )
+        student.save()
+        Post.objects.create(school=student.school, student=student)
+        return redirect('posts:sch_dir')
     else:
         return render(request, "posts/add_debt.html", context)
 
@@ -147,15 +141,16 @@ def sch_backlog(request):
 def sch_contend(request):
     context = {}
     
-
-
     return render(request, "posts/sch_contend.html", context)
 
 
 
 @login_required(login_url='accounts:login')
 def sch_post(request):
-    context = {}
+    posts = Post.objects.all()
+    context = {
+        'posts': posts
+    }
     return render(request, "posts/post_comment.html", context)
 
 
