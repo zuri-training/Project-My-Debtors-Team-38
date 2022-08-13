@@ -77,8 +77,7 @@
             </div>
         </div>
         <div class="row row-cols-1 row-cols-md-2 gx-2 gy-4 my-2">
-            {% for student in students%}
-            {% if student.school.id == user.id %}
+            {% for post in posts %}
             <div class="col px-4">
                 <div class="row pt-2 cs-student-box">
                     <div class="col-2 mt-2">
@@ -86,15 +85,15 @@
                             class="img-fluid" />
                     </div>
                     <div class="col-5">
-                        <p class="cs-para"><b>Name</b>: {{student.name}}</p>
-                        <p class="cs-para"><b>Gender</b>: {{student.gender}}</p>
-                        <p class="cs-para"><b>Unpaid Debt</b>: {{student.debt_incured}}</p>
-                        <p class="cs-para"><b>Interest Incurred</b>: {{student.interest_incured}}%</p>
+                        <p class="cs-para"><b>Name</b>: {{post.student.name}}</p>
+                        <p class="cs-para"><b>Gender</b>: {{post.student.gender}}</p>
+                        <p class="cs-para"><b>Unpaid Debt</b>: {{post.student.debt_incured}}</p>
+                        <p class="cs-para"><b>Interest Incurred</b>: {{post.student.interest_incured}}%</p>
                     </div>
                     <div class="col-4">
-                        <p class="cs-para"><b>Student ID</b>: SMS{{student.student_id}}</p>
-                        <p class="cs-para"><b>Withdrawal Class</b>: {{student.class_of_withdrawal}}</p>
-                        <p class="cs-para"><b>Withdrawal Date</b>: {{student.date_of_withdrawal|date:"d-m-y"}}</p>
+                        <p class="cs-para"><b>Student ID</b>: SMS{{post.student.student_id}}</p>
+                        <p class="cs-para"><b>Withdrawal Class</b>: {{post.student.class_of_withdrawal}}</p>
+                        <p class="cs-para"><b>Withdrawal Date</b>: {{post.student.date_of_withdrawal|date:"d-m-y"}}</p>
                     </div>
                     <div class="col-1">
                         <a href="#">
@@ -115,16 +114,12 @@
                                 </a>
                             </span>
                             <span>
-                                <a href="#" class="cs-anchor">
-                                    <p class="cs-para-2">12 Comments</p>
+                                <a href="{% url 'posts:sch_comment' post.id %}" class="cs-anchor">
+                                    <p class="cs-para-2">{{post.comments_set.count}}<br> Comments</p>
                                 </a>
                             </span>
                         </div>
-                        <div class="row">
-                            <a href="#" class="cs-anchor">
-                                <p class="cs-para-2">View Comments</p>
-                            </a>
-                        </div>
+
                     </div>
                     <div class="col-3">
                         <div class="d-flex justify-content-end">
@@ -150,7 +145,6 @@
                     </div>
                 </div>
             </div>
-            {% endif %}
             {% endfor %}
         </div>
     </div>

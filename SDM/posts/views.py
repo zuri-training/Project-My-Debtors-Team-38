@@ -4,7 +4,7 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from django.db.models import Q
 from django.contrib import messages
-from .models import Post, Contend
+from .models import Post, Contend, Comments
 from accounts.models import Student
 
 
@@ -13,21 +13,26 @@ def add_debt(request):
     page = 'add_debt'
     context = {}
     if request.method == 'POST':
-        school = request.user
-        student = Student.objects.create(
-            school=school,
-            student_id=request.POST.get('std-id'),
-            name=request.POST.get('fname'),
-            gender=request.POST.get('gender'),
-            class_of_withdrawal=request.POST.get('cl-wtd'),
-            date_of_withdrawal=request.POST.get('dt-wtd'),
-            debt_incured=request.POST.get('debt-in'),
-            interest_incured=request.POST.get('inter-in'),
-            age=request.POST.get('age'),
-        )
-        student.save()
-        Post.objects.create(school=student.school, student=student)
-        return redirect('posts:sch_dir')
+        if request.FILES.get('avatar') != None: 
+            school = request.user
+            student = Student.objects.create(
+                school=school,
+                student_id=request.POST.get('std-id'),
+                name=request.POST.get('fname'),
+                gender=request.POST.get('gender'),
+                class_of_withdrawal=request.POST.get('cl-wtd'),
+                date_of_withdrawal=request.POST.get('dt-wtd'),
+                debt_incured=request.POST.get('debt-in'),
+                interest_incured=request.POST.get('inter-in'),
+                age=request.POST.get('age'),
+                avatar=request.POST.get('avatar')
+            )
+            student.save()
+            Post.objects.create(school=student.school, student=student)
+            return redirect('posts:sch_dir')
+        else:
+            messages.error(request, "Please upload picture of student!")
+            return redirect("posts:add_debt")
     else:
         return render(request, "posts/add_debt.html", context)
 
@@ -93,7 +98,6 @@ def guardian_add_child_page(request):
     return render(request, 'posts/chd_form.html', context)
 
 
-
 # @login_required(login_url='accounts:login')
 def gdn_contend(request):
     page = "gdn_contend"
@@ -119,9 +123,17 @@ def gdn_contend(request):
 # @login_required(login_url='accounts:login')
 def sch_dir(request):
     page = 'sch_dir'
+
+    if request.user.role != "SCHOOL":
+        return redirect('base:home')
     students = Student.objects.all()
+    posts = Post.objects.filter(school=request.user)
+    for post in posts:
+        print(post.student.name)
+
     context = {
         'students': students,
+        'posts': posts,
     }
     return render(request, "posts/sch_dir.html", context)
 
@@ -152,7 +164,30 @@ def sch_contend(request):
 
 
 # @login_required(login_url='accounts:login')
+def sch_comment(request, pk):
+    if request.user.role != "SCHOOL":
+        return redirect('base:home')
+
+    post = Post.objects.get(id=pk)
+    post_comments = post.comments_set.all()
+
+    if request.method == 'POST':
+        comments = Comments.objects.create(
+            school=request.user, post=post, body=request.POST.get('body'))
+        return redirect('posts:sch_comment', pk=post.id)
+
+    context = {
+        'post': post,
+        'post_comments': post_comments,
+    }
+    return render(request, "posts/posts.html", context)
+
+
+# @login_required(login_url='accounts:login')
 def sch_post(request):
+    if request.user.role != "SCHOOL":
+        return redirect('base:home')
+
     posts = Post.objects.all()
     context = {
         'posts': posts
@@ -161,7 +196,8 @@ def sch_post(request):
 
 
 
-@login_required(login_url='accounts:login')
+
+# @ login_required(login_url='accounts:login')
 def sch_review(request):
     context = {}
     return render(request, "posts/sch_review.html", context)

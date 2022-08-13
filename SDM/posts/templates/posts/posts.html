@@ -1,0 +1,319 @@
+{% extends 'main_index.html' %}
+{% load static %}
+{% block content %}
+<style>
+  body {
+    height: 100%;
+    font-family: "Playfair Display";
+  }
+
+  .bai-hero-title {
+    width: 86px;
+    height: 44px;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 36px;
+    line-height: 44px;
+    margin-left: 350px;
+    margin-top: 50px;
+    text-align: center;
+    color: #03050e;
+  }
+
+  /* .bai-hero{
+        background-color: red;
+      } */
+
+  .bai-wrapper {
+    width: 779px;
+    height: 741px;
+    margin-top: 30px;
+    margin-left: 200px;
+    background-color: #dbcbea;
+    border-radius: 12.4429px;
+    /* display: flex; */
+  }
+
+  .bai-navbar {
+    background: #585266;
+    border-radius: 11.2387px;
+    display: flex;
+    width: 779px;
+    height: 72px;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .bai-navbar img {
+    width: 44.22px;
+    height: 44.22px;
+    margin-left: 13px;
+  }
+
+  .bai-navbar h4 {
+    width: 300px;
+    height: 24px;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    letter-spacing: 0.1px;
+    color: #fffefe;
+    margin-right: 350px;
+  }
+
+  .bai-info-wrapper {
+    display: flex;
+    margin-top: 40px;
+    margin-left: 96px;
+    gap: 10px;
+  }
+
+  .bai-hero-info {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+    margin-left: 20px;
+  }
+
+  .bai-hero-info h3 {
+    font-family: "Playfair Display";
+    font-style: normal;
+    font-weight: 700;
+    font-size: 12.603px;
+    line-height: 17px;
+
+    color: #000000;
+  }
+
+  .bai-hero-info span {
+    font-family: "Playfair Display";
+    width: 67px;
+    height: 17px;
+    color: #000000;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12.603px;
+    line-height: 17px;
+  }
+
+  .bai-comments {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 7.5px;
+    margin-left: 586px;
+    margin-top: 34px;
+  }
+
+  .bai-comments h3 {
+    cursor: pointer;
+    font-family: "DM Sans";
+    width: 72px;
+    height: 17px;
+    color: #000000;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 11.2387px;
+    line-height: 17px;
+  }
+
+  .bai-p {
+    cursor: pointer;
+    font-family: "Playfair Display";
+    margin-left: 604px;
+    width: 61px;
+    height: 13px;
+    color: #777480;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 8.42902px;
+    line-height: 13px;
+  }
+
+  @media (max-width: 600px) {
+    .hero {
+      /* background-color: red; */
+      padding: 2px;
+      width: 300px;
+      margin-left: -50px;
+    }
+
+    .text {
+      width: 341px;
+      height: 76px;
+    }
+
+    .wrapper {
+      width: 384px;
+      height: 278px;
+    }
+
+    .btn button {
+      width: 100%;
+      margin-left: 30px;
+    }
+  }
+
+  .bai-school-wrapper {
+    position: relative;
+    width: 606px;
+    height: 428px;
+    color: #777480;
+    background: #585266;
+    border: 0.459516px solid #777480;
+    border-radius: 12px;
+    margin-left: 107px;
+    margin-top: 10px;
+  }
+
+  .bai-school-info {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 11px;
+    margin-top: 31px;
+    margin-left: 28px;
+  }
+
+  .bai-school-info::after {
+    content: "";
+    position: absolute;
+    display: block;
+    bottom: 0px;
+    height: 48px;
+    border: 2px solid #ffffff;
+    margin-left: -10px;
+
+  }
+
+  .bai-school-wrapper::after {
+    content: "";
+    position: absolute;
+    display: block;
+    bottom: 85px;
+    height: 296px;
+    border: 2px solid #ffffff;
+    margin-left: 584px;
+  }
+
+  .bai-school-info img {
+    width: 44.22px;
+    height: 44.22px;
+  }
+
+  .bai-school-text h3 {
+    width: 311px;
+    height: 24px;
+    color: #ebf5ff;
+    font-style: normal;
+    font-family: "Playfair Display";
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+  }
+
+  .bai-school-text p {
+    width: 200px;
+    height: 13px;
+    color: #fffefe;
+    font-style: normal;
+    font-family: "Playfair Display";
+    font-weight: 400;
+    font-size: 11px;
+    line-height: 12px;
+  }
+
+  .bai-bottom {
+    display: flex;
+    align-items: center;
+    padding: 4px 4px 4px 0px;
+    gap: 4px;
+    width: 606px;
+    height: 48px;
+    background: #f1f1f1;
+    border-width: 0px 1px 1px 1px;
+    border-style: solid;
+    border-color: #001a1e;
+    border-radius: 0px 0px 12px 12px;
+    margin-top: 30px;
+    gap: 141px;
+  }
+
+  .bai-bottom img {
+    cursor: pointer;
+    margin-right: 20px;
+  }
+
+  .bai-bottom input {
+    width: 438px;
+    height: 26px;
+    font-family: "Playfair Display";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 26px;
+    display: flex;
+    align-items: center;
+    color: #1e1a1a;
+    border: none;
+    margin-left: 27px;
+  }
+
+  .comment-div {
+    position: absolute;
+    bottom: 1em;
+  }
+
+</style>
+<main class="after_login">
+  <div class="bai-container">
+    <section class="bai-hero">
+      <h1 class="bai-hero-title">Posts</h1>
+      <div class="bai-wrapper">
+        <div class="bai-navbar">
+          <img src="{% static 'images/Ellipse 3-daylight.svg' %}" alt="Daylight logo" />
+          <h4>{{post.school}}</h4>
+          <img class="bai-flag" src="{% static 'images/Vectorflag.svg' %}" alt="flag" />
+        </div>
+        <div class="bai-info-wrapper">
+          <img src="{% static 'images/Ellipse 3- african-boy.svg' %}" alt="" />
+          <div class="bai-hero-info">
+            <h3>Name: <span>{{post.student.name}}</span></h3>
+            <h3>Student ID: <span>{{post.student.student_id}}6</span></h3>
+            <h3>Gender: <span>{{post.student.gender}}</span></h3>
+            <h3>Unpaid Debt: <span>{{post.student.debt_incured}}</span></h3>
+          </div>
+
+          <div class="bai-hero-info">
+            <h3>Class before withdrawal: <span>{{post.student.class_of_withdrawal}}</span></h3>
+            <h3>Date of Withdrawal: <span>{{post.student.date_of_withdrawal}}</span></h3>
+            <h3>Date Contended: <span>23rd July 2022</span></h3>
+          </div>
+        </div>
+        <div class="bai-school-wrapper">
+          <!-- ==== first school ==== -->
+          {% for comment in post_comments %}
+          <div class="bai-school-info">
+            <img src="{% static 'images/Group 2608527.svg' %}" alt="" />
+            <div class="bai-school-text">
+              <h3>{{comment.school}}</h3>
+              <p>{{comment.body}}</p>
+            </div>
+          </div>
+          {% endfor %}
+          <div class='comment-div'>
+            <form action="" method="post">
+              {% csrf_token %}
+              <div class="bai-bottom">
+                <input name="body" type="text" placeholder="Add a comment" />
+                <img src="{% static 'images/Vectorsend.svg' %}" alt="" />
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+</main>
+{% endblock %}
