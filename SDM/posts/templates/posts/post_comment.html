@@ -37,6 +37,10 @@
     text-decoration: none;
   }
 
+  #post-img {
+    height: 4em;
+  }
+
 </style>
 
 <main class='after_login'>
@@ -57,7 +61,7 @@
       <div class="col-sm-8">
         <div class="row cs6-school-box">
           <div class="col-sm-1">
-            <img src="../../../static/images/Ellipse 1.svg" alt="" class="img-fluid custom-img">
+            <img src="../../../static/images/Ellipse 1.svg" alt="" id="post-img" class="img-fluid custom-img">
           </div>
           <div class="col-sm-10 my-auto">
             <h3 class="cs6-school-header">{{post.school}}</h3>
@@ -80,16 +84,16 @@
               </div>
               <div class="col-4 mt-3 cs6-para-container">
                 <p><b>Class before withdrawal</b>: {{post.student.class_of_withdrawal}}</p>
-                <p><b>Date of withdrawal</b>: {{post.student.date_of_withdrawal}}</p>
+                <p><b>Date of withdrawal</b>: {{post.student.date_of_withdrawal|date:"d-m-y"}}</p>
                 <p><b>Date Contended</b>: 23rd July, 2022</p>
               </div>
               <div class="col-2 mt-3">
-                <p>
-                  <img src="../../../static/images/messages-3.svg" alt="" srcset="" />
-                  12 Comments
-                </p>
-                <a href="#" class="cs6-view-comm">
-                  View Comments
+
+                <a href="{% url 'posts:sch_comment' post.id %}" class="cs6-view-comm">
+                  <p>
+                    <img src="../../../static/images/messages-3.svg" alt="" srcset="" />
+                    12 Comments
+                  </p>
                 </a>
               </div>
             </div>
