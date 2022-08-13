@@ -31,10 +31,11 @@
       <h1 class="cs1-header">Add a debtor to your directory</h1>
       <p class="cs1-para">Fill in the details of your debtor below</p>
     </div>
+
     <div class="row mt-3 justify-content-center">
       <div class="col-sm-8">
-        <form action="" method="post">
-          {% csrf_token %}
+        <form action="" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
           <div class="col">
             <label for="fname" class="form-label">Full Name</label>
             <input type="text" class="form-control form-control-lg" name="fname" placeholder="Full Name" />
@@ -98,7 +99,7 @@
               <div class="row justify-content-center">
                 <div class="col-8">
                   <label for="formFile" class="form-label"> </label>
-                  <input type="file" id="formFile" class="form-control" />
+                  <input type="file" id="formFile" class="form-control" name="avatar"/>
                 </div>
               </div>
               <br />
@@ -114,6 +115,7 @@
         </form>
       </div>
     </div>
+    </form>
   </div>
 </main>
 {% endblock %}

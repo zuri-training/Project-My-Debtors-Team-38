@@ -10,6 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.0/ref/settings/
 """
 from pathlib import Path
+import os
 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -74,13 +75,11 @@ WSGI_APPLICATION = 'SDM.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'sdm',
-        'USER': 'root',
-        'PASSWORD': '1234',
-        'PORT': 3307,
-        'HOST': 'localhost',
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR,'db.sqlite3'), # "sdm"
 
+        # 'PASSWORD': "1234",
+        # 'PORT': 3307,
 
         # 'OPTIONS': {
         #     'init_command': 'SET default_storage_engine=INNODB',
@@ -126,10 +125,9 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
 
 STATIC_URL = 'static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static') ]
 
-STATICFILES_DIRS = [
-    BASE_DIR / 'static'
-]
 
 MEDIA_URL = '/images/'
 MEDIA_ROOT = BASE_DIR / 'static/images'
@@ -144,7 +142,6 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 AUTH_USER_MODEL = 'accounts.User'
 AUTHENTICATION_BACKENDS = {
     'django.contrib.auth.backends.AllowAllUsersModelBackend',
-    'accounts.backends.EmailAuthBackend',
     'accounts.backends.CaseInsensitiveModeBackend'
 }
-# ACCOUNT_AUTHENTICATION_METHOD = "email"
+ACCOUNT_AUTHENTICATION_METHOD = "email"
