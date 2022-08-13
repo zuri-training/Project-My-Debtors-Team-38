@@ -86,11 +86,11 @@
     {%for child in children %}
     {% if child.guardian == request.user %}
 
-    {{ child.name }}
+    <!-- {{ child.name }} -->
     {% endif %}
     {% endfor %}
     <div class="wlcm-container">
-        <h2>Welcome Rose</h2>
+        <h2>Welcome {{request.user.name}}</h2>
         <p>Add your child(s)/ward(s) to easily keep track of their debts</p>
         <label id="plus"><i class="fa fa-plus"></i></label>
         <a href="{% url 'posts:chd_form' %}">
@@ -98,6 +98,6 @@
         </a>
     </div>
 
-    {% include 'card.html'%}
+    <!-- {% include 'card.html'%} -->
 </main>
 {% endblock%}
