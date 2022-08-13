@@ -134,15 +134,24 @@ def sch_backlog(request):
     return render(request, "posts/sch_backlog.html", context)
 
 
+
+
 #@login_required(login_url='accounts:login')
 def sch_contend(request):
-    context = {}
-    
+    student = Student.objects.all()
+    posts = Post.objects.all(),
+    contends = Contend.objects.all()
+
+    context = {
+        "student":student,
+        "posts":posts,
+        "contends":contends,
+    }
     return render(request, "posts/sch_contend.html", context)
 
 
 
-@login_required(login_url='accounts:login')
+# @login_required(login_url='accounts:login')
 def sch_post(request):
     posts = Post.objects.all()
     context = {

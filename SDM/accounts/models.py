@@ -1,3 +1,4 @@
+from distutils.command.upload import upload
 from django.contrib.auth.hashers import make_password
 from django.contrib.auth.models import AbstractUser, BaseUserManager, PermissionsMixin, AbstractBaseUser
 from django.db import models
@@ -198,8 +199,9 @@ class Student(models.Model):
     debt_incured = models.DecimalField(max_digits=11, decimal_places=2)
     interest_incured = models.DecimalField(max_digits=50, decimal_places=2)
 
-    avatar = models.ImageField(
-        max_length=255, null=True, default='Ellipse 1.svg')
+    avatar = models.FileField(
+        max_length=255, upload_to="static/images/avatar/profile_img", 
+        default='static/images/avatar/blank-profile-picture.png', )
 
 
 # Create School

@@ -84,6 +84,9 @@
             </a>
           </div>
         </div>
+
+        {% for contend in contends %}
+        {% if user.id == posts.school.id %}
         <div class="row my-3 px-4 py-4">
           <div class="col-sm-9 cs2-box">
             <div class="row">
@@ -91,16 +94,16 @@
                 <img src="../../../static/images/Ellipse 3 (1).svg" alt="" class="img-fluid cs2-img" />
               </div>
               <div class="col-5 col-md-5 mt-4">
-                <p class="cs2-para"><b>Name</b>: Olarenwaju Ayomide Daniel</p>
-                <p class="cs2-para"><b>Gender</b>: Male</p>
-                <p class="cs2-para"><b>Unpaid Debt</b>: 170,000</p>
-                <p class="cs2-para"><b>Interest Incurred</b>: 22.5%</p>
+                <p class="cs2-para"><b>Name</b>: {{student.name}} </p>
+                <p class="cs2-para"><b>Gender</b>: {{student.gender}} </p>
+                <p class="cs2-para"><b>Unpaid Debt</b>: {{student.debt_incured}} </p>
+                <p class="cs2-para"><b>Interest Incurred</b>: {{student.interest_incured}} </p>
               </div>
               <div class="col-4 col-md-4 mt-4">
-                <p class="cs2-para"><b>Student ID</b>: SMS1902424</p>
-                <p class="cs2-para"><b>Class before of withdrawal</b>: JSS3</p>
-                <p class="cs2-para"><b>Date of withdrawal</b>: 5th Feb 2021</p>
-                <p class="cs2-para"><b>Date contended</b>: 23rd July, 2022</p>
+                <p class="cs2-para"><b>Student ID</b>: {{student.student_id}}</p>
+                <p class="cs2-para"><b>Class before of withdrawal</b>: {{student.class_of_withdrawal}}</p>
+                <p class="cs2-para"><b>Date of withdrawal</b>: {{student.date_of_withdrawal|date:"d-m-y"}} </p>
+                <p class="cs2-para"><b>Date contended</b>: {{contends.created_at}} </p>
               </div>
               <div class="col-1 col-md-1 mt-4">
                 <img src="../../../static/images/Group 23.svg" alt="" class="img-fluid cs2-icon-2" />
@@ -139,122 +142,8 @@
             </div>
           </div>
           <div class="col-sm-3">
-
-          </div>
-        </div>
-        <div class="row my-5 px-4 py-4">
-          <div class="col-sm-9 cs2-box">
-            <div class="row">
-              <div class="col-2 col-md-2 mt-4">
-                <img src="../../../static/images/Ellipse 3 (2).svg" alt="" class="img-fluid cs2-img" />
-              </div>
-              <div class="col-5 col-md-5 mt-4">
-                <p class="cs2-para"><b>Name</b>: Okoro Nkechi Williamina</p>
-                <p class="cs2-para"><b>Gender</b>: Female</p>
-                <p class="cs2-para"><b>Unpaid Debt</b>: 55,000</p>
-                <p class="cs2-para"><b>Interest Incurred</b>: 10%</p>
-              </div>
-              <div class="col-4 col-md-4 mt-4">
-                <p class="cs2-para"><b>Student ID</b>: SMS2001726</p>
-                <p class="cs2-para"><b>Class before of withdrawal</b>: JSS2</p>
-                <p class="cs2-para"><b>Date of withdrawal</b>: 15th Dec 2021</p>
-                <p class="cs2-para"><b>Date contended</b>: 10th July, 2022</p>
-              </div>
-              <div class="col-1 col-md-1 mt-4">
-                <img src="../../../static/images/Group 23.svg" alt="" class="img-fluid cs2-icon-2" />
-              </div>
-            </div>
-            <div class="row mb-4">
-              <div class="col-6 mx-auto">
-                <div class="row">
-                  <div class="col-10">
-                    <form action="">
-                      <label for="Search" class="form-label"></label>
-                      <input type="text" name="Search" id="Search" size="20px"
-                        class="form-control form-control-sm rounded" placeholder="{{ variable }}" />
-                    </form>
-                  </div>
-                  <div class="col-2 mt-4">
-                    <a href="#">
-                      <img src="../../../static/images/Vector.svg" alt="" class="img-fluid cs2-icon-1">
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="row my-4">
-              <div class="col text-center">
-                <a href="#" class="mx-3">
-                  <button type="button" class="btn btn-sm cs2-btt-secondary">In View</button>
-                </a>
-                <a href="#" class="mx-3">
-                  <button type="button" class="btn btn-sm cs2-btt-success">Resolved</button>
-                </a>
-                <a href="#" class="mx-3 mt-3">
-                  <button type="button" class="btn btn-sm cs2-btt-danger">Unresolved</button>
-                </a>
-              </div>
-            </div>
-          </div>
-          <div class="col-sm-3">
-
-          </div>
-        </div>
-        <div class="row my-5 px-4 py-4">
-          <div class="col-sm-9 cs2-box">
-            <div class="row">
-              <div class="col-2 col-md-2 mt-4">
-                <img src="../../../static/images/Ellipse 3.svg" alt="" class="img-fluid cs2-img" />
-              </div>
-              <div class="col-5 col-md-5 mt-4">
-                <p class="cs2-para"><b>Name</b>: Oluwafemi Feyikemi Hosea</p>
-                <p class="cs2-para"><b>Gender</b>: Male</p>
-                <p class="cs2-para"><b>Unpaid Debt</b>: 25,000</p>
-                <p class="cs2-para"><b>Interest Incurred</b>: 40%</p>
-              </div>
-              <div class="col-4 col-md-4 mt-4">
-                <p class="cs2-para"><b>Student ID</b>: SMS1802724</p>
-                <p class="cs2-para"><b>Class before of withdrawal</b>: JSS2</p>
-                <p class="cs2-para"><b>Date of withdrawal</b>: 22nd Dec 2021</p>
-                <p class="cs2-para"><b>Date contended</b>: 29th June 2022</p>
-              </div>
-              <div class="col-1 col-md-1 mt-4">
-                <img src="../../../static/images/Group 23.svg" alt="" class="img-fluid cs2-icon-2" />
-              </div>
-            </div>
-            <div class="row mb-4">
-              <div class="col-6 mx-auto">
-                <div class="row">
-                  <div class="col-10">
-                    <form action="">
-                      <label for="Search" class="form-label"></label>
-                      <input type="text" name="Search" id="Search" size="20px"
-                        class="form-control form-control-sm rounded" placeholder="{{ variable }}" />
-                    </form>
-                  </div>
-                  <div class="col-2 mt-4">
-                    <a href="#">
-                      <img src="../../../static/images/Vector.svg" alt="" class="img-fluid cs2-icon-1">
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="row my-4">
-              <div class="col text-center">
-                <a href="#" class="mx-3">
-                  <button type="button" class="btn btn-sm cs2-btt-secondary">In View</button>
-                </a>
-                <a href="#" class="mx-3">
-                  <button type="button" class="btn btn-sm cs2-btt-success">Resolved</button>
-                </a>
-                <a href="#" class="mx-3 mt-3">
-                  <button type="button" class="btn btn-sm cs2-btt-danger">Unresolved</button>
-                </a>
-              </div>
-            </div>
-          </div>
-          <div class="col-sm-3">
+        {{endif}}
+        {{endfor}}
 
           </div>
         </div>
