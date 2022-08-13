@@ -97,10 +97,7 @@ def guardian_add_child_page(request):
 # @login_required(login_url='accounts:login')
 def gdn_contend(request):
     page = "gdn_contend"
-    context = {
-        "page":page,
-        "guardian": guardian
-    }
+    context = {}
 
     guardian = request.user
 
