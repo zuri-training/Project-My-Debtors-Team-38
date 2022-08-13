@@ -25,3 +25,4 @@ def contact_us_page(request):
     context = {'page': page,
                'nav': nav, }
     return render(request, 'base/contact.html', context=context)
+

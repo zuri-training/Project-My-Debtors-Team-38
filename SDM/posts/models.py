@@ -1,10 +1,10 @@
+from tkinter import CASCADE
 from django.db import models
 from datetime import datetime
 from accounts.models import Guardian, School, Student
 
 
 # Create your models here.
-
 class Post(models.Model):
     school = models.ForeignKey(School, on_delete=models.CASCADE)
     student = models.ForeignKey(Student, on_delete=models.CASCADE)
