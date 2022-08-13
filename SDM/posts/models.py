@@ -9,8 +9,11 @@ class Post(models.Model):
     school = models.ForeignKey(School, on_delete=models.CASCADE)
     student = models.ForeignKey(Student, on_delete=models.CASCADE)
     status = models.CharField(max_length=50)
-    created_at = models.DateTimeField(datetime.now)
-    updated_at = models.DateTimeField(datetime.now)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
+    class Meta:
+        ordering = ['-updated_at', '-created_at']
 
 
 class Contend(models.Model):
@@ -19,8 +22,8 @@ class Contend(models.Model):
     made_payment = models.BooleanField(default=False)
     reason = models.CharField(max_length=50)
     receipt = models.FileField(upload_to="")
-    created_at = models.DateTimeField(default=datetime.now)
-    updated_at = models.DateTimeField(datetime.now)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
 
 
 class Comments(models.Model):

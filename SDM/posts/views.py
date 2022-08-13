@@ -100,15 +100,32 @@ def guardian_add_child_page(request):
 
 
 
-@login_required(login_url='accounts:login')
+# @login_required(login_url='accounts:login')
 def gdn_contend(request):
-    context = {}
+    page = "gdn_contend"
+    context = {
+        "page":page,
+        "guardian": guardian
+    }
+
+    guardian = request.user
+
+    if request.method == "POST":
+        reason = request.POST.get("reason")
+        receipt = request.POST.get("receipt")
+    
+        contend = Contend(guardian=guardian, reason=reason, receipt=receipt,)
+        contend.save()
+
+    else:
+        return redirect("posts:gdn_contend")
+
     return render(request, "posts/gdn_contend.html", context)
 
 
 
 
-@login_required(login_url='accounts:login')
+# @login_required(login_url='accounts:login')
 def sch_dir(request):
     page = 'sch_dir'
     students = Student.objects.all()
@@ -127,7 +144,7 @@ def sch_backlog(request):
 
 
 #@login_required(login_url='accounts:login')
-def sch_contend(request, id):
+def sch_contend(request):
     context = {}
     
 
