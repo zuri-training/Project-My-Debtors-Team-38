@@ -138,7 +138,7 @@ class GuardianChild(models.Model):
     student_id = models.CharField(max_length=255)
     name = models.CharField(max_length=50)
     school_name = models.CharField(max_length=255)
-    age = models.IntegerField()
+    age = models.IntegerField(null=True)
     gender = models.CharField(max_length=10)
     relationship = models.CharField(max_length=30)
 

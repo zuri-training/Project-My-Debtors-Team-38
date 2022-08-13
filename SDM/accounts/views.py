@@ -6,7 +6,7 @@ from django.contrib.auth.decorators import login_required
 from .forms import SchoolRegistrationForm, GuardianRegistrationForm
 from django.db.models import Q
 from django.contrib import messages
-from .models import Guardian, School, GuardianProfile, SchoolProfile
+from .models import Guardian, School, GuardianProfile, SchoolProfile, GuardianChild, Student
 from django.contrib.auth import get_user_model
 
 
@@ -77,15 +77,19 @@ def guardian_register_page(request, *args, **kwargs):
         password = request.POST.get('password1')
         password = make_password(password)
 
-        guardian = Guardian.objects.create(
-            email=request.POST.get('email').lower(),
-            name=request.POST.get('name').title(),
-            password=password
-        )
-        guardian.save()
-        login(request, guardian,
-              backend='django.contrib.auth.backends.AllowAllUsersModelBackend')
-        return redirect('accounts:gdn_wlc')
+        try:
+            guardian = Guardian.objects.create(
+                email=request.POST.get('email').lower(),
+                name=request.POST.get('name').title(),
+                password=password
+            )
+        except:
+            messages.error(request, 'User already exists')
+        else:
+            guardian.save()
+            login(request, guardian,
+                  backend='django.contrib.auth.backends.AllowAllUsersModelBackend')
+            return redirect('accounts:gdn_wlc')
     else:
         messages.error(request, 'An error occured during registration')
 
@@ -115,10 +119,8 @@ def login_page(request):
             user = User.objects.get(email=email)
         except:
             messages.error(request, 'User does not exist')
-            print('this')
         else:
             user = authenticate(request, username=email, password=password)
-            print(type(user))
             if user is not None:
                 login(
                     request, user, backend='django.contrib.auth.backends.AllowAllUsersModelBackend')
@@ -158,9 +160,37 @@ def school_dashboard_page(request):
 
 
 @login_required(login_url='accounts:login')
+def school_profile(request, pk):
+    nav = 'nav'
+    page = 'sch_profile'
+
+    if request.user.role == 'SCHOOL':
+        school = School.objects.get(id=pk)
+        context = {'nav': nav,
+                   'page': page}
+        return render(request, 'accounts/sch_profile.html', context=context)
+
+    else:
+        return HttpResponse('you are not allowed here!!')
+
+
+@login_required(login_url='accounts:login')
 def guardian_home_page(request):
+    context = {}
+
     if request.user.role == 'GUARDIAN':
-        context = {}
+        guardian = request.user
+        # print(guardian.name)
+        try:
+            children = GuardianChild.objects.all()
+            students = Student.objects.all()
+            # print(children)
+        except:
+            pass
+        else:
+            context['children'] = children
+            context['students'] = students
+
         return render(request, 'accounts/gdn_wlc.html', context=context)
     else:
         return HttpResponse('you are not allowed here!!')

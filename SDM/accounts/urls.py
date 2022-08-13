@@ -16,6 +16,7 @@ urlpatterns = [
     # school
     path('sch_reg/', views.school_register_page, name='sch_reg'),
     path('sch_dshbd/', views.school_dashboard_page, name='sch_dshbd'),
+    path('sch_profile/<str:pk>/', views.school_profile, name='sch_profile'),
 
     # guardian
     path('gdn_reg/', views.guardian_register_page, name='gdn_reg'),

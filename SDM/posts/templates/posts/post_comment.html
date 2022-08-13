@@ -1,0 +1,110 @@
+{% extends 'main_index.html' %}
+{% load static %}
+{% block content %}
+
+<style>
+  .cs6-school-box {
+    background-color: #585266;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    color: #ffffff;
+  }
+
+  .cs6-student-box {
+    background-color: #DBCBEA;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+  }
+
+  .cs6-school-header {
+    font-size: 1.5em;
+  }
+
+  .cs6-para-container {
+    font-size: 1em;
+  }
+
+  .cs6-img-1 {
+    height: 4em;
+  }
+
+  .cs6-img-2 {
+    width: 7em;
+  }
+
+  .cs6-view-comm {
+    color: #2e2e2e;
+    text-decoration: none;
+  }
+
+</style>
+
+<main class='after_login'>
+  <div class="container-md my-5">
+    <div class="row mb-3">
+      <div class="col-sm-8 mt-4">
+        <h1>Posts</h1>
+      </div>
+      <div class="col-9 col-sm-4">
+        <form action="">
+          <label for="search" class="form-label"></label>
+          <input type="search" id="search" name="search" class="form-control form-control-lg" placeholder="Search" />
+        </form>
+      </div>
+    </div>
+    {% for post in posts %}
+    <div class="row my-3 px-3 py-3">
+      <div class="col-sm-8">
+        <div class="row cs6-school-box">
+          <div class="col-sm-1">
+            <img src="../../../static/images/Ellipse 1.svg" alt="" class="img-fluid custom-img">
+          </div>
+          <div class="col-sm-10 my-auto">
+            <h3 class="cs6-school-header">{{post.school}}</h3>
+          </div>
+          <div class="col-sm-1 my-auto">
+            <img src="../../../static/images/Vectorflag.svg" alt="" class="img-fluid">
+          </div>
+        </div>
+        <div class="row cs6-student-box">
+          <div class="col-10">
+            <div class="row mt-3">
+              <div class="col-2 mt-3">
+                <img src="../../../static/images/Ellipse 3- african-boy.svg" alt="" class="img-fluid cs6-img-2" />
+              </div>
+              <div class="col-4 mt-3 cs6-para-container">
+                <p><b>Name</b>: {{post.student.name}}</p>
+                <p><b>Student</b>: SMS{{post.student.student_id}}</p>
+                <p><b>Gender</b>: {{post.student.gender}}</p>
+                <p><b>Unpaid Debt</b>: #{{post.student.debt_incured}}</p>
+              </div>
+              <div class="col-4 mt-3 cs6-para-container">
+                <p><b>Class before withdrawal</b>: {{post.student.class_of_withdrawal}}</p>
+                <p><b>Date of withdrawal</b>: {{post.student.date_of_withdrawal}}</p>
+                <p><b>Date Contended</b>: 23rd July, 2022</p>
+              </div>
+              <div class="col-2 mt-3">
+                <p>
+                  <img src="../../../static/images/messages-3.svg" alt="" srcset="" />
+                  12 Comments
+                </p>
+                <a href="#" class="cs6-view-comm">
+                  View Comments
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-1">
+        <a href="#">
+          <img src="../../../static/images/add-circle.svg" alt="cancel" class="img-fluid">
+        </a>
+      </div>
+      <div class="col-2">
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</main>
+{% endblock %}
