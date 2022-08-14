@@ -10,10 +10,13 @@
 - worked on post model
 - linked multiple pages with django views and jinja templating
 - used jinja templating system to include pages based on conditions
-- worked on post page design
-- worked on contend page design
-- worked on school directory page layout
-- worked on guardian add child user flow 
+- worked on post page hifi design
+- worked on contend page hifi design
+- worked on school directory hifi page layout
+- worked on guardian add child user flow
+- coded post and comment feature 
+- coded add child feature 
+
 
 
 | Issues      | Solutions |
