@@ -75,11 +75,13 @@ WSGI_APPLICATION = 'SDM.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR,'db.sqlite3'), # "sdm"
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'sdm',
+        'USER': 'root',
+        'PASSWORD': '1234',
+        'PORT': 3307,
+        'HOST': 'localhost',
 
-        # 'PASSWORD': "1234",
-        # 'PORT': 3307,
 
         # 'OPTIONS': {
         #     'init_command': 'SET default_storage_engine=INNODB',
@@ -126,7 +128,7 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static') ]
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 
 
 MEDIA_URL = '/images/'
