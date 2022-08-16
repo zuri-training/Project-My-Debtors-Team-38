@@ -113,7 +113,7 @@ def gdn_contend(request):
         contend.save()
 
     else:
-        return redirect("posts:gdn_contend")
+        return redirect("accounts:gdn_wlc")
 
     return render(request, "posts/gdn_contend.html", context)
 
