@@ -8,35 +8,33 @@ from .models import Post, Contend, Comments
 from accounts.models import Student
 
 
-#@login_required(login_url='accounts:login')
+# @login_required(login_url='accounts:login')
 def add_debt(request):
     page = 'add_debt'
     context = {}
     if request.method == 'POST':
-        if request.FILES.get('avatar') != None: 
-            school = request.user
-            student = Student.objects.create(
-                school=school,
-                student_id=request.POST.get('std-id'),
-                name=request.POST.get('fname'),
-                gender=request.POST.get('gender'),
-                class_of_withdrawal=request.POST.get('cl-wtd'),
-                date_of_withdrawal=request.POST.get('dt-wtd'),
-                debt_incured=request.POST.get('debt-in'),
-                interest_incured=request.POST.get('inter-in'),
-                age=request.POST.get('age'),
-                avatar=request.POST.get('avatar')
-            )
-            student.save()
-            Post.objects.create(school=student.school, student=student)
-            return redirect('posts:sch_dir')
-        else:
-            messages.error(request, "Please upload picture of student!")
-            return redirect("posts:add_debt")
+        # if request.FILES.get('avatar') != None:
+        school = request.user
+        student = Student.objects.create(
+            school=school,
+            student_id=request.POST.get('std-id'),
+            name=request.POST.get('fname'),
+            gender=request.POST.get('gender'),
+            class_of_withdrawal=request.POST.get('cl-wtd'),
+            date_of_withdrawal=request.POST.get('dt-wtd'),
+            debt_incured=request.POST.get('debt-in'),
+            interest_incured=request.POST.get('inter-in'),
+            age=request.POST.get('age'),
+            avatar=request.POST.get('avatar')
+        )
+        student.save()
+        Post.objects.create(school=student.school, student=student)
+        return redirect('posts:sch_dir')
+        # else:
+        #     messages.error(request, "Please upload picture of student!")
+        #     return redirect("posts:add_debt")
     else:
         return render(request, "posts/add_debt.html", context)
-
-
 
 
 @login_required(login_url='accounts:login')
@@ -83,7 +81,7 @@ def guardian_add_child_page(request):
 
         try:
             child = GuardianChild.objects.create(guardian=guardian, student_id=student_id,
-                                                 name=name, school_name=school, gender=gender, 
+                                                 name=name, school_name=school, gender=gender,
                                                  relationship=relationship)
             # print(child.name)
 
@@ -108,7 +106,7 @@ def gdn_contend(request):
     if request.method == "POST":
         reason = request.POST.get("reason")
         receipt = request.POST.get("receipt")
-    
+
         contend = Contend(guardian=guardian, reason=reason, receipt=receipt,)
         contend.save()
 
@@ -116,8 +114,6 @@ def gdn_contend(request):
         return redirect("posts:gdn_contend")
 
     return render(request, "posts/gdn_contend.html", context)
-
-
 
 
 # @login_required(login_url='accounts:login')
@@ -138,29 +134,24 @@ def sch_dir(request):
     return render(request, "posts/sch_dir.html", context)
 
 
-
-
 @login_required(login_url='accounts:login')
 def sch_backlog(request):
     context = {}
     return render(request, "posts/sch_backlog.html", context)
 
 
-
-
-#@login_required(login_url='accounts:login')
+# @login_required(login_url='accounts:login')
 def sch_contend(request):
     student = Student.objects.all()
     posts = Post.objects.all(),
     contends = Contend.objects.all()
 
     context = {
-        "student":student,
-        "posts":posts,
-        "contends":contends,
+        "student": student,
+        "posts": posts,
+        "contends": contends,
     }
     return render(request, "posts/sch_contend.html", context)
-
 
 
 # @login_required(login_url='accounts:login')
@@ -195,13 +186,10 @@ def sch_post(request):
     return render(request, "posts/post_comment.html", context)
 
 
-
-
 # @ login_required(login_url='accounts:login')
 def sch_review(request):
     context = {}
     return render(request, "posts/sch_review.html", context)
-
 
 
 @login_required(login_url='accounts:login')

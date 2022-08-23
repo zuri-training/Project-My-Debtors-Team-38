@@ -51,7 +51,7 @@ def school_register_page(request, *args, **kwargs):
         school.save()
         login(request, school,
               backend='django.contrib.auth.backends.AllowAllUsersModelBackend')
-        return redirect('accounts:sch_dshbd')
+        return redirect('posts:sch_dir')
     else:
         messages.error(request, 'An error occured during registration')
 
@@ -109,7 +109,7 @@ def login_page(request):
         if request.user.role == 'GUARDIAN':
             return redirect('accounts:gdn_wlc')
         elif request.user.role == 'SCHOOL':
-            return redirect('accounts:sch_dshbd')
+            return redirect('posts:sch_dir')
 
     if request.method == 'POST':
         email = request.POST.get('email').lower()
@@ -128,7 +128,7 @@ def login_page(request):
                 if request.user.role == 'GUARDIAN':
                     return redirect('accounts:gdn_wlc')
                 elif request.user.role == 'SCHOOL':
-                    return redirect('accounts:sch_dshbd')
+                    return redirect('posts:sch_dir')
 
             else:
                 messages.error(request, 'Username or Password does not exist')
