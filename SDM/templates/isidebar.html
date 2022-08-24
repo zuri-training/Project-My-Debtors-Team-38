@@ -1,449 +1,343 @@
 {% load static %}
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-  </head>
-  <body>
-    <style>
-      #hsb {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-        scroll-behavior: smooth;
-        text-decoration: none;
-        font-family: "DM Sans", sans-serif;
-      }
-
-      .sidebar #hsb {
+<style>
+    .sidebar {
         position: fixed;
-        width: 250px;
-        height: 100%;
+        left: 0;
         top: 0;
-        padding: 10px 14px;
-        background-color: #6e599b;
-        transition: 0.5s ease;
-        transform: translateX(-250px);
-      }
+        height: 100%;
+        width: 78px;
+        background: #6E599B;
+        padding: 6px 14px;
+        z-index: 99;
+        transition: all 0.5s ease;
+    }
 
-      /* sidebar- logo */
+    .sidebar.open {
+        width: 250px;
+    }
 
-      #hsb .img img {
-        width: 146px;
-        height: 62.8px;
-        margin-top: 50px;
-        margin-left: 24px;
-        margin-right: 115px;
+    .sidebar .logo-details {
+        height: 60px;
+        display: flex;
+        align-items: center;
+        position: relative;
+    }
+
+    .sidebar .logo-details .logo {
+        width: 9em;
+        opacity: 0;
+        transition: all 0.5s ease;
+    }
+
+
+    .sidebar.open .logo-details .logo {
+        opacity: 1;
+    }
+
+    .sidebar .logo-details #btn {
+        position: absolute;
+        top: 50%;
+        right: 5.5px;
+        transform: translateY(-50%);
+        font-size: 22px;
+        transition: all 0.4s ease;
+        font-size: 23px;
+        text-align: center;
         cursor: pointer;
-        filter: drop-shadow(0px 1.43097px 2.86194px rgba(0, 0, 0, 0.3));
-      }
+        transition: all 0.5s ease;
+    }
 
-      .sidebar li {
-        height: 24px;
+    .sidebar.open .logo-details #btn {
+        text-align: right;
+    }
+
+    .sidebar i {
+        color: #ffffff;
+        height: 60px;
+        min-width: 50px;
+        font-size: 28px;
+        text-align: center;
+        line-height: 60px;
+    }
+
+    .sidebar .nav-list {
+        margin-top: 20px;
+        height: 100%;
+    }
+
+    .sidebar li {
+        position: relative;
+        margin: 8px 0;
         list-style: none;
+    }
+
+    .sidebar li .tooltip {
+        position: absolute;
+        top: -20px;
+        left: calc(100% + 15px);
+        z-index: 3;
+        background: #fff;
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+        padding: 6px 12px;
+        border-radius: 4px;
+        font-size: 15px;
+        font-weight: 400;
+        opacity: 0;
+        white-space: nowrap;
+        pointer-events: none;
+        transition: 0s;
+    }
+
+    .sidebar li:hover .tooltip {
+        opacity: 1;
+        pointer-events: auto;
+        transition: all 0.4s ease;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+
+    .sidebar.open li .tooltip {
+        display: none;
+    }
+
+    .sidebar li a.a {
         display: flex;
-        align-items: center;
-        padding: 4px;
-      }
-
-      .sidebar .nav-img {
-        min-width: 10px;
-        width: 30px;
-        height: 30.83px;
-        top: 5.83px;
-        left: 5px;
-        min-width: 60px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-      }
-
-      .sidebar li .nav-img:hover,
-      .nav-text:hover {
-        border: 2px solid #6e599b;
-      }
-
-      .img-post {
-        margin-left: 40px;
-      }
-
-      .sidebar li a {
-        display: flex;
-        flex-direction: row;
-        align-items: center;
         height: 100%;
         width: 100%;
-        gap: 30px;
-        margin-right: 51px;
-      }
-
-      .menu-links {
-        margin-top: 70px;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
+        border-radius: 12px;
         align-items: center;
-        gap: 23px;
-      }
+        text-decoration: none;
+        transition: all 0.4s ease;
+        background: #6E599B;
+    }
 
-      .nav-link {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-      }
+    .sidebar li a:hover {
+        background: #BB99E3;
+    }
 
-      .nav-link a {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        gap: 4px;
-      }
-
-
-
-      .nav-text {
-        width: 80px;
-        height: 24px;
-        color: #c4c4c4;
-        font-style: normal;
+    .sidebar li a .links_name {
+        color: #ffffff;
+        font-size: 15px;
         font-weight: 400;
-        font-size: 6.86641px;
-        line-height: 24px;
-        font-size: 16px;
-        letter-spacing: 0.2px;
-        transition: 0.5s;
-      }
+        white-space: nowrap;
+        opacity: 0;
+        pointer-events: none;
+        transition: 0.4s;
+    }
 
-      .post {
-        width: 125px;
-        height: 24px;
-        color: #c4c4c4;
-        font-family: "Playfair Display";
-        font-style: normal;
-        font-weight: 400;
-        font-size: 16px;
-        line-height: 24px;
-        letter-spacing: 0.2px;
-      }
+    .sidebar.open li a .links_name {
+        opacity: 1;
+        pointer-events: auto;
+    }
 
-      .nav-settings {
-        width: 59px;
-        height: 24px;
-        color: #cdcdcf;
-        font-family: "Playfair Display";
-        font-style: normal;
-        font-weight: 400;
-        font-size: 16px;
-        line-height: 24px;
-        text-align: right;
-        letter-spacing: 0.2px;
-      }
+    .sidebar li a:hover .links_name,
+    .sidebar li a:hover i {
+        transition: all 0.5s ease;
+        color: #11101D;
+    }
 
-      .nav-about {
-        width: 44px;
-        height: 24px;
-        top: 8px;
-        left: 56px;
-        color: #cdcdcf;
-        font-family: "Playfair Display";
-        font-style: normal;
-        font-weight: 400;
-        font-size: 16px;
-        line-height: 24px;
-        text-align: right;
-        letter-spacing: 0.2px;
-      }
+    .sidebar li i {
+        height: 50px;
+        line-height: 50px;
+        font-size: 18px;
+        border-radius: 12px;
+    }
 
-      .nav-support {
-        width: 82px;
-        height: 24px;
-        top: 8px;
-        left: 56px;
-        color: #cdcdcf;
-        font-family: "Playfair Display";
-        font-style: normal;
-        font-weight: 400;
-        font-size: 16px;
-        line-height: 24px;
-        text-align: right;
-        letter-spacing: 0.2px;
-      }
-
-      .nav-bottom {
-        position: relative;
-        margin-top: 50px;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        gap: 20px;
-      }
-
-      .nav-bottom::after {
-        content: "";
-        position: absolute;
-        display: block;
-        bottom: 100px;
-        height: 0px;
-        width: 285px;
-        border: 1px solid #fffefe;
-      }
-
-      .img-bottom {
-        display: flex;
-        align-items: center;
-        gap: 8px;
-        margin-top: 61px;
-      }
-
-      .img-bottom img {
-        width: 60px;
+    .sidebar li.profile {
+        position: fixed;
         height: 60px;
-        filter: drop-shadow(0px 1.43097px 2.86194px rgba(0, 0, 0, 0.3));
-        cursor: pointer;
-      }
+        width: 78px;
+        left: 0;
+        bottom: -8px;
+        padding: 10px 14px;
+        background: #1d1b31;
+        transition: all 0.5s ease;
+        overflow: hidden;
+    }
 
-      .img-bottom img:hover {
-        filter: drop-shadow(0px 1.43097px 2.86194px rgba(0, 0, 0, 0.3));
-      }
+    .sidebar.open li.profile {
+        width: 250px;
+    }
 
-      .bottom-text {
+    .sidebar li .profile-details {
         display: flex;
-        flex-direction: column;
         align-items: center;
-      }
+        flex-wrap: nowrap;
+    }
 
-      .bottom-text h3 {
-        width: 136px;
-        height: 24px;
-        color: #fffefe;
-        font-family: "Playfair Display";
-        font-style: normal;
-        font-weight: 400;
-        font-size: 16px;
-        line-height: 24px;
-        letter-spacing: 0.2px;
-      }
-
-      .bottom-text p {
-        width: 145px;
-        height: 16px;
-        color: #fffefe;
-        font-family: "Playfair Display";
-        font-style: normal;
-        font-weight: 400;
-        font-size: 8px;
-        line-height: 16px;
-        letter-spacing: 0.4px;
-      }
-
-      input {
-        display: none;
-        visibility: hidden;
-        -webkit-appearance: none;
-      }
-
-      .toggle {
-        position: absolute;
+    .sidebar li img {
         height: 30px;
         width: 30px;
-        top: 20px;
-        left: 100px;
-        cursor: pointer;
-        background-color: #fff;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-        z-index: 1;
-      }
+        object-fit: cover;
+        border-radius: 6px;
+        margin-right: 10px;
+    }
 
-      .toggle .common {
-        position: absolute;
-        height: 2px;
-        width: 20px;
-        background-color: #6e599b;
-        border-radius: 50px;
-        transition: 0.3s ease;
-      }
+    #profile-img {
+        height: 45px;
+        width: 45px;
+        object-fit: cover;
+        border-radius: 6px;
+        margin-right: 10px;
+    }
 
-      .toggle .top_line {
-        top: 30%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-      }
 
-      .toggle .middle_line {
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-      }
-
-      .toggle .bottom_line {
-        top: 70%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-      }
-
-      input:checked~.toggle .top_line {
-        left: 2px;
-        top: 14px;
-        width: 25px;
-        transform: rotate(45deg);
-      }
-
-      input:checked~.toggle .bottom_line {
-        left: 2px;
-        top: 14px;
-        width: 25px;
-        transform: rotate(-45deg);
-      }
-
-      input:checked~.toggle .middle_line {
-        opacity: 0;
-        transform: translateX(20px);
-      }
-
-      input:checked~.sidebar {
-        transform: translateX(0);
-        box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
-      }
-
-      button {
-        width: 80%;
-        height: 80%;
-        padding: 10px;
-        font-family: 'Playfair Display';
-        font-style: normal;
+    .sidebar li.profile .name,
+    .sidebar li.profile .job {
+        font-size: 15px;
         font-weight: 400;
-        font-size: 12.8649px;
-        line-height: 17px;
-        background-color: red;
-        border: none;
-        color: #000000;
-        cursor: pointer;
-      }
+        color: #fff;
+        white-space: nowrap;
+        text-align: left
+    }
 
-    </style>
-    <nav id='hsb'>
+    .sidebar li.profile .job {
+        font-size: 12px;
+    }
 
-      <input type="checkbox" />
-      <div class="toggle">
-        <span class="top_line common"></span>
-        <span class="middle_line common"></span>
-        <span class="bottom_line common"></span>
-      </div>
-      <div class="sidebar">
-        <div class="hsb">
-          <div class="img">
-            <img src="{% static 'images/SDMlogo.svg} " alt="logo" />
-          </div>
-        </div>
-        <div class="menu-bar">
-          <div class="menu">
-            <ul class="menu-links">
-              <li class="nav-link">
-                <a href="{% url 'accounts:sch_dshbd' %}">
-            <img class="nav-img" src="{% static 'images/Frame 2608337.svg' %}" alt="dashboard" />
-            <span class="nav-text">Dashboard</span>
+    .sidebar .profile #log_out {
+        position: absolute;
+        top: 50%;
+        right: 0;
+        transform: translateY(-50%);
+        background: #1d1b31;
+        width: 100%;
+        height: 60px;
+        line-height: 60px;
+        border-radius: 0px;
+        transition: all 0.5s ease;
+    }
+
+    .sidebar.open .profile #log_out {
+        width: 50px;
+        background: none;
+    }
+
+    .sidebar ul {
+        padding-left: 0;
+    }
+
+    #setting-s {
+        margin-top: 8em;
+    }
+
+    #setting-g {
+        margin-top: 19em;
+    }
+
+    @media (max-width: 420px) {
+        .sidebar li .tooltip {
+            display: none;
+        }
+    }
+
+</style>
+<div class="sidebar">
+    <div class="logo-details">
+        <a href="{% url 'base:home' %}"><img class='logo' src="{% static 'images/SDMlogo.svg' %}" alt="logo" /></a>
+
+        <i class='bx bx-menu' id="btn"></i>
+    </div>
+    <ul class="nav-list">
+        {%if request.user.role == 'SCHOOL' %}
+
+        <li>
+            <a class='a' href="{% url 'accounts:sch_dshbd' %}">
+                <i><img class="nav-img" src="{% static 'images/dsh_Icon.svg' %}" alt="dashboard" /></i>
+                <span class="links_name">Dashboard</span>
             </a>
-            </li>
-            <!-- <li class="nav-link">
-                <a href="{% url 'accounts:sch_dshbd' %}">
-                  <img
-                    class="nav-img"
-                    src="{% static 'images/Frame 2608337.svg' %}"
-                    alt="dashboard"
-                  />
-                  <span class="nav-text">Add Child</span>
-                </a>
-              </li> -->
-            <!-- <li class="nav-link">
-                <a href="#dashboard">
-                  <img
-                    class="nav-img img-post"
-                    src="../static/images/Frame 2608337-2.svg"
-                    alt="posts"
-                  />
-                  <span class="nav-text post">Contended Posts</span>
-                </a>
-              </li> -->
-            <!-- <li class="nav-link">
-                <a href="#dashboard">
-                  <img
-                    class="nav-img img-post"
-                    src="../static/images/Frame 2608337-3.svg"
-                    alt="progress"
-                  />
-                  <span class="nav-text post">Review Update</span>
-                </a>
-              </li> -->
-            <li class="nav-link">
-              <a href="{% url 'posts:sch_dir' %}">
+            <span class="tooltip">Dashboard</span>
+        </li>
+        <li>
+            <a class='a' href="#">
+                <i><img class="nav-img" src="{% static 'images/note-text.svg' %}" alt="directory" /></i>
+                <span class="links_name">Directory</span>
+            </a>
+            <span class="tooltip">Directory</span>
+        </li>
+        <li>
+            <a class='a' href="#">
+                <i><img class="nav-img img-post" src="{% static 'images/flag.svg' %}" alt="posts" /></i>
+                <span class="links_name">Contended Posts</span>
+            </a>
+            <span class="tooltip">Contended Posts</span>
+        </li>
+        <li>
+            <a class='a' href="#">
+                <i><img class="nav-img img-post" src="{% static 'images/clock.svg' %}" alt="progress" /></i>
+                <span class="links_name">Progress Report</span>
+            </a>
+            <span class="tooltip">Progress Report</span>
+        </li>
+        <li>
+            <a class='a' href="#">
 
-                <img class="nav-img" src="{% static 'images/Frame 2608337-1.svg' %}" alt="directory" />
-                <span class="nav-text">Directory</span>
-              </a>
-            </li>
-            <li class="nav-link">
-              a href="{% url 'posts:sch_contend' %}">
-              <img class="nav-img img-post" src="{% static 'images/Frame 2608337-2.svg' %}" alt="posts" />
-              <span class="nav-text post">Contended Posts</span>
-              </a>
-            </li>
-            <li class="nav-link">
-              <a href="#dashboard">
-                <img class="nav-img img-post" src="../static/images/Frame 2608337-3.svg" alt="progress" />
-                <span class="nav-text post">Progress Report</span>
-              </a>
-            </li>
-            <li class="nav-link">
-              <a href="{% url 'posts:sch_post' %}">
-                <img class="nav-img" src="{% static 'images/Frame 2608337-4.svg' %}" alt="comment" />
-                <span class="nav-text">Posts</span>
-              </a>
-            </li>
-            <li class="nav-link">
-              <a href="{% url 'accounts:sch_dshbd' %}">
-                <img class="nav-img" src="{% static 'images/Frame 2608337-5.svg' %}" alt="inbox" />
-                <span class="nav-text">Inbox</span>
-              </a>
-            </li>
-            <!-- <button class="btn">Log Out</button> -->
-            <div class="nav-bottom">
-              <li class="nav-link">
-                <a href="{% url 'accounts:sch_dshbd' %}">
-                  <img class="nav-img" src="{% static 'images/settings.svg' %}" alt="inbox" />
-                  <span class="nav-text">Settings</span>
-                </a>
-              </li>
-              <li class="nav-link">
-                <a href="{% url 'base:contact_us' %}">
-                  <img class="nav-img" src="{% static 'images/Frame 2608337-6.svg' %}" alt="inbox" />
-                  <span class="nav-text">About</span>
-                </a>
-              </li>
-              <li class="nav-link">
-                <a href="{% url 'accounts:sch_dshbd' %}">
-                  <img class="nav-img img-post" src="{% static 'images/thumbs.svg' %}" alt="inbox" />
-                  <span class="nav-text post">Support Us</span>
-                </a>
-              </li>
-              <div class="img-bottom close">
-                <img src="../static/images/Ellipse 1.svg" alt="logo" />
-                <div class="bottom-text">
-                  <h3>Scarlet Montessori</h3>
-                  <p>scarletmontessorischool@gmail.com</p>
+                <i><img class="nav-img" src="{% static 'images/message-text.svg' %}" alt="comment" /></i>
+                <span class="links_name">Posts</span>
+            </a>
+            <span class="tooltip">Posts</span>
+        </li>
+        <li>
+            <a class='a' href="#">
+                <i><img class="nav-img" src="{% static 'images/inbox-icon.svg' %}" alt="inbox" /></i>
+                <span class="links_name">Inbox</span>
+            </a>
+            <span class="tooltip">Inbox</span>
+        </li>
+        <li id='setting-s'>
+            <a class='a' href="#">
+                <i><img class="nav-img" src="{% static 'images/setting-2.svg' %}" alt="inbox" /></i>
+                <span class="links_name">Setting</span>
+            </a>
+            <span class="tooltip">Setting</span>
+        </li>
+        {%elif request.user.role == 'GUARDIAN' %}
+        <li>
+            <a class='a' href="{% url 'accounts:gdn_wlc' %}">
+                <i><img class="nav-img" src="{% static 'images/dsh_Icon.svg' %}" alt="dashboard" /></i>
+                <span class="links_name">Home</span>
+            </a>
+            <span class="tooltip">Home</span>
+        </li>
+        <li>
+            <a class='a' href="#">
+                <i><img class="nav-img img-post" src="{% static 'images/flag.svg' %}" alt="posts" /></i>
+                <span class="links_name">Contended Posts</span>
+            </a>
+            <span class="tooltip">Contended Posts</span>
+        </li>
+        <li>
+            <a class='a' href="#">
+                <i><img class="nav-img" src="{% static 'images/note-text.svg' %}" alt="directory" /></i>
+                <span class="links_name">Review Updates</span>
+            </a>
+            <span class="tooltip">Review Updates</span>
+        </li>
+        <li id='setting-g'>
+            <a class='a' href="#">
+                <i><img class="nav-img" src="{% static 'images/setting-2.svg' %}" alt="inbox" /></i>
+                <span class="links_name">Setting</span>
+            </a>
+            <span class="tooltip">Setting</span>
+        </li>
+        {% endif %}
+        <li id='contact_us'>
+            <a class='a' href="#">
+                <i><img class="nav-img" src="{% static 'images/like.svg' %}" alt="inbox" /></i>
+                <span class="links_name">Contact Us</span>
+            </a>
+            <span class="tooltip">Contact Us</span>
+        </li>
+        <li class="profile">
+            <div class="profile-details">
+                <img id='profile-img' src="{% static 'images/Ellipse 1.svg' %}" alt="logo" />
+                <div class="name_job">
+                    <div class="name">{{request.user.name}}</div>
+                    <div class="job">{{request.user.email}}</div>
                 </div>
-              </div>
             </div>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </nav>
-
-
-  </body>
-</html>
+            <a href="{% url 'accounts:logout' %}">
+                <i class='bx bx-log-out' id="log_out"></i></a>
+        </li>
+    </ul>
+</div>
