@@ -49,7 +49,7 @@ A platform that allows schools in a certain locality list directory of people ow
 - [Christian Tom](https://www.github.com/Chrisss17)
 - [Praise Adedoyin](https://www.github.com/praise4997)
 - [Kehinde Jejelaye](https://www.github.com/Jejelaye)
-- [Add your name](https://www.github.com/your-username)
+- [Yvonne Sheila](https://www.github.com/Sheyvie)
 - [Add your name](https://www.github.com/your-username)
 
 
